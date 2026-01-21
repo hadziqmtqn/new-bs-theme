@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Seleksi Terpadu - BKN Design Concept</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts: Inter & Merriweather (untuk kesan resmi namun modern) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0d47a1; /* Biru Tua Resmi */
+            --primary-light: #1976d2;
+            --accent-color: #ffca28; /* Emas/Kuning BKN */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif; /* Font Serif untuk judul agar berwibawa */
+            font-weight: 700;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .btn-login {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13, 71, 161, 0.3);
+            color: white;
+        }
+
+        .btn-register {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            background: transparent;
+            transition: all 0.3s;
+        }
+
+        .btn-register:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 0 60px 0;
+            background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+            position: relative;
+        }
+        
+        .hero-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-badge {
+            background-color: rgba(255, 202, 40, 0.2);
+            color: #b68900;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .hero-img {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Floating Info Cards (Quick Access) */
+        .quick-access-card {
+            background: white;
+            border: none;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            height: 100%;
+            cursor: pointer;
+            border-bottom: 4px solid transparent;
+        }
+
+        .quick-access-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(13, 71, 161, 0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            font-size: 1.8rem;
+            transition: all 0.3s;
+        }
+
+        .quick-access-card:hover .icon-box {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* News Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+        
+        .news-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .news-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            color: var(--accent-color); /* Using gold for date */
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b3570; /* Darker blue */
+            color: white;
+            padding-top: 60px;
+            padding-bottom: 20px;
+        }
+        
+        .footer-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-section {
+                padding-top: 120px;
+                text-align: center;
+            }
+            .hero-img {
+                margin-top: 30px;
+            }
+            .btn-group-nav {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 1rem;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-building-fill-gear"></i>
+                PORTAL SELEKSI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#beranda">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#informasi">Informasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#jadwal">Jadwal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pengumuman">Pengumuman</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bantuan">Bantuan</a>
+                    </li>
+                </ul>
+                <div class="btn-group-nav d-flex align-items-center">
+                    <a href="#" class="btn btn-register me-2">Daftar Akun</a>
+                    <a href="#" class="btn btn-login">Masuk</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <span class="hero-badge">Portal Resmi Rekrutmen Nasional</span>
+                    <h1 class="hero-title">Wujudkan Masa Depan Karir Anda Bersama Kami</h1>
+                    <p class="lead text-muted mb-4">
+                        Platform terintegrasi untuk pendaftaran, seleksi, dan pengumuman calon pegawai negeri. Transparan, Akuntabel, dan Profesional.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap justify-content-lg-start justify-content-center">
+                        <a href="#" class="btn btn-primary btn-lg px-4 py-3 rounded-4 shadow-sm">
+                            <i class="bi bi-box-arrow-in-right me-2"></i> Masuk Portal
+                        </a>
+                        <a href="#informasi" class="btn btn-outline-primary btn-lg px-4 py-3 rounded-4">
+                            <i class="bi bi-info-circle me-2"></i> Pelajari Proses
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <!-- Placeholder image yang relevan dengan Kantor/Study -->
+                    <img src="https://picsum.photos/seed/office/600/400" alt="Suasana Ujian" class="hero-img img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access / Features -->
+    <section id="informasi" class="py-5 bg-white">
+        <div class="container py-5">
+            <h2 class="section-title">Layanan & Akses Cepat</h2>
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="quick-access-card">
+                        <div class="icon-box">
+                            <i class="bi bi-person-lines-fill"></i>
+                        </div>
+                        <h5>Daftar Akun</h5>
+                        <p class="text-muted small">Buat akun SSCASN untuk memulai pendaftaran seleksi.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="quick-access-card">
+                        <div class="icon-box">
+                            <i class="bi bi-card-checklist"></i>
+                        </div>
+                        <h5>Formasi</h5>
+                        <p class="text-muted small">Cek ketersediaan formasi jabatan di instansi pilihan.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="quick-access-card">
+                        <div class="icon-box">
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+                        <h5>Jadwal Seleksi</h5>
+                        <p class="text-muted small">Lihat jadwal lengkap SKD dan SKB tahun ini.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="quick-access-card">
+                        <div class="icon-box">
+                            <i class="bi bi-megaphone"></i>
+                        </div>
+                        <h5>Pengumuman</h5>
+                        <p class="text-muted small">Akses hasil seleksi dan informasi kelulusan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="stat-number">1.2M+</div>
+                    <div>Pendaftar Aktif</div>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="stat-number">500+</div>
+                    <div>Instansi Pemerintah</div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-number">24/7</div>
+                    <div>Akses Layanan</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section id="pengumuman" class="py-5" style="background-color: var(--bg-light);">
+        <div class="container py-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="section-title mb-0 text-start">Berita Terbaru</h2>
+                <a href="#" class="btn btn-link text-decoration-none fw-bold">Lihat Semua <i class="bi bi-arrow-right"></i></a>
+            </div>
+            
+            <div class="row g-4">
+                <!-- News Item 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-card h-100 d-flex flex-column">
+                        <img src="https://picsum.photos/seed/meeting/400/250" class="news-img" alt="News 1">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="news-date mb-2">12 Mei 2024</div>
+                            <h5 class="card-title fw-bold mb-3">Pembukaan Pendaftaran Seleksi CPNS Tahun Anggaran 2024</h5>
+                            <p class="card-text text-muted flex-grow-1">Pemerintah secara resmi membuka pendaftaran seleksi CPNS bagi putra-putri terbaik bangsa...</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-3 align-self-start rounded-pill">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Item 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-card h-100 d-flex flex-column">
+                        <img src="https://picsum.photos/seed/exam/400/250" class="news-img" alt="News 2">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="news-date mb-2">10 Mei 2024</div>
+                            <h5 class="card-title fw-bold mb-3">Update Materi SKD: Integrasi Nilai SOPD dan TWK</h5>
+                            <p class="card-text text-muted flex-grow-1">Terdapat penyesuaian materi Seleksi Kompetensi Dasar (SKD) tahun ini, perhatikan rubriknya...</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-3 align-self-start rounded-pill">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Item 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-card h-100 d-flex flex-column">
+                        <img src="https://picsum.photos/seed/computer/400/250" class="news-img" alt="News 3">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="news-date mb-2">08 Mei 2024</div>
+                            <h5 class="card-title fw-bold mb-3">Panduan Pengisian Daftar Riwayat Hidup (DRH) Secara Online</h5>
+                            <p class="card-text text-muted flex-grow-1">Simak langkah-langkah lengkap pengisian DRH melalui portal MySAPK BKN agar tidak terjadi kesalahan...</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-3 align-self-start rounded-pill">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="bantuan" class="py-5 bg-white">
+        <div class="container py-5">
+            <h2 class="section-title">Pertanyaan Sering Diajukan (FAQ)</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-0 mb-3 shadow-sm rounded">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
+                                    Bagaimana cara membuat akun SSCASN?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Untuk membuat akun, kunjungi halaman pendaftaran, siapkan NIK KTP dan Nomor Kartu Keluarga, lalu ikuti langkah verifikasi data yang tersedia. Pastikan data yang dimasukkan sesuai dengan dokumen resmi.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm rounded">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Apakah boleh melamar di dua instansi berbeda?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Tidak. Sesuai peraturan, pelamar hanya dapat memilih satu formasi pada satu instansi pemerintah. Pemilihan lebih dari satu akan menyebabkan gugur dalam seleksi.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm rounded">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Kapan jadwal pelaksanaan SKB?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Jadwal Seleksi Kompetensi Bidang (SKB) akan diumumkan setelah hasil SKD keluar. Biasanya dilaksanakan 2-3 bulan setelah ujian dasar selesai. Pantau terus website ini.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Call to Action -->
+    <section class="py-5 bg-primary text-white text-center">
+        <div class="container">
+            <h2 class="fw-bold mb-3">Siap Bergabung Menjadi Abdi Negara?</h2>
+            <p class="lead mb-4 opacity-75">Daftarkan diri Anda sekarang dan raih impian karir Anda. Jangan lewatkan kesempatan ini.</p>
+            <a href="#" class="btn btn-warning btn-lg rounded-4 text-dark fw-bold px-5 shadow">Daftar Sekarang</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-3 text-warning">PORTAL SELEKSI</h5>
+                    <p class="small opacity-75">
+                        Sistem informasi pelayanan terpadu berbasis web untuk kebutuhan rekrutmen, pengembangan karir, dan retensi ASN yang dikelola oleh Badan Kepegawaian Negara.
+                    </p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold mb-3">Navigasi</h5>
+                    <a href="#" class="footer-link">Beranda</a>
+                    <a href="#" class="footer-link">Tentang Kami</a>
+                    <a href="#" class="footer-link">Regulasi</a>
+                    <a href="#" class="footer-link">Statistik</a>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold mb-3">Layanan</h5>
+                    <a href="#" class="footer-link">Cek Peserta</a>
+                    <a href="#" class="footer-link">Cetak Kartu</a>
+                    <a href="#" class="footer-link">Pengaduan</a>
+                    <a href="#" class="footer-link">Bantuan</a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-3">Kontak Kami</h5>
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-geo-alt-fill text-warning me-3 mt-1"></i>
+                        <span class="small opacity-75">Jl. Mayjen Sutoyo No. 12, Cawang, Jakarta Timur, DKI Jakarta 13630</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-telephone-fill text-warning me-3"></i>
+                        <span class="small opacity-75">(021) 8093008</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-envelope-fill text-warning me-3"></i>
+                        <span class="small opacity-75">cs@bkn.go.id</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary opacity-25">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small opacity-50 mb-0">&copy; 2024 Badan Kepegawaian Negara. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0 small opacity-50">
+                        <li class="list-inline-item"><a href="#" class="text-decoration-none text-white-50">Kebijakan Privasi</a></li>
+                        <li class="list-inline-item">|</li>
+                        <li class="list-inline-item"><a href="#" class="text-decoration-none text-white-50">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script tambahan untuk menutup navbar saat klik link (UX Mobile) -->
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.getElementById('navbarNav');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.toggle();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
