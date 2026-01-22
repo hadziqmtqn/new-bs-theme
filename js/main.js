@@ -26,6 +26,12 @@ document.addEventListener('DOMContentLoaded', function () {
             // Update CSS variables
             root.style.setProperty('--primary-color', primaryColor);
             root.style.setProperty('--primary-light', lightColor);
+
+            // Update button shadow color (convert hex to rgba)
+            const r = parseInt(primaryColor.slice(1, 3), 16);
+            const g = parseInt(primaryColor.slice(3, 5), 16);
+            const b = parseInt(primaryColor.slice(5, 7), 16);
+            root.style.setProperty('--btn-primary-shadow', `rgba(${r}, ${g}, ${b}, 0.4)`);
         });
     });
 

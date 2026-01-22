@@ -43,9 +43,9 @@ h6 {
 
 /* ----- Button Color Variables ----- */
 :root {
-    /* Primary (Green) */
-    --btn-primary: #1b7d4a;
-    --btn-primary-hover: #2ca05e;
+    /* Primary - uses theme color variables */
+    --btn-primary: var(--primary-color);
+    --btn-primary-hover: var(--primary-light);
     --btn-primary-shadow: rgba(27, 125, 74, 0.4);
 
     /* Secondary (Gray) */
