@@ -597,12 +597,13 @@ section[style*="background-color"] .lead {
 /* Dropdown Menu Styling */
 .navbar-nav .dropdown-menu {
     border: none;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
     border-radius: 12px;
-    padding: 8px;
-    margin-top: 8px;
+    padding: 10px;
+    margin-top: 10px;
     min-width: 220px;
-    animation: fadeInDown 0.3s ease;
+    animation: fadeInDown 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background: #ffffff;
 }
 
 @keyframes fadeInDown {
@@ -618,38 +619,76 @@ section[style*="background-color"] .lead {
 }
 
 .navbar-nav .dropdown-item {
-    padding: 10px 16px;
+    padding: 12px 16px;
     border-radius: 8px;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     font-weight: 500;
     color: var(--text-dark);
     display: flex;
     align-items: center;
+    gap: 12px;
 }
 
 .navbar-nav .dropdown-item i {
     color: var(--primary-color);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
 .navbar-nav .dropdown-item:hover {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    color: white;
-    transform: translateX(4px);
+    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.05);
+    color: var(--primary-color);
+    transform: translateX(5px);
 }
 
-.navbar-nav .dropdown-item:hover i {
+.navbar-nav .dropdown-item:active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.navbar-nav .dropdown-item:active i {
     color: white;
 }
 
 .navbar-nav .dropdown-divider {
-    margin: 8px 0;
-    border-color: rgba(0, 0, 0, 0.08);
+    margin: 10px 0;
+    border-color: rgba(0, 0, 0, 0.05);
 }
 
+/* Dropdown Toggle Fix */
 .navbar-nav .dropdown-toggle::after {
-    margin-left: 6px;
-    vertical-align: 0.15em;
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    transition: transform 0.3s ease;
+}
+
+.navbar-nav .dropdown:hover .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
+/* Mobile Dropdown Adjustments */
+@media (max-width: 991px) {
+    .navbar-nav .dropdown-menu {
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.03);
+        margin-top: 5px;
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-nav .dropdown-item {
+        padding: 10px 15px;
+    }
+
+    .navbar-nav .dropdown-item:hover {
+        transform: none;
+    }
 }
 
 /* Mobile Navbar Styles */
