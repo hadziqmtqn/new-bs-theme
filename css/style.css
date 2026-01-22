@@ -61,6 +61,42 @@ h6 {
     color: white !important;
 }
 
+
+/* Lead text styling - untuk teks deskripsi yang lebih nyaman dibaca */
+.lead {
+    font-size: 1.15rem !important;
+    line-height: 1.75 !important;
+    font-weight: 400 !important;
+    color: #555;
+    letter-spacing: 0.2px;
+}
+
+/* Lead text di background putih/terang menggunakan text-muted */
+.lead.text-muted {
+    color: #6c757d !important;
+}
+
+/* Lead text di background gelap tetap putih dan kontras */
+.text-white .lead,
+section[style*="background-color"] .lead {
+    color: inherit !important;
+}
+
+/* Responsive lead text */
+@media (max-width: 768px) {
+    .lead {
+        font-size: 1.05rem !important;
+        line-height: 1.65 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .lead {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+    }
+}
+
 /* ===================================================================
    4. NAVBAR STYLES
    =================================================================== */
@@ -215,6 +251,17 @@ h6 {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     max-width: 100%;
     height: auto;
+}
+
+/* Hero section column spacing */
+.hero-section .col-lg-6:first-child {
+    padding-right: 3rem;
+}
+
+@media (max-width: 991px) {
+    .hero-section .col-lg-6:first-child {
+        padding-right: 15px;
+    }
 }
 
 /* Hero with Background Image */
