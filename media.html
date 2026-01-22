@@ -91,9 +91,26 @@
             transition: color 0.3s;
         }
 
-        .nav-link:hover,
-        .nav-link.active {
+        .nav-link:hover {
             color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
         }
 
         .btn-login {

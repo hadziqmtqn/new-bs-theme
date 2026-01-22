@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PPDB Online - SMA Unggulan Nusantara</title>
-    
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet">
 
     <style>
         /* --- CONFIGURASI WARNA (CSS VARIABLES) --- */
         :root {
             /* Default: Hijau */
-            --primary-color: #1b7d4a; 
+            --primary-color: #1b7d4a;
             --primary-light: #2ca05e;
-            --accent-color: #ffca28; /* Emas/Kuning */
+            --accent-color: #ffca28;
+            /* Emas/Kuning */
             --text-dark: #333333;
             --text-light: #666666;
             --bg-light: #f8f9fa;
@@ -33,7 +37,12 @@
             transition: all 0.3s ease;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Merriweather', serif;
             font-weight: 700;
         }
@@ -43,28 +52,31 @@
             background-color: var(--primary-color) !important;
             border-color: var(--primary-color) !important;
         }
+
         .btn-primary:hover {
             background-color: var(--primary-light) !important;
             border-color: var(--primary-light) !important;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
+
         .btn-outline-primary {
             color: var(--primary-color) !important;
             border-color: var(--primary-color) !important;
         }
+
         .btn-outline-primary:hover {
             background-color: var(--primary-color) !important;
             color: white !important;
         }
-        
+
         /* Navbar Styling */
         .navbar {
             background-color: white;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
             padding: 1rem 0;
             transition: all 0.3s ease;
         }
-        
+
         .navbar-brand {
             font-weight: 700;
             color: var(--primary-color) !important;
@@ -73,16 +85,34 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .nav-link {
             color: var(--text-dark);
             font-weight: 500;
             margin: 0 10px;
             transition: color 0.3s;
         }
-        
-        .nav-link:hover, .nav-link.active {
+
+        .nav-link:hover {
             color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
         }
 
         .btn-login {
@@ -97,7 +127,7 @@
         .btn-login:hover {
             background-color: var(--primary-light);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             color: white;
         }
 
@@ -121,7 +151,7 @@
             background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
             position: relative;
         }
-        
+
         .hero-title {
             color: var(--primary-color);
             font-size: 2.5rem;
@@ -142,7 +172,7 @@
 
         .hero-img {
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             max-width: 100%;
             height: auto;
         }
@@ -154,7 +184,7 @@
             border-radius: 15px;
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: all 0.3s;
             height: 100%;
             cursor: pointer;
@@ -163,7 +193,7 @@
 
         .quick-access-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
             border-bottom: 4px solid var(--accent-color);
         }
 
@@ -192,18 +222,18 @@
             margin-bottom: 3rem;
             color: var(--primary-color);
         }
-        
+
         .news-card {
             border: none;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s;
             background: white;
         }
 
         .news-card:hover {
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .news-img {
@@ -225,7 +255,7 @@
             color: white;
             padding: 60px 0;
         }
-        
+
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
@@ -239,15 +269,15 @@
             padding-top: 60px;
             padding-bottom: 20px;
         }
-        
+
         .footer-link {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             display: block;
             margin-bottom: 10px;
             transition: color 0.3s;
         }
-        
+
         .footer-link:hover {
             color: var(--accent-color);
             padding-left: 5px;
@@ -259,7 +289,7 @@
             margin-right: 15px;
             transition: color 0.3s;
         }
-        
+
         .social-icons a:hover {
             color: var(--accent-color);
         }
@@ -282,7 +312,7 @@
             justify-content: center;
             border: none;
             border-radius: 5px 0 0 5px;
-            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             font-size: 1.2rem;
             margin-bottom: 5px;
@@ -313,7 +343,8 @@
         }
 
         .color-option.active::after {
-            content: '\f26b'; /* Icon Check Bootstrap */
+            content: '\f26b';
+            /* Icon Check Bootstrap */
             font-family: 'bootstrap-icons';
             color: white;
             font-weight: bold;
@@ -323,7 +354,7 @@
             background: white;
             padding: 20px 15px;
             border-radius: 5px 0 0 5px;
-            box-shadow: -3px 0 15px rgba(0,0,0,0.15);
+            box-shadow: -3px 0 15px rgba(0, 0, 0, 0.15);
             display: none;
         }
 
@@ -333,8 +364,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateX(10px); }
-            to { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         /* --- NEW: JADWAL SECTION STYLING (ATRAKTIF) --- */
@@ -353,10 +391,15 @@
             z-index: 0;
             animation: moveBlob 20s infinite alternate;
         }
-        
+
         @keyframes moveBlob {
-            from { transform: scale(1) translate(0, 0); }
-            to { transform: scale(1.1) translate(20px, -20px); }
+            from {
+                transform: scale(1) translate(0, 0);
+            }
+
+            to {
+                transform: scale(1.1) translate(20px, -20px);
+            }
         }
 
         .blob-1 {
@@ -376,20 +419,23 @@
         }
 
         .schedule-card {
-            background: rgba(255, 255, 255, 0.95); /* Sedikit transparansi */
-            backdrop-filter: blur(10px); /* Efek kaca */
+            background: rgba(255, 255, 255, 0.95);
+            /* Sedikit transparansi */
+            backdrop-filter: blur(10px);
+            /* Efek kaca */
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
-            border: 1px solid rgba(255,255,255,0.5);
-            z-index: 1; /* Di atas blob */
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            z-index: 1;
+            /* Di atas blob */
         }
 
         .schedule-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
         }
 
         .card-header-custom {
@@ -398,7 +444,7 @@
             border-bottom: none;
             position: relative;
         }
-        
+
         /* Dekorasi kecil di header */
         .card-header-custom::after {
             content: '';
@@ -407,15 +453,15 @@
             bottom: -20px;
             width: 100px;
             height: 100px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
         }
 
         .icon-bg {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             width: 55px;
             height: 55px;
-            border: 2px solid rgba(255,255,255,0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .card-body-custom {
@@ -431,7 +477,7 @@
             margin-bottom: 1.5rem;
             transition: border-color 0.3s;
         }
-        
+
         .schedule-card:hover .date-display {
             border-color: var(--primary-color);
         }
@@ -442,44 +488,69 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-title { font-size: 2rem; }
-            .hero-section { padding-top: 120px; text-align: center; }
-            .hero-img { margin-top: 30px; }
-            .btn-group-nav { width: 100%; display: flex; flex-direction: column; gap: 10px; margin-top: 1rem; }
-            .theme-switcher-wrapper { top: auto; bottom: 20px; right: 0; }
-            .theme-switcher-wrapper:hover .colors-panel { bottom: 60px; top: auto; }
-            .blob-1 { width: 300px; height: 300px; }
-            .blob-2 { width: 300px; height: 300px; }
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-section {
+                padding-top: 120px;
+                text-align: center;
+            }
+
+            .hero-img {
+                margin-top: 30px;
+            }
+
+            .btn-group-nav {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 1rem;
+            }
+
+            .theme-switcher-wrapper {
+                top: auto;
+                bottom: 20px;
+                right: 0;
+            }
+
+            .theme-switcher-wrapper:hover .colors-panel {
+                bottom: 60px;
+                top: auto;
+            }
+
+            .blob-1 {
+                width: 300px;
+                height: 300px;
+            }
+
+            .blob-2 {
+                width: 300px;
+                height: 300px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Floating Color Switcher -->
     <div class="theme-switcher-wrapper">
         <div class="colors-panel">
             <p class="small fw-bold text-center mb-3">Pilih Warna Tema</p>
-            
+
             <!-- Biru -->
-            <div class="color-option" 
-                 data-primary="#0d47a1" 
-                 data-light="#1976d2" 
-                 style="background-color: #0d47a1;" 
-                 title="Tema Biru"></div>
-            
+            <div class="color-option" data-primary="#0d47a1" data-light="#1976d2" style="background-color: #0d47a1;"
+                title="Tema Biru"></div>
+
             <!-- Hijau (Default) -->
-            <div class="color-option active" 
-                 data-primary="#1b7d4a" 
-                 data-light="#2ca05e" 
-                 style="background-color: #1b7d4a;" 
-                 title="Tema Hijau"></div>
-            
+            <div class="color-option active" data-primary="#1b7d4a" data-light="#2ca05e"
+                style="background-color: #1b7d4a;" title="Tema Hijau"></div>
+
             <!-- Oren -->
-            <div class="color-option" 
-                 data-primary="#FF9100" 
-                 data-light="#FFAB40" 
-                 style="background-color: #FF9100;" 
-                 title="Tema Oren Fresh"></div>
+            <div class="color-option" data-primary="#FF9100" data-light="#FFAB40" style="background-color: #FF9100;"
+                title="Tema Oren Fresh"></div>
         </div>
         <button class="theme-btn" title="Ganti Warna">
             <i class="bi bi-palette-fill"></i>
@@ -493,12 +564,13 @@
                 <i class="bi bi-mortarboard-fill"></i>
                 PPDB ONLINE
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#informasi">Alur Pendaftaran</a></li>
                     <li class="nav-item"><a class="nav-link" href="media.html">Media</a></li>
                     <li class="nav-item"><a class="nav-link" href="#pengumuman">Pengumuman</a></li>
@@ -520,7 +592,8 @@
                     <span class="hero-badge">Portal Resmi Penerimaan Siswa Baru 2024/2025</span>
                     <h1 class="hero-title">Bergabunglah Menjadi Generasi Cerdas & Berkarakter</h1>
                     <p class="lead text-muted mb-4">
-                        Sistem penerimaan peserta didik baru berbasis online yang transparan, akuntabel, dan mudah diakses. Wujudkan impian masa depan Anda di sini.
+                        Sistem penerimaan peserta didik baru berbasis online yang transparan, akuntabel, dan mudah
+                        diakses. Wujudkan impian masa depan Anda di sini.
                     </p>
                     <div class="d-flex gap-3 flex-wrap justify-content-lg-start justify-content-center">
                         <a href="#" class="btn btn-primary btn-lg px-4 py-3 rounded-4 shadow-sm">
@@ -533,7 +606,8 @@
                 </div>
                 <div class="col-lg-6 mt-5 mt-lg-0">
                     <!-- Gambar Sekolah/Siswa -->
-                    <img src="https://picsum.photos/seed/school/600/400" alt="Suasana Sekolah" class="hero-img img-fluid">
+                    <img src="https://picsum.photos/seed/school/600/400" alt="Suasana Sekolah"
+                        class="hero-img img-fluid">
                 </div>
             </div>
         </div>
@@ -633,7 +707,8 @@
                             </div>
 
                             <div class="mt-3 d-flex align-items-center gap-2">
-                                <span class="badge rounded-pill px-3 py-2 bg-success bg-opacity-10 text-success fw-normal">
+                                <span
+                                    class="badge rounded-pill px-3 py-2 bg-success bg-opacity-10 text-success fw-normal">
                                     <i class="bi bi-circle-fill me-1 small"></i> Dibuka
                                 </span>
                                 <span class="badge rounded-pill px-3 py-2 bg-light text-muted fw-normal border">
@@ -675,7 +750,8 @@
                             </div>
 
                             <div class="mt-3 d-flex align-items-center gap-2">
-                                <span class="badge rounded-pill px-3 py-2 bg-success bg-opacity-10 text-success fw-normal">
+                                <span
+                                    class="badge rounded-pill px-3 py-2 bg-success bg-opacity-10 text-success fw-normal">
                                     <i class="bi bi-circle-fill me-1 small"></i> Dibuka
                                 </span>
                                 <span class="badge rounded-pill px-3 py-2 bg-light text-muted fw-normal border">
@@ -717,7 +793,8 @@
                             </div>
 
                             <div class="mt-3 d-flex align-items-center gap-2">
-                                <span class="badge rounded-pill px-3 py-2 bg-success bg-opacity-10 text-success fw-normal">
+                                <span
+                                    class="badge rounded-pill px-3 py-2 bg-success bg-opacity-10 text-success fw-normal">
                                     <i class="bi bi-circle-fill me-1 small"></i> Dibuka
                                 </span>
                                 <span class="badge rounded-pill px-3 py-2 bg-light text-muted fw-normal border">
@@ -760,7 +837,7 @@
                 <h2 class="section-title mb-0" style="margin-bottom: 0;">Berita & Info Sekolah</h2>
                 <p class="text-muted mt-3">Dapatkan informasi terbaru seputar kegiatan dan prestasi sekolah.</p>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="news-card h-100 d-flex flex-column">
@@ -768,8 +845,11 @@
                         <div class="card-body p-4 d-flex flex-column">
                             <div class="news-date mb-2">15 Mei 2024</div>
                             <h5 class="card-title fw-bold mb-3">Pembukaan Gelombang 1 PPDB Tahun Ajaran 2024/2025</h5>
-                            <p class="card-text text-muted flex-grow-1">Panitia PPDB resmi membuka pendaftaran gelombang pertama mulai tanggal 20 Mei. Segera siapkan berkas.</p>
-                            <button type="button" class="btn btn-sm btn-outline-primary mt-3 align-self-start rounded-pill" data-bs-toggle="modal" data-bs-target="#newsModal1">Baca Selengkapnya</button>
+                            <p class="card-text text-muted flex-grow-1">Panitia PPDB resmi membuka pendaftaran gelombang
+                                pertama mulai tanggal 20 Mei. Segera siapkan berkas.</p>
+                            <button type="button"
+                                class="btn btn-sm btn-outline-primary mt-3 align-self-start rounded-pill"
+                                data-bs-toggle="modal" data-bs-target="#newsModal1">Baca Selengkapnya</button>
                         </div>
                     </div>
                 </div>
@@ -780,8 +860,11 @@
                         <div class="card-body p-4 d-flex flex-column">
                             <div class="news-date mb-2">12 Mei 2024</div>
                             <h5 class="card-title fw-bold mb-3">Siswa Kami Raih Medali Emas Olimpiade Sains</h5>
-                            <p class="card-text text-muted flex-grow-1">Selamat kepada tim Olimpiade Matematika yang berhasil membawa pulang medali emas tingkat nasional.</p>
-                            <a href="detail-post.html" class="btn btn-sm btn-outline-primary mt-3 align-self-start rounded-pill">Baca Selengkapnya</a>
+                            <p class="card-text text-muted flex-grow-1">Selamat kepada tim Olimpiade Matematika yang
+                                berhasil membawa pulang medali emas tingkat nasional.</p>
+                            <a href="detail-post.html"
+                                class="btn btn-sm btn-outline-primary mt-3 align-self-start rounded-pill">Baca
+                                Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -792,8 +875,11 @@
                         <div class="card-body p-4 d-flex flex-column">
                             <div class="news-date mb-2">10 Mei 2024</div>
                             <h5 class="card-title fw-bold mb-3">Peresmian Gedung Perpustakaan Baru Berbasis Digital</h5>
-                            <p class="card-text text-muted flex-grow-1">Fasilitas pembelajaran kini semakin lengkap dengan hadirnya perpustakaan digital modern.</p>
-                            <a href="detail-post.html" class="btn btn-sm btn-outline-primary mt-3 align-self-start rounded-pill">Baca Selengkapnya</a>
+                            <p class="card-text text-muted flex-grow-1">Fasilitas pembelajaran kini semakin lengkap
+                                dengan hadirnya perpustakaan digital modern.</p>
+                            <a href="detail-post.html"
+                                class="btn btn-sm btn-outline-primary mt-3 align-self-start rounded-pill">Baca
+                                Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -814,37 +900,46 @@
                     <div class="accordion" id="faqAccordion">
                         <div class="accordion-item border-0 mb-3 shadow-sm rounded">
                             <h2 class="accordion-header">
-                                <button class="accordion-button fw-bold rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" style="color: var(--primary-color);">
+                                <button class="accordion-button fw-bold rounded" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1" aria-expanded="true" style="color: var(--primary-color);">
                                     Apa saja syarat pendaftaran siswa baru?
                                 </button>
                             </h2>
                             <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted">
-                                    Persyaratan umum meliputi: Ijazah/SKL/SKHUN asli, Kartu Keluarga, Akta Kelahiran, Pas Foto terbaru, dan sertifikat prestasi (jika jalur prestasi).
+                                    Persyaratan umum meliputi: Ijazah/SKL/SKHUN asli, Kartu Keluarga, Akta Kelahiran,
+                                    Pas Foto terbaru, dan sertifikat prestasi (jika jalur prestasi).
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item border-0 mb-3 shadow-sm rounded">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed fw-bold rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="color: var(--primary-color);">
+                                <button class="accordion-button collapsed fw-bold rounded" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq2"
+                                    style="color: var(--primary-color);">
                                     Bagaimana sistem zonasi bekerja?
                                 </button>
                             </h2>
                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted">
-                                    Sistem zonasi didasarkan pada domisili peserta didik. Prioritas diberikan kepada siswa yang rumahnya berjarak terdekat dengan sekolah sesuai peta zonasi yang ditentukan Dinas Pendidikan.
+                                    Sistem zonasi didasarkan pada domisili peserta didik. Prioritas diberikan kepada
+                                    siswa yang rumahnya berjarak terdekat dengan sekolah sesuai peta zonasi yang
+                                    ditentukan Dinas Pendidikan.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item border-0 mb-3 shadow-sm rounded">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed fw-bold rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="color: var(--primary-color);">
+                                <button class="accordion-button collapsed fw-bold rounded" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq3"
+                                    style="color: var(--primary-color);">
                                     Apakah ada biaya pendaftaran?
                                 </button>
                             </h2>
                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body text-muted">
-                                    Tidak, pendaftaran PPDB ini sepenuhnya gratis. Biaya hanya dikenakan setelah dinyatakan lulus berupa sumbangan pembangunan pendidikan (SPP) bulanan.
+                                    Tidak, pendaftaran PPDB ini sepenuhnya gratis. Biaya hanya dikenakan setelah
+                                    dinyatakan lulus berupa sumbangan pembangunan pendidikan (SPP) bulanan.
                                 </div>
                             </div>
                         </div>
@@ -870,7 +965,8 @@
                 <div class="col-lg-4 col-md-6">
                     <h5 class="fw-bold mb-3 text-warning">PPDB ONLINE</h5>
                     <p class="small opacity-75">
-                        Portal resmi Penerimaan Peserta Didik Baru SMA Unggulan Nusantara. Membentuk generasi yang cerdas, berkarakter, dan berprestasi.
+                        Portal resmi Penerimaan Peserta Didik Baru SMA Unggulan Nusantara. Membentuk generasi yang
+                        cerdas, berkarakter, dan berprestasi.
                     </p>
                     <div class="social-icons mt-4">
                         <a href="#"><i class="bi bi-facebook"></i></a>
@@ -889,7 +985,8 @@
                     <h5 class="fw-bold mb-3">Kontak Kami</h5>
                     <div class="d-flex align-items-start mb-3">
                         <i class="bi bi-geo-alt-fill text-warning me-3 mt-1"></i>
-                        <span class="small opacity-75">Jl. Pendidikan No. 123, Kebayoran Baru, Jakarta Selatan, DKI Jakarta 12160</span>
+                        <span class="small opacity-75">Jl. Pendidikan No. 123, Kebayoran Baru, Jakarta Selatan, DKI
+                            Jakarta 12160</span>
                     </div>
                     <div class="d-flex align-items-center mb-3">
                         <i class="bi bi-telephone-fill text-warning me-3"></i>
@@ -915,20 +1012,28 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body px-4">
-                    <img src="https://picsum.photos/seed/class/800/400" class="img-fluid rounded-3 mb-3 w-100" style="max-height: 300px; object-fit: cover;" alt="Detail Image">
-                    <h3 class="fw-bold mb-2" style="color: var(--primary-color);">Pembukaan Gelombang 1 PPDB Tahun Ajaran 2024/2025</h3>
+                    <img src="https://picsum.photos/seed/class/800/400" class="img-fluid rounded-3 mb-3 w-100"
+                        style="max-height: 300px; object-fit: cover;" alt="Detail Image">
+                    <h3 class="fw-bold mb-2" style="color: var(--primary-color);">Pembukaan Gelombang 1 PPDB Tahun
+                        Ajaran 2024/2025</h3>
                     <div class="d-flex align-items-center text-muted small mb-3">
                         <span class="me-3"><i class="bi bi-calendar"></i> 15 Mei 2024</span>
                         <span class="me-3"><i class="bi bi-person"></i> Admin</span>
                         <span><i class="bi bi-tag"></i> PPDB, Sekolah</span>
                     </div>
                     <hr>
-                    <p class="text-secondary mb-3">Kami dengan bangga mengumumkan bahwa pendaftaran peserta didik baru untuk tahun ajaran 2024/2025 telah resmi dibuka. Pendaftaran ini dibuka untuk calon siswa yang ingin melanjutkan pendidikan di jenjang SMA.</p>
-                    <p class="text-secondary mb-3">Calon siswa diwajibkan untuk mengisi formulir pendaftaran online melalui portal ini sebelum batas waktu yang ditentukan. Pastikan semua dokumen yang diperlukan sudah disiapkan, seperti Ijazah, Kartu Keluarga, dan Akta Kelahiran.</p>
-                    <p class="text-secondary">Jangan lewatkan kesempatan ini untuk bergabung menjadi bagian dari keluarga besar SMA Unggulan Nusantara.</p>
+                    <p class="text-secondary mb-3">Kami dengan bangga mengumumkan bahwa pendaftaran peserta didik baru
+                        untuk tahun ajaran 2024/2025 telah resmi dibuka. Pendaftaran ini dibuka untuk calon siswa yang
+                        ingin melanjutkan pendidikan di jenjang SMA.</p>
+                    <p class="text-secondary mb-3">Calon siswa diwajibkan untuk mengisi formulir pendaftaran online
+                        melalui portal ini sebelum batas waktu yang ditentukan. Pastikan semua dokumen yang diperlukan
+                        sudah disiapkan, seperti Ijazah, Kartu Keluarga, dan Akta Kelahiran.</p>
+                    <p class="text-secondary">Jangan lewatkan kesempatan ini untuk bergabung menjadi bagian dari
+                        keluarga besar SMA Unggulan Nusantara.</p>
                 </div>
                 <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-secondary rounded-pill px-4"
+                        data-bs-dismiss="modal">Tutup</button>
                 </div>
             </div>
         </div>
@@ -936,10 +1041,10 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Script Theme Switcher -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Script untuk menutup navbar di mobile
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', () => {
@@ -956,7 +1061,7 @@
             const root = document.documentElement;
 
             colorOptions.forEach(option => {
-                option.addEventListener('click', function() {
+                option.addEventListener('click', function () {
                     // Hapus class active dari semua
                     colorOptions.forEach(opt => opt.classList.remove('active'));
                     // Tambah class active ke yang diklik
@@ -974,4 +1079,5 @@
         });
     </script>
 </body>
+
 </html>
