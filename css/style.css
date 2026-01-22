@@ -80,6 +80,36 @@ h6 {
     gap: 10px;
 }
 
+.navbar-logo {
+    height: 45px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+/* Responsive adjustments for logo */
+@media (max-width: 768px) {
+    .navbar-logo {
+        height: 35px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo {
+        height: 30px;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+}
+
+
 .nav-link {
     color: var(--text-dark);
     font-weight: 500;
