@@ -73,22 +73,94 @@ body.auth-page {
 }
 
 
-.btn-auth {
-    background-color: #1b7d4a;
-    color: white;
-    font-weight: 600;
-    padding: 0.8rem;
-    border-radius: 10px;
-    border: none;
-    transition: all 0.3s;
-    width: 100%;
-    margin-top: 1rem;
+/* ===================================================================
+   AUTH BUTTONS - Easy Customization via CSS Variables
+   =================================================================== */
+:root {
+    --btn-auth-bg: #1b7d4a;
+    --btn-auth-bg-hover: #2ca05e;
+    --btn-auth-text: #ffffff;
+    --btn-auth-shadow: rgba(27, 125, 74, 0.4);
+    --btn-auth-shadow-hover: rgba(27, 125, 74, 0.5);
 }
 
+.btn-auth {
+    background: linear-gradient(135deg, var(--btn-auth-bg) 0%, var(--btn-auth-bg-hover) 100%);
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    color: var(--btn-auth-text);
+    font-weight: 600;
+    padding: 0.9rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 100%;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px var(--btn-auth-shadow);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect - Smooth gradient shift & lift */
 .btn-auth:hover {
-    background-color: #2ca05e;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-position: 100% 50%;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--btn-auth-shadow-hover);
+    color: var(--btn-auth-text);
+}
+
+/* Focus State - Accessibility */
+.btn-auth:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(27, 125, 74, 0.25), 0 4px 15px var(--btn-auth-shadow);
+}
+
+/* Active/Pressed State */
+.btn-auth:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px var(--btn-auth-shadow);
+    background-position: 100% 50%;
+}
+
+/* Disabled State */
+.btn-auth:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ===================================================================
+   BOOTSTRAP btn-primary OVERRIDE - Consistent with Auth Theme
+   =================================================================== */
+.auth-page .btn-primary,
+.auth-card .btn-primary {
+    background: linear-gradient(135deg, var(--btn-auth-bg) 0%, var(--btn-auth-bg-hover) 100%) !important;
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    border: none !important;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--btn-auth-shadow);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.auth-page .btn-primary:hover,
+.auth-card .btn-primary:hover {
+    background-position: 100% 50%;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--btn-auth-shadow-hover) !important;
+}
+
+.auth-page .btn-primary:focus,
+.auth-card .btn-primary:focus {
+    box-shadow: 0 0 0 4px rgba(27, 125, 74, 0.25), 0 4px 15px var(--btn-auth-shadow) !important;
+}
+
+.auth-page .btn-primary:active,
+.auth-card .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px var(--btn-auth-shadow) !important;
 }
 
 .auth-footer {
