@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Download - SMA Unggulan Nusantara</title>
-    
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet">
 
     <style>
         /* --- CONFIGURASI WARNA (SAMA DENGAN INDEX) --- */
         :root {
             /* Default: Hijau */
-            --primary-color: #1b7d4a; 
+            --primary-color: #1b7d4a;
             --primary-light: #2ca05e;
-            --accent-color: #ffca28; 
+            --accent-color: #ffca28;
             --text-dark: #333333;
             --text-light: #666666;
             --bg-light: #f8f9fa;
@@ -32,7 +35,12 @@
             background-color: #f0f4f8;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Merriweather', serif;
             font-weight: 700;
         }
@@ -42,28 +50,31 @@
             background-color: var(--primary-color) !important;
             border-color: var(--primary-color) !important;
         }
+
         .btn-primary:hover {
             background-color: var(--primary-light) !important;
             border-color: var(--primary-light) !important;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
+
         .btn-outline-primary {
             color: var(--primary-color) !important;
             border-color: var(--primary-color) !important;
         }
+
         .btn-outline-primary:hover {
             background-color: var(--primary-color) !important;
             color: white !important;
         }
-        
+
         /* Navbar Styling */
         .navbar {
             background-color: white;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
             padding: 1rem 0;
             transition: all 0.3s ease;
         }
-        
+
         .navbar-brand {
             font-weight: 700;
             color: var(--primary-color) !important;
@@ -72,15 +83,16 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .nav-link {
             color: var(--text-dark);
             font-weight: 500;
             margin: 0 10px;
             transition: color 0.3s;
         }
-        
-        .nav-link:hover, .nav-link.active {
+
+        .nav-link:hover,
+        .nav-link.active {
             color: var(--primary-color);
         }
 
@@ -91,8 +103,11 @@
             padding: 0.5rem 1.5rem;
             border: none;
         }
-        .btn-login:hover { background-color: var(--primary-light); }
-        
+
+        .btn-login:hover {
+            background-color: var(--primary-light);
+        }
+
         .btn-register {
             border: 2px solid var(--primary-color);
             color: var(--primary-color);
@@ -100,12 +115,16 @@
             padding: 0.5rem 1.5rem;
             background: transparent;
         }
-        .btn-register:hover { background-color: var(--primary-color); color: white; }
+
+        .btn-register:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
 
         /* Hero Section */
         .hero-media {
             position: relative;
-            background-image: url('https://picsum.photos/seed/library-books/1200/600'); 
+            background-image: url('https://picsum.photos/seed/library-books/1200/600');
             background-size: cover;
             background-position: center;
             padding: 100px 0 80px 0;
@@ -119,7 +138,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.4));
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
         }
 
         .hero-content {
@@ -127,24 +146,58 @@
             z-index: 2;
         }
 
-        .breadcrumb-custom .breadcrumb-item a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
+        /* Breadcrumb Styling - Simple & Clean */
+        .breadcrumb-custom {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 0.65rem 1.25rem;
+            display: inline-flex;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
+
+        .breadcrumb-custom .breadcrumb-item {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-custom .breadcrumb-item a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        .breadcrumb-custom .breadcrumb-item a:hover {
+            color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
         .breadcrumb-custom .breadcrumb-item.active {
             color: var(--accent-color);
-            font-weight: 600;
+            font-weight: 500;
+        }
+
+        .breadcrumb-custom .breadcrumb-item+.breadcrumb-item::before {
+            color: rgba(255, 255, 255, 0.5);
+            content: "/";
+            font-size: 0.9rem;
+            padding: 0 0.6rem;
         }
 
         /* --- TABLE STYLING (NATIVE) --- */
         .table-card {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             /* Penting agar tidak menyatu layout dengan Footer */
-            border: 1px solid rgba(0,0,0,0.05); 
-            overflow: hidden; /* Wrapper agar scroll tidak keluar border */
-            overflow-x: auto; /* Penting agar tabel bisa digeser ke samping pada mobile */
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            /* Wrapper agar scroll tidak keluar border */
+            overflow-x: auto;
+            /* Penting agar tabel bisa digeser ke samping pada mobile */
             padding: 2rem;
             margin-top: -50px;
             position: relative;
@@ -158,30 +211,53 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            flex-wrap: wrap; /* Responsive Stack */
+            flex-wrap: wrap;
+            /* Responsive Stack */
             gap: 15px;
         }
 
-        .search-box, .filter-box {
+        .search-box,
+        .filter-box {
             border-radius: 20px;
             border: 1px solid #dee2e6;
             display: flex;
             align-items: center;
         }
 
-        .search-box { padding: 0.6rem 1.2rem 0.6rem 2.5rem; }
-        .search-box input { border: none; outline: none; width: 250px; color: #555; }
-        .search-icon { color: #999; }
+        .search-box {
+            padding: 0.6rem 1.2rem 0.6rem 2.5rem;
+        }
 
-        .filter-box { padding: 0.6rem 2.5rem 0.6rem 1.5rem; width: 200px; }
-        .filter-box select { border: none; outline: none; color: #555; width: 100%; cursor: pointer; }
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 250px;
+            color: #555;
+        }
+
+        .search-icon {
+            color: #999;
+        }
+
+        .filter-box {
+            padding: 0.6rem 2.5rem 0.6rem 1.5rem;
+            width: 200px;
+        }
+
+        .filter-box select {
+            border: none;
+            outline: none;
+            color: #555;
+            width: 100%;
+            cursor: pointer;
+        }
 
         /* Table Styling (Native + Custom) */
         .custom-table {
             margin-bottom: 0;
             width: 100%;
             /* Untuk rounded corners native table */
-            border-collapse: separate; 
+            border-collapse: separate;
             border-spacing: 0;
             color: #555;
         }
@@ -191,15 +267,22 @@
             background-color: var(--primary-color);
             color: white;
             font-weight: 600;
-            border-bottom: 1px solid rgba(255,255,255,0.2); /* Garis pemisah header dengan body */
-            border: none; /* Hilangkan border default th */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            /* Garis pemisah header dengan body */
+            border: none;
+            /* Hilangkan border default th */
             padding: 1.2rem;
             font-size: 0.95rem;
         }
-        
+
         /* Rounded Corners */
-        .custom-table thead tr:first-child th:first-child { border-top-left-radius: 20px; }
-        .custom-table thead tr:first-child th:last-child { border-top-right-radius: 20px; }
+        .custom-table thead tr:first-child th:first-child {
+            border-top-left-radius: 20px;
+        }
+
+        .custom-table thead tr:first-child th:last-child {
+            border-top-right-radius: 20px;
+        }
 
         /* Body Styling */
         .custom-table td {
@@ -212,7 +295,8 @@
         }
 
         .custom-table tbody tr:last-child td {
-            border-bottom: none; /* Hilangkan border pada baris terakhir agar rapi */
+            border-bottom: none;
+            /* Hilangkan border pada baris terakhir agar rapi */
         }
 
         .custom-table tbody tr:hover {
@@ -231,13 +315,13 @@
             margin-right: 15px;
             font-size: 1.2rem;
         }
-        
+
         .file-name {
             font-weight: 600;
             color: var(--text-dark);
             display: block;
         }
-        
+
         .file-meta {
             font-size: 0.8rem;
             color: #888;
@@ -274,7 +358,7 @@
             background-color: var(--primary-color);
             color: white;
             border-color: var(--primary-color);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .page-btn:disabled {
@@ -290,15 +374,15 @@
             padding-top: 60px;
             padding-bottom: 20px;
         }
-        
+
         .footer-link {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             display: block;
             margin-bottom: 10px;
             transition: color 0.3s;
         }
-        
+
         .footer-link:hover {
             color: var(--accent-color);
             padding-left: 5px;
@@ -310,7 +394,7 @@
             margin-right: 15px;
             transition: color 0.3s;
         }
-        
+
         .social-icons a:hover {
             color: var(--accent-color);
         }
@@ -333,7 +417,7 @@
             justify-content: center;
             border: none;
             border-radius: 5px 0 0 5px;
-            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             font-size: 1.2rem;
             margin-bottom: 5px;
@@ -364,7 +448,7 @@
         }
 
         .color-option.active::after {
-            content: '\f26b'; 
+            content: '\f26b';
             font-family: 'bootstrap-icons';
             color: white;
             font-weight: bold;
@@ -374,7 +458,7 @@
             background: white;
             padding: 20px 15px;
             border-radius: 5px 0 0 0 5px;
-            box-shadow: -3px 0 15px rgba(0,0,0,0.15);
+            box-shadow: -3px 0 15px rgba(0, 0, 0, 0.15);
             display: none;
         }
 
@@ -384,22 +468,56 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateX(10px); }
-            to { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
-        
+
         /* Responsive Fixes */
         @media (max-width: 768px) {
-            .hero-media { padding: 120px 0 60px 0; }
-            .table-card { margin-top: -30px; padding: 1rem; }
-            .theme-switcher-wrapper { top: auto; bottom: 20px; right: 0; }
-            .theme-switcher-wrapper:hover .colors-panel { bottom: 60px; top: auto; }
-            .table-controls { flex-direction: column; gap: 15px; }
-            .search-box, .filter-box { width: 100%; }
-            .search-box input { width: 100%; }
+            .hero-media {
+                padding: 120px 0 60px 0;
+            }
+
+            .table-card {
+                margin-top: -30px;
+                padding: 1rem;
+            }
+
+            .theme-switcher-wrapper {
+                top: auto;
+                bottom: 20px;
+                right: 0;
+            }
+
+            .theme-switcher-wrapper:hover .colors-panel {
+                bottom: 60px;
+                top: auto;
+            }
+
+            .table-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .search-box,
+            .filter-box {
+                width: 100%;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Floating Color Switcher -->
@@ -407,9 +525,12 @@
         <div class="colors-panel">
             <p class="small fw-bold text-center mb-3">Pilih Warna Tema</p>
             <!-- Biru -->
-            <div class="color-option" data-primary="#0d47a1" data-light="#1976d2" style="background-color: #0d47a1;" title="Tema Biru"></div>
-            <div class="color-option active" data-primary="#1b7d4a" data-light="#2ca05e" style="background-color: #1b7d4a;" title="Tema Hijau"></div>
-            <div class="color-option" data-primary="#FF9100" data-light="#FFAB40" style="background-color: #FF9100;" title="Tema Oren Fresh"></div>
+            <div class="color-option" data-primary="#0d47a1" data-light="#1976d2" style="background-color: #0d47a1;"
+                title="Tema Biru"></div>
+            <div class="color-option active" data-primary="#1b7d4a" data-light="#2ca05e"
+                style="background-color: #1b7d4a;" title="Tema Hijau"></div>
+            <div class="color-option" data-primary="#FF9100" data-light="#FFAB40" style="background-color: #FF9100;"
+                title="Tema Oren Fresh"></div>
         </div>
         <button class="theme-btn" title="Ganti Warna"><i class="bi bi-palette-fill"></i></button>
     </div>
@@ -444,13 +565,14 @@
     <section class="hero-media">
         <div class="container hero-content">
             <nav aria-label="breadcrumb" class="mb-4">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb breadcrumb-custom mb-0">
                     <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Media Download</li>
                 </ol>
             </nav>
             <h1 class="display-4 fw-bold mb-3">Pusat Unduhan Media & Dokumen</h1>
-            <p class="lead mb-0 opacity-75">Akses seluruh berkas formulir, brosur, dan panduan akademik dalam satu tempat.</p>
+            <p class="lead mb-0 opacity-75">Akses seluruh berkas formulir, brosur, dan panduan akademik dalam satu
+                tempat.</p>
         </div>
     </section>
 
@@ -465,7 +587,7 @@
                         <i class="bi bi-search search-icon"></i>
                         <input type="text" id="searchInput" placeholder="Cari dokumen...">
                     </div>
-                    
+
                     <!-- Filter -->
                     <div class="filter-box">
                         <select id="categoryFilter">
@@ -503,11 +625,13 @@
                                     </div>
                                 </div>
                             </td>
-                            <td><span class="text-muted small">Dokumen utama untuk pendaftaran tahun ajaran baru.</span></td>
+                            <td><span class="text-muted small">Dokumen utama untuk pendaftaran tahun ajaran baru.</span>
+                            </td>
                             <td><span class="badge bg-light text-dark border">Formulir</span></td>
                             <td>2.5 MB</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i
+                                        class="bi bi-download"></i> Unduh</a>
                             </td>
                         </tr>
                         <tr>
@@ -525,7 +649,8 @@
                             <td><span class="badge bg-light text-dark border">Panduan</span></td>
                             <td>5.1 MB</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i
+                                        class="bi bi-download"></i> Unduh</a>
                             </td>
                         </tr>
                         <tr>
@@ -543,7 +668,8 @@
                             <td><span class="badge bg-light text-dark border">Brosur</span></td>
                             <td>8.2 MB</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i
+                                        class="bi bi-download"></i> Unduh</a>
                             </td>
                         </tr>
                         <tr>
@@ -557,11 +683,13 @@
                                     </div>
                                 </div>
                             </td>
-                            <td><span class="text-muted small">Template surat yang harus diisi dan ditandatangani.</span></td>
+                            <td><span class="text-muted small">Template surat yang harus diisi dan
+                                    ditandatangani.</span></td>
                             <td><span class="badge bg-light text-dark border">Format</span></td>
                             <td>15 KB</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i
+                                        class="bi bi-download"></i> Unduh</a>
                             </td>
                         </tr>
                         <tr>
@@ -579,7 +707,8 @@
                             <td><span class="badge bg-light text-dark border">Video</span></td>
                             <td>120 MB</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i
+                                        class="bi bi-download"></i> Unduh</a>
                             </td>
                         </tr>
                         <tr>
@@ -597,7 +726,8 @@
                             <td><span class="badge bg-light text-dark border">Info</span></td>
                             <td>1.8 MB</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i
+                                        class="bi bi-download"></i> Unduh</a>
                             </td>
                         </tr>
                         <tr>
@@ -615,14 +745,16 @@
                             <td><span class="badge bg-light text-dark border">Info</span></td>
                             <td>900 KB</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i
+                                        class="bi bi-download"></i> Unduh</a>
                             </td>
                         </tr>
                         <tr>
                             <td>8</td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <div class="file-icon text-primary"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+                                    <div class="file-icon text-primary"><i class="bi bi-file-earmark-pdf-fill"></i>
+                                    </div>
                                     <div>
                                         <span class="file-name">Kurikulum Merdeka.pdf</span>
                                         <span class="file-meta">Struktur kurikulum belajar</span>
@@ -633,7 +765,8 @@
                             <td><span class="badge bg-light text-dark border">Kurikulum</span></td>
                             <td>3.2 MB</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i
+                                        class="bi bi-download"></i> Unduh</a>
                             </td>
                         </tr>
                         <tr>
@@ -651,7 +784,8 @@
                             <td><span class="badge bg-light text-dark border">Info</span></td>
                             <td>5.4 MB</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i
+                                        class="bi bi-download"></i> Unduh</a>
                             </td>
                         </tr>
                         <tr>
@@ -669,7 +803,8 @@
                             <td><span class="badge bg-light text-dark border">Arsip</span></td>
                             <td>12.5 MB</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i
+                                        class="bi bi-download"></i> Unduh</a>
                             </td>
                         </tr>
                     </tbody>
@@ -716,7 +851,7 @@
     <!-- JAVASCRIPT: jQuery (Tetap DataTables Dependency) & Bootstrap Bundle -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Script Native JS (Tanpa DataTables) -->
     <script>
         // 1. Data Dokumen
@@ -735,13 +870,13 @@
 
         // 2. Variabel State
         let currentPage = 1;
-        const rowsPerPage = 5; 
+        const rowsPerPage = 5;
         let currentData = [...documents];
 
         // 3. Fungsi Render Table
         function renderTable(data) {
             const tbody = document.getElementById('tableBody');
-            
+
             if (data.length === 0) {
                 tbody.innerHTML = `
                     <tr>
@@ -852,7 +987,7 @@
         const root = document.documentElement;
 
         colorOptions.forEach(option => {
-            option.addEventListener('click', function() {
+            option.addEventListener('click', function () {
                 colorOptions.forEach(opt => opt.classList.remove('active'));
                 this.classList.add('active');
                 const primaryColor = this.getAttribute('data-primary');
@@ -863,4 +998,5 @@
         });
     </script>
 </body>
+
 </html>
