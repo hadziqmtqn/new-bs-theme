@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Download - SMA Unggulan Nusantara</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CONFIGURASI WARNA (SAMA DENGAN INDEX) --- */
+        :root {
+            /* Default: Hijau */
+            --primary-color: #1b7d4a; 
+            --primary-light: #2ca05e;
+            --accent-color: #ffca28; 
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: #f0f4f8;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+        }
+
+        /* --- BOOTSTRAP OVERRIDES --- */
+        .btn-primary {
+            background-color: var(--primary-color) !important;
+            border-color: var(--primary-color) !important;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-light) !important;
+            border-color: var(--primary-light) !important;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .btn-outline-primary {
+            color: var(--primary-color) !important;
+            border-color: var(--primary-color) !important;
+        }
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color) !important;
+            color: white !important;
+        }
+        
+        /* Navbar Styling */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .btn-login {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            border: none;
+        }
+        .btn-login:hover { background-color: var(--primary-light); }
+        
+        .btn-register {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            background: transparent;
+        }
+        .btn-register:hover { background-color: var(--primary-color); color: white; }
+
+        /* Hero Section */
+        .hero-media {
+            position: relative;
+            background-image: url('https://picsum.photos/seed/library-books/1200/600'); 
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0 80px 0;
+            color: white;
+        }
+
+        .hero-media::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.4));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb-custom .breadcrumb-item a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+        .breadcrumb-custom .breadcrumb-item.active {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* --- TABLE STYLING (NATIVE) --- */
+        .table-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            /* Penting agar tidak menyatu layout dengan Footer */
+            border: 1px solid rgba(0,0,0,0.05); 
+            overflow: hidden; /* Wrapper agar scroll tidak keluar border */
+            overflow-x: auto; /* Penting agar tabel bisa digeser ke samping pada mobile */
+            padding: 2rem;
+            margin-top: -50px;
+            position: relative;
+            z-index: 3;
+            margin-bottom: 80px;
+        }
+
+        /* Controls (Search & Filter) */
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap; /* Responsive Stack */
+            gap: 15px;
+        }
+
+        .search-box, .filter-box {
+            border-radius: 20px;
+            border: 1px solid #dee2e6;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box { padding: 0.6rem 1.2rem 0.6rem 2.5rem; }
+        .search-box input { border: none; outline: none; width: 250px; color: #555; }
+        .search-icon { color: #999; }
+
+        .filter-box { padding: 0.6rem 2.5rem 0.6rem 1.5rem; width: 200px; }
+        .filter-box select { border: none; outline: none; color: #555; width: 100%; cursor: pointer; }
+
+        /* Table Styling (Native + Custom) */
+        .custom-table {
+            margin-bottom: 0;
+            width: 100%;
+            /* Untuk rounded corners native table */
+            border-collapse: separate; 
+            border-spacing: 0;
+            color: #555;
+        }
+
+        /* Header Styling */
+        .custom-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255,255,255,0.2); /* Garis pemisah header dengan body */
+            border: none; /* Hilangkan border default th */
+            padding: 1.2rem;
+            font-size: 0.95rem;
+        }
+        
+        /* Rounded Corners */
+        .custom-table thead tr:first-child th:first-child { border-top-left-radius: 20px; }
+        .custom-table thead tr:first-child th:last-child { border-top-right-radius: 20px; }
+
+        /* Body Styling */
+        .custom-table td {
+            vertical-align: middle;
+            padding: 1.2rem;
+            color: #555;
+            /* Override Bootstrap default border color agar terlihat */
+            border-top: 1px solid #e9ecef;
+            font-size: 0.95rem;
+        }
+
+        .custom-table tbody tr:last-child td {
+            border-bottom: none; /* Hilangkan border pada baris terakhir agar rapi */
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: rgba(27, 125, 74, 0.05);
+        }
+
+        /* File Icons */
+        .file-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f0f0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .file-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            display: block;
+        }
+        
+        .file-meta {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Pagination Native JS Styling */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            gap: 5px;
+        }
+
+        .page-btn {
+            background: white;
+            border: 1px solid #e0e0e0;
+            color: var(--text-dark);
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            background-color: #e9ecef;
+            color: var(--primary-color);
+        }
+
+        .page-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .page-btn:disabled {
+            color: #ccc;
+            pointer-events: none;
+            background: #f8f9fa;
+        }
+
+        /* Footer */
+        footer {
+            background-color: color-mix(in srgb, var(--primary-color), black 20%);
+            color: white;
+            padding-top: 60px;
+            padding-bottom: 20px;
+        }
+        
+        .footer-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- THEME SWITCHER --- */
+        .theme-switcher-wrapper {
+            position: fixed;
+            top: 30%;
+            right: 0;
+            z-index: 9999;
+        }
+
+        .theme-btn {
+            background: white;
+            color: var(--text-dark);
+            height: 50px;
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            transition: all 0.3s;
+        }
+
+        .theme-btn:hover {
+            width: 60px;
+            background-color: var(--bg-light);
+        }
+
+        .color-option {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .color-option:hover {
+            transform: scale(1.2);
+        }
+
+        .color-option.active::after {
+            content: '\f26b'; 
+            font-family: 'bootstrap-icons';
+            color: white;
+            font-weight: bold;
+        }
+
+        .colors-panel {
+            background: white;
+            padding: 20px 15px;
+            border-radius: 5px 0 0 0 5px;
+            box-shadow: -3px 0 15px rgba(0,0,0,0.15);
+            display: none;
+        }
+
+        .theme-switcher-wrapper:hover .colors-panel {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            .hero-media { padding: 120px 0 60px 0; }
+            .table-card { margin-top: -30px; padding: 1rem; }
+            .theme-switcher-wrapper { top: auto; bottom: 20px; right: 0; }
+            .theme-switcher-wrapper:hover .colors-panel { bottom: 60px; top: auto; }
+            .table-controls { flex-direction: column; gap: 15px; }
+            .search-box, .filter-box { width: 100%; }
+            .search-box input { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Color Switcher -->
+    <div class="theme-switcher-wrapper">
+        <div class="colors-panel">
+            <p class="small fw-bold text-center mb-3">Pilih Warna Tema</p>
+            <!-- Biru -->
+            <div class="color-option" data-primary="#0d47a1" data-light="#1976d2" style="background-color: #0d47a1;" title="Tema Biru"></div>
+            <div class="color-option active" data-primary="#1b7d4a" data-light="#2ca05e" style="background-color: #1b7d4a;" title="Tema Hijau"></div>
+            <div class="color-option" data-primary="#FF9100" data-light="#FFAB40" style="background-color: #FF9100;" title="Tema Oren Fresh"></div>
+        </div>
+        <button class="theme-btn" title="Ganti Warna"><i class="bi bi-palette-fill"></i></button>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-mortarboard-fill"></i>
+                PPDB ONLINE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#informasi">Alur Pendaftaran</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="media.html">Media</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#pengumuman">Pengumuman</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#bantuan">Bantuan</a></li>
+                </ul>
+                <div class="btn-group-nav d-flex align-items-center">
+                    <a href="#" class="btn btn-register me-2">Cetak Kartu</a>
+                    <a href="#" class="btn btn-login">Daftar Siswa</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-media">
+        <div class="container hero-content">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Media Download</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-bold mb-3">Pusat Unduhan Media & Dokumen</h1>
+            <p class="lead mb-0 opacity-75">Akses seluruh berkas formulir, brosur, dan panduan akademik dalam satu tempat.</p>
+        </div>
+    </section>
+
+    <!-- Table Section -->
+    <div class="container">
+        <div class="card table-card">
+            <div class="card-body p-0">
+                <!-- Controls -->
+                <div class="table-controls">
+                    <!-- Search -->
+                    <div class="search-box">
+                        <i class="bi bi-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Cari dokumen...">
+                    </div>
+                    
+                    <!-- Filter -->
+                    <div class="filter-box">
+                        <select id="categoryFilter">
+                            <option value="All">Semua Kategori</option>
+                            <option value="Formulir">Formulir</option>
+                            <option value="Panduan">Panduan</option>
+                            <option value="Brosur">Brosur</option>
+                            <option value="Info">Info</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <table class="table table-striped table-hover custom-table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Dokumen</th>
+                            <th>Deskripsi</th>
+                            <th>Kategori</th>
+                            <th>Ukuran</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Data akan diisi oleh JS Native -->
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="file-icon text-danger"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+                                    <div>
+                                        <span class="file-name">Formulir Pendaftaran 2025.pdf</span>
+                                        <span class="file-meta">Wajib diisi calon siswa baru</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="text-muted small">Dokumen utama untuk pendaftaran tahun ajaran baru.</span></td>
+                            <td><span class="badge bg-light text-dark border">Formulir</span></td>
+                            <td>2.5 MB</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="file-icon text-success"><i class="bi bi-book-fill"></i></div>
+                                    <div>
+                                        <span class="file-name">Panduan PPDB Lengkap.pdf</span>
+                                        <span class="file-meta">Petunjuk teknis pendaftaran</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="text-muted small">Panduan langkah demi langkah proses PPDB.</span></td>
+                            <td><span class="badge bg-light text-dark border">Panduan</span></td>
+                            <td>5.1 MB</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="file-icon text-primary"><i class="bi bi-image-fill"></i></div>
+                                    <div>
+                                        <span class="file-name">Brosur Sekolah High Res.jpg</span>
+                                        <span class="file-meta">Gambar fasilitas dan prestasi</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="text-muted small">Brosur untuk promosi dan informasi sekolah.</span></td>
+                            <td><span class="badge bg-light text-dark border">Brosur</span></td>
+                            <td>8.2 MB</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="file-icon text-primary"><i class="bi bi-file-word-fill"></i></div>
+                                    <div>
+                                        <span class="file-name">Format Surat Pernyataan.docx</span>
+                                        <span class="file-meta">Template surat orang tua</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="text-muted small">Template surat yang harus diisi dan ditandatangani.</span></td>
+                            <td><span class="badge bg-light text-dark border">Format</span></td>
+                            <td>15 KB</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="file-icon text-warning"><i class="bi bi-file-play-fill"></i></div>
+                                    <div>
+                                        <span class="file-name">Video Profil Sekolah.mp4</span>
+                                        <span class="file-meta">Promo video sekolah</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="text-muted small">Video pengenalan lingkungan sekolah.</span></td>
+                            <td><span class="badge bg-light text-dark border">Video</span></td>
+                            <td>120 MB</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="file-icon text-danger"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+                                    <div>
+                                        <span class="file-name">Kalender Akademik 2024-2025.pdf</span>
+                                        <span class="file-meta">Jadwal libur dan ujian</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="text-muted small">Kalender kegiatan akademik tahunan.</span></td>
+                            <td><span class="badge bg-light text-dark border">Info</span></td>
+                            <td>1.8 MB</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="file-icon text-secondary"><i class="bi bi-file-text-fill"></i></div>
+                                    <div>
+                                        <span class="file-name">Rincian Biaya SPP.pdf</span>
+                                        <span class="file-meta">Daftar biaya pendidikan</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="text-muted small">Rincian biaya operasional sekolah.</span></td>
+                            <td><span class="badge bg-light text-dark border">Info</span></td>
+                            <td>900 KB</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="file-icon text-primary"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+                                    <div>
+                                        <span class="file-name">Kurikulum Merdeka.pdf</span>
+                                        <span class="file-meta">Struktur kurikulum belajar</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="text-muted small">Dokumen penjelasan kurikulum merdeka.</span></td>
+                            <td><span class="badge bg-light text-dark border">Kurikulum</span></td>
+                            <td>3.2 MB</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="file-icon text-primary"><i class="bi bi-geo-alt-fill"></i></div>
+                                    <div>
+                                        <span class="file-name">Peta Zonasi Sekolah.pdf</span>
+                                        <span class="file-meta">Peta zonasi PPDB</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="text-muted small">Peta zonasi wilayah penerimaan siswa.</span></td>
+                            <td><span class="badge bg-light text-dark border">Info</span></td>
+                            <td>5.4 MB</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="file-icon text-dark"><i class="bi bi-file-zip"></i></div>
+                                    <div>
+                                        <span class="file-name">Berkas Pendukung.zip</span>
+                                        <span class="file-meta">Kumpulan file penting</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="text-muted small">Arsip berkas pendukung pembelajaran.</span></td>
+                            <td><span class="badge bg-light text-dark border">Arsip</span></td>
+                            <td>12.5 MB</td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Pagination -->
+                <div class="pagination-container" id="pagination">
+                    <!-- Pagination akan diisi oleh JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-3 text-warning">PPDB ONLINE</h5>
+                    <p class="small opacity-75">Portal resmi Penerimaan Peserta Didik Baru SMA Unggulan Nusantara.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold mb-3">Navigasi</h5>
+                    <a href="index.html" class="footer-link">Beranda</a>
+                    <a href="media.html" class="footer-link">Media Download</a>
+                    <a href="index.html#bantuan" class="footer-link">Bantuan</a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-3">Kontak Kami</h5>
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-geo-alt-fill text-warning me-3 mt-1"></i>
+                        <span class="small opacity-75">Jl. Pendidikan No. 123, Jakarta Selatan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT: jQuery (Tetap DataTables Dependency) & Bootstrap Bundle -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script Native JS (Tanpa DataTables) -->
+    <script>
+        // 1. Data Dokumen
+        const documents = [
+            { id: 1, name: "Formulir Pendaftaran 2025.pdf", desc: "Wajib diisi calon siswa baru", category: "Formulir", size: "2.5 MB", date: "15 Mei 2024", icon: "bi-file-earmark-pdf-fill", color: "text-danger" },
+            { id: 2, name: "Panduan PPDB Lengkap.pdf", desc: "Petunjuk teknis pendaftaran", category: "Panduan", size: "5.1 MB", date: "14 Mei 2024", icon: "bi-book-fill", color: "text-success" },
+            { id: 3, name: "Brosur Sekolah High Res.jpg", desc: "Gambar fasilitas dan prestasi", category: "Brosur", size: "8.2 MB", date: "10 Mei 2024", icon: "bi-image-fill", color: "text-primary" },
+            { id: 4, name: "Format Surat Pernyataan.docx", desc: "Template surat orang tua", category: "Format", size: "15 KB", date: "08 Mei 2024", icon: "bi-file-word-fill", color: "text-primary" },
+            { id: 5, name: "Video Profil Sekolah.mp4", desc: "Promo video sekolah", category: "Video", size: "120 MB", date: "07 Mei 2024", icon: "bi-file-play-fill", color: "text-warning" },
+            { id: 6, name: "Kalender Akademik 2024-2025.pdf", desc: "Jadwal libur dan ujian", category: "Info", size: "1.8 MB", date: "01 Mei 2024", icon: "bi-calendar-event", color: "text-primary" },
+            { id: 7, name: "Rincian Biaya SPP.pdf", desc: "Daftar biaya pendidikan", category: "Info", size: "900 KB", date: "25 Apr 2024", icon: "bi-currency-dollar", color: "text-secondary" },
+            { id: 8, name: "Kurikulum Merdeka.pdf", desc: "Struktur kurikulum belajar", category: "Kurikulum", size: "3.2 MB", date: "20 Apr 2024", icon: "bi-book", color: "text-primary" },
+            { id: 9, name: "Peta Zonasi Sekolah.pdf", desc: "Peta zonasi PPDB", category: "Info", size: "5.4 MB", date: "18 Apr 2024", icon: "bi-geo-alt", color: "text-primary" },
+            { id: 10, name: "Berkas Pendukung.zip", desc: "Arsip berkas pendukung pembelajaran", category: "Arsip", size: "12.5 MB", date: "15 Apr 2024", icon: "bi-file-zip", color: "text-dark" }
+        ];
+
+        // 2. Variabel State
+        let currentPage = 1;
+        const rowsPerPage = 5; 
+        let currentData = [...documents];
+
+        // 3. Fungsi Render Table
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            
+            if (data.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="text-center py-4">Data tidak ditemukan.</td>
+                    </tr>
+                `;
+                return;
+            }
+
+            // Bersihkan dulu
+            tbody.innerHTML = '';
+
+            // Loop data
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.id}</td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                                    <div class="file-icon text-${item.color}">
+                                        <i class="bi ${item.icon}"></i>
+                                    </div>
+                                    <div>
+                                        <span class="file-name">${item.name}</span>
+                                        <span class="file-meta">${item.desc}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="text-muted small">${item.desc}</span></td>
+                            <td><span class="badge bg-light text-dark border">Info</span></td>
+                            <td><span class="text-muted small">${item.size}</span></td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-primary rounded-pill px-3" title="Download"><i class="bi bi-download"></i> Unduh</a>
+                            </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // 4. Fungsi Pagination
+        function renderPagination(totalItems) {
+            const totalPages = Math.ceil(totalItems / rowsPerPage);
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            // Tombol Previous
+            const prevDisabled = currentPage === 1 ? 'disabled' : '';
+            pagination.innerHTML += `
+                <button class="page-btn ${prevDisabled}" onclick="changePage(${currentPage - 1})" ${prevDisabled === 'disabled' ? 'disabled' : ''}>
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+            `;
+
+            // Nomor Halaman
+            for (let i = 1; i <= totalPages; i++) {
+                const activeClass = i === currentPage ? 'active' : '';
+                pagination.innerHTML += `
+                    <button class="page-btn ${activeClass}" onclick="changePage(${i})">${i}</button>
+                `;
+            }
+
+            // Tombol Next
+            const nextDisabled = currentPage === totalPages ? 'disabled' : '';
+            pagination.innerHTML += `
+                <button class="page-btn ${nextDisabled}" onclick="changePage(${currentPage + 1})" ${nextDisabled === 'disabled' ? 'disabled' : ''}>
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            `;
+        }
+
+        // 5. Fungsi Ganti Halaman & Filter
+        function changePage(page) {
+            const totalPages = Math.ceil(currentData.length / rowsPerPage);
+            if (page < 1 || page > totalPages) return;
+
+            currentPage = page;
+            renderTable(currentData.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage));
+            renderPagination(currentData.length);
+        }
+
+        // 6. Fungsi Filter
+        function applyFilters() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+
+            const filtered = documents.filter(item => {
+                const matchSearch = item.name.toLowerCase().includes(searchText) || item.desc.toLowerCase().includes(searchText);
+                const matchCategory = categoryFilter === 'All' || item.category === categoryFilter;
+                return matchSearch && matchCategory;
+            });
+
+            currentData = filtered;
+            currentPage = 1;
+            renderTable(currentData.slice(0, rowsPerPage));
+            renderPagination(filtered.length);
+        }
+
+        // 7. Event Listeners
+        document.getElementById('searchInput').addEventListener('keyup', applyFilters);
+        document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+
+        // 8. Inisialisasi Awal
+        renderTable(currentData.slice(0, rowsPerPage));
+        renderPagination(documents.length);
+
+        // 9. Theme Switcher
+        const colorOptions = document.querySelectorAll('.color-option');
+        const root = document.documentElement;
+
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                colorOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                const primaryColor = this.getAttribute('data-primary');
+                const lightColor = this.getAttribute('data-light');
+                root.style.setProperty('--primary-color', primaryColor);
+                root.style.setProperty('--primary-light', lightColor);
+            });
+        });
+    </script>
+</body>
+</html>
