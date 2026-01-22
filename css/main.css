@@ -1963,24 +1963,20 @@ footer {
         height: 100%;
     }
 
-    .hero-carousel-section .carousel-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-    }
-
     .carousel-caption-custom {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        padding: 120px 25px 100px 25px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0 25px;
         max-width: 100%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        text-align: center;
+        margin-top: 20px;
+        /* offset untuk navbar */
     }
 
     .hero-carousel-badge {
@@ -2017,7 +2013,7 @@ footer {
     }
 
     .hero-carousel-section .carousel-indicators {
-        bottom: 30px;
+        bottom: 20px;
         z-index: 10;
     }
 
@@ -2030,7 +2026,8 @@ footer {
 /* Small mobile devices */
 @media (max-width: 480px) {
     .carousel-caption-custom {
-        padding: 100px 20px 90px 20px;
+        padding: 0 20px;
+        margin-top: 15px;
     }
 
     .hero-carousel-title {
@@ -2057,6 +2054,6 @@ footer {
     }
 
     .hero-carousel-section .carousel-indicators {
-        bottom: 25px;
+        bottom: 15px;
     }
 }
