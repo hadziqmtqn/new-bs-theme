@@ -72,32 +72,118 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="beranda" class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <span class="hero-badge">Portal Resmi Penerimaan Siswa Baru 2024/2025</span>
-                    <h1 class="hero-title">Bergabunglah Menjadi Generasi Cerdas & Berkarakter</h1>
-                    <p class="lead text-muted mb-4">
-                        Sistem penerimaan peserta didik baru berbasis online yang transparan, akuntabel, dan mudah
-                        diakses. Wujudkan impian masa depan Anda di sini.
-                    </p>
-                    <div class="d-flex gap-3 flex-wrap justify-content-lg-start justify-content-center">
-                        <a href="registrasi.html" class="btn btn-primary btn-lg px-4 py-3 rounded-4 shadow-sm">
-                            <i class="bi bi-pencil-square me-2"></i> Daftar Sekarang
-                        </a>
-                        <a href="#informasi" class="btn btn-outline-primary btn-lg px-4 py-3 rounded-4">
-                            <i class="bi bi-info-circle me-2"></i> Alur Pendaftaran
-                        </a>
+    <!-- Hero Carousel Section -->
+    <section id="beranda" class="hero-carousel-section">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <!-- Carousel Slides -->
+            <div class="carousel-inner">
+
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="carousel-slide-bg"
+                        style="background-image: url('https://picsum.photos/seed/campus/1920/800');"></div>
+                    <div class="carousel-overlay"></div>
+                    <div class="container h-100">
+                        <div class="carousel-caption-custom">
+                            <span class="hero-carousel-badge">
+                                <i class="bi bi-mortarboard-fill me-2"></i>PPDB 2024/2025
+                            </span>
+                            <h1 class="hero-carousel-title">Bergabunglah Menjadi Generasi Cerdas & Berkarakter</h1>
+                            <p class="hero-carousel-subtitle">
+                                Sistem penerimaan peserta didik baru berbasis online yang transparan, akuntabel, dan
+                                mudah diakses.
+                            </p>
+                            <div class="hero-carousel-buttons">
+                                <a href="registrasi.html" class="btn btn-carousel-primary">
+                                    <i class="bi bi-pencil-square me-2"></i>Daftar Sekarang
+                                </a>
+                                <a href="#informasi" class="btn btn-carousel-outline">
+                                    <i class="bi bi-info-circle me-2"></i>Info Pendaftaran
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mt-5 mt-lg-0">
-                    <!-- Gambar Sekolah/Siswa -->
-                    <img src="https://picsum.photos/seed/school/600/400" alt="Suasana Sekolah"
-                        class="hero-img img-fluid">
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="carousel-slide-bg"
+                        style="background-image: url('https://picsum.photos/seed/students/1920/800');"></div>
+                    <div class="carousel-overlay"></div>
+                    <div class="container h-100">
+                        <div class="carousel-caption-custom">
+                            <span class="hero-carousel-badge">
+                                <i class="bi bi-star-fill me-2"></i>Prestasi Gemilang
+                            </span>
+                            <h1 class="hero-carousel-title">Raih Prestasi Terbaik Bersama Kami</h1>
+                            <p class="hero-carousel-subtitle">
+                                Bergabung dengan ribuan alumni sukses yang telah menorehkan prestasi di tingkat nasional
+                                dan internasional.
+                            </p>
+                            <div class="hero-carousel-buttons">
+                                <a href="#jurusan" class="btn btn-carousel-primary">
+                                    <i class="bi bi-book me-2"></i>Lihat Program Studi
+                                </a>
+                                <a href="media.html" class="btn btn-carousel-outline">
+                                    <i class="bi bi-images me-2"></i>Galeri Kegiatan
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="carousel-slide-bg"
+                        style="background-image: url('https://picsum.photos/seed/library/1920/800');"></div>
+                    <div class="carousel-overlay"></div>
+                    <div class="container h-100">
+                        <div class="carousel-caption-custom">
+                            <span class="hero-carousel-badge">
+                                <i class="bi bi-building me-2"></i>Fasilitas Modern
+                            </span>
+                            <h1 class="hero-carousel-title">Fasilitas Lengkap untuk Menunjang Pembelajaran</h1>
+                            <p class="hero-carousel-subtitle">
+                                Laboratorium modern, perpustakaan digital, dan sarana olahraga lengkap siap mendukung
+                                pengembangan potensi siswa.
+                            </p>
+                            <div class="hero-carousel-buttons">
+                                <a href="#informasi" class="btn btn-carousel-primary">
+                                    <i class="bi bi-compass me-2"></i>Jelajahi Sekolah
+                                </a>
+                                <a href="#bantuan" class="btn btn-carousel-outline">
+                                    <i class="bi bi-question-circle me-2"></i>Hubungi Kami
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-icon">
+                    <i class="bi bi-chevron-left"></i>
+                </span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-icon">
+                    <i class="bi bi-chevron-right"></i>
+                </span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
         </div>
     </section>
 
@@ -314,7 +400,8 @@
         <div class="container">
             <h2 class="fw-bold mb-3">Siap Menjadi Bagian dari Kami?</h2>
             <p class="lead mb-4 opacity-75">Daftarkan diri Anda sekarang dan capai prestasi akademik terbaik.</p>
-            <a href="registrasi.html" class="btn btn-warning btn-lg rounded-4 text-dark fw-bold px-5 shadow">Daftar Sekarang</a>
+            <a href="registrasi.html" class="btn btn-warning btn-lg rounded-4 text-dark fw-bold px-5 shadow">Daftar
+                Sekarang</a>
         </div>
     </section>
 
