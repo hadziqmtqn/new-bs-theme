@@ -725,17 +725,19 @@ section[style*="background-color"] .lead {
     .navbar-nav .dropdown-menu {
         box-shadow: none;
         background: linear-gradient(135deg, rgba(var(--primary-color-rgb, 27, 125, 74), 0.05) 0%, rgba(var(--primary-color-rgb, 27, 125, 74), 0.08) 100%);
-        margin-top: 8px;
-        padding: 8px;
+        margin-top: 10px;
+        margin-bottom: 8px;
+        padding: 10px;
         border: 1px solid rgba(var(--primary-color-rgb, 27, 125, 74), 0.1);
         animation: none;
-        border-radius: 12px;
+        border-radius: 14px;
     }
 
     .navbar-nav .dropdown-item {
-        padding: 12px 16px;
-        margin-bottom: 4px;
+        padding: 13px 18px;
+        margin-bottom: 5px;
         font-size: 0.95rem;
+        border-radius: 10px;
     }
 
     .navbar-nav .dropdown-item:hover {
@@ -744,6 +746,14 @@ section[style*="background-color"] .lead {
 
     .navbar-nav .dropdown-item::before {
         border-radius: 10px;
+    }
+
+    .navbar-nav .dropdown-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .navbar-nav .dropdown-divider {
+        margin: 8px 0;
     }
 
     /* Prevent menu from closing on mobile when clicking submenu */
@@ -757,21 +767,26 @@ section[style*="background-color"] .lead {
     .navbar-collapse {
         background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
         border-radius: 16px;
-        padding: 20px;
+        padding: 24px;
         margin-top: 15px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .navbar-nav {
-        gap: 5px;
+        gap: 8px;
+    }
+
+    .nav-item {
+        margin-bottom: 6px;
     }
 
     .nav-link {
-        padding: 12px 16px !important;
+        padding: 14px 18px !important;
         margin: 0;
-        border-radius: 10px;
+        border-radius: 12px;
         transition: all 0.25s ease;
+        font-size: 0.95rem;
     }
 
     .nav-link:hover {
@@ -781,7 +796,8 @@ section[style*="background-color"] .lead {
     .nav-link.active {
         background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
         color: white !important;
-        border-radius: 10px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(var(--primary-color-rgb, 27, 125, 74), 0.25);
     }
 
     /* Remove underline indicator on mobile */
@@ -791,9 +807,9 @@ section[style*="background-color"] .lead {
 
     .btn-group-nav {
         flex-direction: column;
-        gap: 10px;
-        margin-top: 15px;
-        padding-top: 15px;
+        gap: 12px;
+        margin-top: 20px;
+        padding-top: 20px;
         border-top: 1px solid rgba(0, 0, 0, 0.08);
     }
 
@@ -802,6 +818,10 @@ section[style*="background-color"] .lead {
         width: 100%;
         text-align: center;
         justify-content: center;
+        padding: 14px 20px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 12px;
     }
 }
 
@@ -842,30 +862,58 @@ section[style*="background-color"] .lead {
         padding: 0 15px;
     }
 
-    .navbar-nav {
-        gap: 0;
+    /* Horizontal button layout for tablet */
+    .btn-group-nav {
+        flex-direction: row !important;
+        gap: 10px !important;
+        justify-content: space-between;
+    }
+
+    .btn-group-nav .btn-register,
+    .btn-group-nav .btn-login {
+        width: 48% !important;
+        padding: 12px 16px !important;
+        font-size: 0.95rem !important;
+    }
+
+    /* Adjust nav item spacing for tablet */
+    .nav-item {
+        margin-bottom: 4px !important;
     }
 
     .nav-link {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.6rem !important;
-        margin: 0 2px;
+        padding: 12px 16px !important;
+        font-size: 0.9rem !important;
     }
 
+    .navbar-nav .dropdown-item {
+        padding: 11px 16px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Mobile Only Styles (< 768px) - Vertical buttons */
+@media (max-width: 767px) {
     .btn-group-nav {
-        gap: 8px;
+        flex-direction: column;
     }
 
-    .btn-register,
-    .btn-login {
-        padding: 0.4rem 0.9rem;
-        font-size: 0.85rem;
+    .btn-group-nav .btn-register,
+    .btn-group-nav .btn-login {
+        width: 100%;
     }
 
-    /* Remove underline indicator on tablet - use smaller dot */
-    .nav-link.active::after {
-        width: 20px;
-        bottom: -3px;
+    /* Increase spacing for better touch targets on mobile */
+    .nav-item {
+        margin-bottom: 8px;
+    }
+
+    .nav-link {
+        padding: 16px 20px !important;
+    }
+
+    .navbar-nav .dropdown-item {
+        padding: 14px 20px !important;
     }
 }
 
