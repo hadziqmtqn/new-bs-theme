@@ -87,3 +87,118 @@ body.auth-page {
 .auth-footer a:hover {
     text-decoration: underline;
 }
+
+/* ===================================================================
+   SOCIAL LOGIN STYLES
+   =================================================================== */
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.auth-divider::before {
+    margin-right: 0.75rem;
+}
+
+.auth-divider::after {
+    margin-left: 0.75rem;
+}
+
+/* Base social button styles */
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid;
+}
+
+.btn-social i {
+    font-size: 1.2rem;
+}
+
+/* Google */
+.btn-social-google {
+    background-color: #fff;
+    color: #333;
+    border-color: #dadce0;
+}
+
+.btn-social-google:hover {
+    background-color: #f8f9fa;
+    border-color: #4285f4;
+    color: #4285f4;
+    box-shadow: 0 2px 8px rgba(66, 133, 244, 0.2);
+}
+
+/* Facebook */
+.btn-social-facebook {
+    background-color: #1877f2;
+    color: #fff;
+    border-color: #1877f2;
+}
+
+.btn-social-facebook:hover {
+    background-color: #166fe5;
+    border-color: #166fe5;
+    box-shadow: 0 2px 8px rgba(24, 119, 242, 0.3);
+    color: #fff;
+}
+
+/* GitHub */
+.btn-social-github {
+    background-color: #24292e;
+    color: #fff;
+    border-color: #24292e;
+}
+
+.btn-social-github:hover {
+    background-color: #1b1f23;
+    border-color: #1b1f23;
+    box-shadow: 0 2px 8px rgba(36, 41, 46, 0.3);
+    color: #fff;
+}
+
+/* Twitter / X */
+.btn-social-twitter {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.btn-social-twitter:hover {
+    background-color: #333;
+    border-color: #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+/* Microsoft */
+.btn-social-microsoft {
+    background-color: #fff;
+    color: #5e5e5e;
+    border-color: #8c8c8c;
+}
+
+.btn-social-microsoft:hover {
+    background-color: #f3f2f1;
+    border-color: #0078d4;
+    color: #0078d4;
+    box-shadow: 0 2px 8px rgba(0, 120, 212, 0.2);
+}
