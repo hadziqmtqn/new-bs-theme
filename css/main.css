@@ -9,6 +9,8 @@
 :root {
     /* Default: Hijau */
     --primary-color: #1b7d4a;
+    --primary-color-rgb: 27, 125, 74;
+    /* RGB values for rgba() usage */
     --primary-light: #2ca05e;
     --accent-color: #ffca28;
     /* Emas/Kuning */
@@ -677,6 +679,24 @@ section[style*="background-color"] .lead {
     color: white;
 }
 
+/* Active state for dropdown items - subtle indicator */
+.navbar-nav .dropdown-item.active {
+    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.08);
+    color: var(--primary-color);
+    border-left: 3px solid var(--primary-color);
+    padding-left: 13px;
+    /* Adjusted to compensate for border */
+}
+
+.navbar-nav .dropdown-item.active i {
+    color: var(--primary-color);
+}
+
+.navbar-nav .dropdown-item.active:hover {
+    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.12);
+    border-left-color: var(--primary-light);
+}
+
 .navbar-nav .dropdown-divider {
     margin: 10px 0;
     border-color: rgba(0, 0, 0, 0.08);
@@ -725,7 +745,7 @@ section[style*="background-color"] .lead {
     .navbar-nav .dropdown-item::before {
         border-radius: 10px;
     }
-    
+
     /* Prevent menu from closing on mobile when clicking submenu */
     .navbar-nav .dropdown-menu.show {
         display: block;

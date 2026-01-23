@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const g = parseInt(primaryColor.slice(3, 5), 16);
             const b = parseInt(primaryColor.slice(5, 7), 16);
             root.style.setProperty('--btn-primary-shadow', `rgba(${r}, ${g}, ${b}, 0.4)`);
+            root.style.setProperty('--primary-color-rgb', `${r}, ${g}, ${b}`);
         });
     });
 
