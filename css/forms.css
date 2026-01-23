@@ -176,37 +176,140 @@
 }
 
 
-/* Select2 Customization to match Bootstrap 5 & Auth Styles */
+/* Select2 Customization - Premium Style */
 .select2-container--bootstrap-5 .select2-selection {
     border-color: #ced4da;
-    /* Match auth.css border */
     border-radius: 10px;
     min-height: 50.8px;
-    /* Match form-control height (approx) with new padding */
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
-    padding-left: 0.2rem;
+    padding: 0.6rem 0.6rem 0.6rem 0.2rem;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.select2-container--bootstrap-5 .select2-selection:focus-within,
+.select2-container--bootstrap-5.select2-container--focus .select2-selection,
+.select2-container--bootstrap-5.select2-container--open .select2-selection {
+    border-color: #1b7d4a !important;
+    box-shadow: 0 0 0 0.2rem rgba(27, 125, 74, 0.1) !important;
 }
 
 .select2-container--bootstrap-5 .select2-selection--single .select2-selection__rendered {
     color: #333;
     padding-left: 0.8rem;
     line-height: 1.5;
+    font-weight: 500;
 }
 
 .select2-container--bootstrap-5 .select2-dropdown {
-    border-color: #ced4da;
+    border-color: #f0f0f0;
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    animation: fadeInDown 0.2s ease-out;
+    z-index: 9999;
+    /* Ensure dropdown is on top */
+}
+
+/* Dropdown Search Field */
+.select2-container--bootstrap-5 .select2-search__field {
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    border-color: #dee2e6;
+    margin-bottom: 5px;
+}
+
+.select2-container--bootstrap-5 .select2-search__field:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(27, 125, 74, 0.1);
+}
+
+/* Results List */
+.select2-container--bootstrap-5 .select2-results__options {
+    padding: 6px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.select2-container--bootstrap-5 .select2-results__option {
+    border-radius: 8px;
+    margin-bottom: 2px;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    transition: all 0.2s;
 }
 
 .select2-container--bootstrap-5 .select2-results__option--highlighted {
     background-color: var(--primary-color);
+    color: white;
+    transform: translateX(3px);
 }
 
+.select2-container--bootstrap-5 .select2-results__option[aria-selected="true"] {
+    background-color: rgba(27, 125, 74, 0.1);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Multi Select Styling */
 .select2-container--bootstrap-5 .select2-selection--multiple {
     min-height: 50.8px;
     padding-top: 4px;
+    height: auto !important;
+    /* Allow growth */
+}
+
+.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered {
+    padding-left: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
+    background: rgba(27, 125, 74, 0.1);
+    border: 1px solid rgba(27, 125, 74, 0.2);
+    border-radius: 50px;
+    /* Pill shape */
+    color: var(--primary-color);
+    font-weight: 500;
+    padding: 4px 12px;
+    padding-right: 28px;
+    margin: 0;
+    position: relative;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+}
+
+.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(27, 125, 74, 0.2);
+    color: var(--primary-color);
+    font-size: 0.7rem;
+    /* Smaller X */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 0;
+    margin: 0;
+    border-left: none;
+    /* Remove previous style */
+}
+
+.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove:hover {
+    background: var(--primary-color);
+    color: white;
 }
 
 /* Datepicker Dropdown Customization */
