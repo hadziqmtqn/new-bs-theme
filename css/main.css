@@ -580,20 +580,22 @@ section[style*="background-color"] .lead {
 
 .nav-link.active {
     color: var(--primary-color) !important;
-    font-weight: 700;
+    font-weight: 600;
     position: relative;
+    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.15);
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
+.nav-link.active:hover {
+    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.2);
+    transform: translateY(-1px);
+}
+
+/* Remove underline indicator - using background instead */
 .nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 3px;
-    background-color: var(--primary-color);
-    border-radius: 2px;
+    display: none;
 }
 
 /* Dropdown Menu Styling */
@@ -681,7 +683,7 @@ section[style*="background-color"] .lead {
 
 /* Active state for dropdown items - subtle indicator */
 .navbar-nav .dropdown-item.active {
-    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.08);
+    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.1);
     color: var(--primary-color);
     border-left: 3px solid var(--primary-color);
     padding-left: 13px;
@@ -692,9 +694,21 @@ section[style*="background-color"] .lead {
     color: var(--primary-color);
 }
 
+/* Disable ::before gradient effect for active items */
+.navbar-nav .dropdown-item.active::before {
+    display: none;
+}
+
+/* Hover state for active items - flat background only */
 .navbar-nav .dropdown-item.active:hover {
-    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.12);
+    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.15);
     border-left-color: var(--primary-light);
+    color: var(--primary-color);
+    transform: translateX(3px);
+}
+
+.navbar-nav .dropdown-item.active:hover i {
+    color: var(--primary-color);
 }
 
 .navbar-nav .dropdown-divider {
@@ -706,18 +720,32 @@ section[style*="background-color"] .lead {
 /* Dropdown Toggle Fix */
 .navbar-nav .dropdown-toggle::after {
     display: inline-block;
-    margin-left: 0.255em;
-    vertical-align: 0.255em;
+    margin-left: 0.4em;
+    vertical-align: 0.15em;
     content: "";
-    border-top: 0.3em solid;
-    border-right: 0.3em solid transparent;
+    border-top: 0.35em solid;
+    border-right: 0.35em solid transparent;
     border-bottom: 0;
-    border-left: 0.3em solid transparent;
+    border-left: 0.35em solid transparent;
     transition: transform 0.3s ease;
 }
 
+/* Dropdown toggle arrow when active - make it VERY visible */
+.navbar-nav .dropdown-toggle.active::after {
+    border-top-color: var(--text-dark);
+    opacity: 1;
+    filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.8));
+}
+
+/* Dropdown arrow rotation when open */
 .navbar-nav .dropdown.show .dropdown-toggle::after {
     transform: rotate(180deg);
+}
+
+/* Ensure arrow is visible on hover */
+.navbar-nav .dropdown-toggle:hover::after {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 /* Mobile Dropdown Adjustments */
@@ -754,6 +782,20 @@ section[style*="background-color"] .lead {
 
     .navbar-nav .dropdown-divider {
         margin: 8px 0;
+    }
+
+    /* Dropdown toggle arrow styling for mobile */
+    .navbar-nav .dropdown-toggle::after {
+        border-top-width: 0.35em;
+        border-right-width: 0.35em;
+        border-left-width: 0.35em;
+        margin-left: 0.4em;
+    }
+
+    /* Ensure dropdown arrow is visible when active on mobile */
+    .navbar-nav .dropdown-toggle.active::after {
+        border-top-color: white;
+        opacity: 1;
     }
 
     /* Prevent menu from closing on mobile when clicking submenu */
