@@ -522,8 +522,12 @@ section[style*="background-color"] .lead {
    4. NAVBAR STYLES
    =================================================================== */
 .navbar {
-    background-color: white;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08),
+        0 1px 0 rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     padding: 1rem 0;
     transition: all 0.3s ease;
 }
@@ -816,12 +820,19 @@ section[style*="background-color"] .lead {
 /* Mobile Navbar Styles */
 @media (max-width: 991px) {
     .navbar-collapse {
-        background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+        background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(248, 249, 250, 0.85) 100%);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
         border-radius: 16px;
         padding: 24px;
         margin-top: 15px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.12),
+            0 0 0 1px rgba(255, 255, 255, 0.6) inset,
+            0 1px 0 rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.5);
     }
 
     .navbar-nav {
