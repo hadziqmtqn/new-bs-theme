@@ -572,28 +572,41 @@ section[style*="background-color"] .lead {
     font-weight: 500;
     margin: 0 10px;
     transition: all 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link i {
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
 }
 
 .nav-link:hover {
     color: var(--primary-color);
 }
 
+.nav-link:hover i {
+    transform: scale(1.05);
+}
+
 .nav-link.active {
     color: var(--primary-color) !important;
     font-weight: 600;
     position: relative;
-    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.15);
+    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.08);
     padding: 8px 16px;
     border-radius: 8px;
+    border-bottom: 3px solid var(--primary-color);
     transition: all 0.3s ease;
 }
 
 .nav-link.active:hover {
-    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.2);
-    transform: translateY(-1px);
+    background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.12);
+    border-bottom-color: var(--primary-light);
+    transform: translateY(-2px);
 }
 
-/* Remove underline indicator - using background instead */
+/* Remove underline indicator - using border-bottom instead */
 .nav-link.active::after {
     display: none;
 }
