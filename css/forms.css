@@ -1,0 +1,281 @@
+/* ===================================================================
+   FORM MANAGEMENT CUSTOM STYLES
+   =================================================================== */
+
+/* Core Form Styles (Matched with auth.css) */
+.form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ced4da;
+    transition: all 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #1b7d4a;
+    box-shadow: 0 0 0 0.2rem rgba(27, 125, 74, 0.1);
+}
+
+.form-text {
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Password Toggle Styles (Matched with auth.css) */
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d;
+}
+
+/* Section Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1rem 1.5rem;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Sidebar Navigation */
+.list-group-item {
+    border: none;
+    padding: 0.8rem 1.2rem;
+    color: #555;
+    border-radius: 8px !important;
+    margin-bottom: 4px;
+    transition: all 0.2s;
+}
+
+.list-group-item:hover {
+    background-color: #e9ecef;
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.list-group-item.active {
+    background-color: rgba(27, 125, 74, 0.1);
+    color: var(--primary-color);
+    font-weight: 600;
+    border-color: transparent;
+}
+
+/* Image Preview */
+#imagePreview {
+    min-height: 100px;
+    border: 2px dashed #dee2e6;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+}
+
+#imagePreview img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+#imagePreview.has-image {
+    border-style: solid;
+    border-color: var(--primary-color);
+    padding: 5px;
+}
+
+/* Select2 Customization to match Bootstrap 5 & Auth Styles */
+.select2-container--bootstrap-5 .select2-selection {
+    border-color: #ced4da;
+    /* Match auth.css border */
+    border-radius: 10px;
+    min-height: 50.8px;
+    /* Match form-control height (approx) with new padding */
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    padding-left: 0.2rem;
+}
+
+.select2-container--bootstrap-5 .select2-selection--single .select2-selection__rendered {
+    color: #333;
+    padding-left: 0.8rem;
+    line-height: 1.5;
+}
+
+.select2-container--bootstrap-5 .select2-dropdown {
+    border-color: #ced4da;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.select2-container--bootstrap-5 .select2-results__option--highlighted {
+    background-color: var(--primary-color);
+}
+
+.select2-container--bootstrap-5 .select2-selection--multiple {
+    min-height: 50.8px;
+    padding-top: 4px;
+}
+
+/* Datepicker Dropdown Customization */
+.datepicker-dropdown {
+    border-radius: 12px !important;
+    padding: 12px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
+}
+
+.datepicker table tr td.day,
+.datepicker table tr th.dow {
+    border-radius: 8px !important;
+    width: 35px;
+    height: 35px;
+}
+
+.datepicker table tr td.day:hover,
+.datepicker table tr td.focused {
+    background: #f0f4f8 !important;
+}
+
+.datepicker td.active,
+.datepicker td.active:hover {
+    background-color: var(--primary-color) !important;
+    background-image: none !important;
+    box-shadow: 0 4px 10px rgba(27, 125, 74, 0.3);
+}
+
+.datepicker td.today,
+.datepicker td.today:hover {
+    background: rgba(27, 125, 74, 0.1) !important;
+    color: var(--primary-color) !important;
+    font-weight: bold;
+    border-radius: 8px !important;
+}
+
+.datepicker th.datepicker-switch {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    color: #333;
+    border-radius: 8px;
+}
+
+.datepicker th.next,
+.datepicker th.prev {
+    color: var(--primary-color);
+    border-radius: 8px;
+}
+
+.datepicker th.next:hover,
+.datepicker th.prev:hover,
+.datepicker th.datepicker-switch:hover {
+    background: #f0f4f8 !important;
+}
+
+.datepicker th {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+/* Range Slider Value */
+#rangeValue {
+    font-weight: 600;
+    color: var(--primary-color);
+    display: inline-block;
+    width: 30px;
+    text-align: right;
+}
+
+/* Form Validation Styles */
+.valid-feedback,
+.invalid-feedback {
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+}
+
+/* Required Asterisk */
+label.required::after {
+    content: " *";
+    color: #dc3545;
+}
+
+/* Input Group Text (Cleaner Seamless Look) */
+.input-group-text {
+    background-color: #fff;
+    /* White background for seamless look */
+    border-color: #ced4da;
+    color: var(--primary-color);
+    /* Icon color */
+    padding: 0.8rem 1rem;
+}
+
+.input-group-text i {
+    font-size: 1.1rem;
+}
+
+/* Fix input group corners with large border radius */
+.input-group>.form-control:not(:first-child),
+.input-group>.form-select:not(:first-child),
+.input-group>.input-group-text:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.input-group>.form-control:not(:last-child),
+.input-group>.form-select:not(:last-child),
+.input-group>.input-group-text:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Ensure the outer corners maintain the 10px radius */
+.input-group> :first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.input-group> :last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Password Toggle Button */
+#togglePasswordBasic {
+    border-left: none;
+}
+
+#togglePasswordBasic:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}

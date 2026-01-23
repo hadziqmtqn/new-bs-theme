@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Management - Demo & Reference</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css"
+        rel="stylesheet" />
+
+    <!-- Bootstrap Datepicker CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css"
+        rel="stylesheet">
+
+    <!-- Tempus Dominus DateTime Picker CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/forms.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/school-min.webp" alt="Logo Sekolah" class="navbar-logo">
+                SMA Unggulan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house-door me-2"></i>Beranda
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="form-management.html">
+                            <i class="bi bi-card-checklist me-2"></i>Form Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header py-5" style="background: linear-gradient(135deg, #1b7d4a 0%, #2d9c5e 100%);">
+        <div class="container">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bold mb-3">
+                    <i class="bi bi-card-checklist me-3"></i>Form Management
+                </h1>
+                <p class="lead mb-0">Demonstrasi Komponen Form dengan Validasi, Datepickers, Select2, dan Komponen
+                    Lainnya</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Navigation -->
+                <div class="col-lg-3 mb-4">
+                    <div class="card shadow-sm sticky-top" style="top: 100px;">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="mb-0"><i class="bi bi-list-ul me-2"></i>Quick Navigation</h6>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="#basic-inputs" class="list-group-item list-group-item-action">
+                                <i class="bi bi-input-cursor me-2"></i>Basic Inputs
+                            </a>
+                            <a href="#advanced-inputs" class="list-group-item list-group-item-action">
+                                <i class="bi bi-stars me-2"></i>Advanced Inputs
+                            </a>
+                            <a href="#select2-demo" class="list-group-item list-group-item-action">
+                                <i class="bi bi-ui-checks me-2"></i>Select2
+                            </a>
+                            <a href="#datepicker-demo" class="list-group-item list-group-item-action">
+                                <i class="bi bi-calendar-event me-2"></i>Date & Time Pickers
+                            </a>
+                            <a href="#file-upload" class="list-group-item list-group-item-action">
+                                <i class="bi bi-file-earmark-arrow-up me-2"></i>File Upload
+                            </a>
+                            <a href="#form-validation" class="list-group-item list-group-item-action">
+                                <i class="bi bi-shield-check me-2"></i>Form Validation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Sections -->
+                <div class="col-lg-9">
+
+                    <!-- Basic Inputs Section -->
+                    <div id="basic-inputs" class="card shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h4 class="mb-0"><i class="bi bi-input-cursor me-2"></i>Basic Form Inputs</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="basicForm">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="textInput" class="form-label">Text Input</label>
+                                        <input type="text" class="form-control" id="textInput"
+                                            placeholder="Masukkan teks">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="emailInput" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="emailInput"
+                                            placeholder="contoh@email.com">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="passwordInput" class="form-label">Password</label>
+                                        <div class="password-wrapper">
+                                            <input type="password" class="form-control" id="passwordInput"
+                                                placeholder="Password">
+                                            <i class="bi bi-eye-slash password-toggle" id="togglePasswordBasic"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="telInput" class="form-label">Telephone</label>
+                                        <input type="tel" class="form-control" id="telInput" placeholder="08123456789">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="textareaInput" class="form-label">Textarea</label>
+                                    <textarea class="form-control" id="textareaInput" rows="3"
+                                        placeholder="Masukkan teks panjang..."></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="urlInput" class="form-label">URL</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-link-45deg"></i></span>
+                                        <input type="url" class="form-control" id="urlInput"
+                                            placeholder="https://example.com">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="numberInput" class="form-label">Number (1-100)</label>
+                                    <input type="number" class="form-control" id="numberInput" min="1" max="100"
+                                        placeholder="Masukkan angka">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Checkboxes</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="check1" value="option1">
+                                        <label class="form-check-label" for="check1">Option 1</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="check2" value="option2">
+                                        <label class="form-check-label" for="check2">Option 2</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="check3" value="option3"
+                                            disabled>
+                                        <label class="form-check-label" for="check3">Option 3 (Disabled)</label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Radio Buttons</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="radioGroup" id="radio1"
+                                            value="option1">
+                                        <label class="form-check-label" for="radio1">Option 1</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="radioGroup" id="radio2"
+                                            value="option2">
+                                        <label class="form-check-label" for="radio2">Option 2</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="radioGroup" id="radio3"
+                                            value="option3" disabled>
+                                        <label class="form-check-label" for="radio3">Option 3 (Disabled)</label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Switches</label>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="switch1">
+                                        <label class="form-check-label" for="switch1">Enable notifications</label>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="switch2" checked>
+                                        <label class="form-check-label" for="switch2">Auto-save enabled</label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="rangeInput" class="form-label">Range Slider: <span
+                                            id="rangeValue">50</span></label>
+                                    <input type="range" class="form-range" id="rangeInput" min="0" max="100" value="50">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Inputs Section -->
+                    <div id="advanced-inputs" class="card shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h4 class="mb-0"><i class="bi bi-stars me-2"></i>Advanced Inputs</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="advancedForm">
+                                <div class="mb-3">
+                                    <label for="colorInput" class="form-label">Color Picker</label>
+                                    <div class="input-group">
+                                        <input type="color" class="form-control form-control-color" id="colorInput"
+                                            value="#1b7d4a" title="Choose your color">
+                                        <input type="text" class="form-control" id="colorInputText" value="#1b7d4a"
+                                            readonly>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="inputWithIcon" class="form-label">Input with Icon</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                                        <input type="text" class="form-control" id="inputWithIcon"
+                                            placeholder="Username">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="inputWithButton" class="form-label">Input with Button</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="inputWithButton"
+                                            placeholder="Search...">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="bi bi-search"></i> Search
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="inputGroupPrepend" class="form-label">Input with Prepend</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Rp</span>
+                                            <input type="text" class="form-control" id="inputGroupPrepend"
+                                                placeholder="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputGroupAppend" class="form-label">Input with Append</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="inputGroupAppend"
+                                                placeholder="Weight">
+                                            <span class="input-group-text">kg</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Select2 Demo Section -->
+                    <div id="select2-demo" class="card shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h4 class="mb-0"><i class="bi bi-ui-checks me-2"></i>Select2 - Enhanced Select</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="select2Form">
+                                <div class="mb-3">
+                                    <label for="basicSelect2" class="form-label">Basic Select2</label>
+                                    <select class="form-select select2" id="basicSelect2">
+                                        <option></option>
+                                        <option value="1">Jakarta</option>
+                                        <option value="2">Bandung</option>
+                                        <option value="3">Surabaya</option>
+                                        <option value="4">Medan</option>
+                                        <option value="5">Semarang</option>
+                                        <option value="6">Makassar</option>
+                                        <option value="7">Palembang</option>
+                                        <option value="8">Depok</option>
+                                        <option value="9">Tangerang</option>
+                                        <option value="10">Yogyakarta</option>
+                                    </select>
+                                    <small class="form-text text-muted">Select2 dengan search functionality</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="multiSelect2" class="form-label">Multi-Select with Select2</label>
+                                    <select class="form-select select2-multiple" id="multiSelect2" multiple="multiple">
+                                        <option value="html">HTML</option>
+                                        <option value="css">CSS</option>
+                                        <option value="javascript">JavaScript</option>
+                                        <option value="php">PHP</option>
+                                        <option value="python">Python</option>
+                                        <option value="java">Java</option>
+                                        <option value="csharp">C#</option>
+                                        <option value="ruby">Ruby</option>
+                                    </select>
+                                    <small class="form-text text-muted">Bisa memilih multiple options</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="selectWithTags" class="form-label">Select2 with Tags (Create New
+                                        Options)</label>
+                                    <select class="form-select select2-tags" id="selectWithTags" multiple="multiple">
+                                        <option value="tag1">Tag 1</option>
+                                        <option value="tag2">Tag 2</option>
+                                        <option value="tag3">Tag 3</option>
+                                    </select>
+                                    <small class="form-text text-muted">Ketik untuk membuat tag baru</small>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Date & Time Pickers Section -->
+                    <div id="datepicker-demo" class="card shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h4 class="mb-0"><i class="bi bi-calendar-event me-2"></i>Date & Time Pickers</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="datePickerForm">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="datepicker" class="form-label">Bootstrap Datepicker</label>
+                                        <div class="input-group date" id="datepickerGroup">
+                                            <input type="text" class="form-control datepicker" id="datepicker"
+                                                placeholder="dd/mm/yyyy">
+                                            <span class="input-group-text"><i class="bi bi-calendar3"></i></span>
+                                        </div>
+                                        <small class="form-text text-muted">Format: dd/mm/yyyy</small>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="datepickerRange" class="form-label">Date Range Picker</label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control datepicker-range"
+                                                id="datepickerRange" placeholder="Select date range">
+                                            <span class="input-group-text"><i class="bi bi-calendar-range"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="datetimepicker" class="form-label">DateTime Picker</label>
+                                    <div class="input-group" id="datetimepickerGroup">
+                                        <input type="text" class="form-control" id="datetimepicker"
+                                            placeholder="Select date and time">
+                                        <span class="input-group-text"><i class="bi bi-clock"></i></span>
+                                    </div>
+                                    <small class="form-text text-muted">Pilih tanggal dan waktu</small>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="timepicker" class="form-label">Time Picker Only</label>
+                                        <div class="input-group" id="timepickerGroup">
+                                            <input type="text" class="form-control" id="timepicker"
+                                                placeholder="Select time">
+                                            <span class="input-group-text"><i class="bi bi-clock"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- File Upload Section -->
+                    <div id="file-upload" class="card shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h4 class="mb-0"><i class="bi bi-file-earmark-arrow-up me-2"></i>File Upload</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="fileUploadForm">
+                                <div class="mb-3">
+                                    <label for="singleFile" class="form-label">Single File Upload</label>
+                                    <input class="form-control" type="file" id="singleFile">
+                                    <small class="form-text text-muted">Upload satu file</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="multipleFiles" class="form-label">Multiple Files Upload</label>
+                                    <input class="form-control" type="file" id="multipleFiles" multiple>
+                                    <small class="form-text text-muted">Upload multiple files sekaligus</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="imageUpload" class="form-label">Image Upload with Preview</label>
+                                    <input class="form-control" type="file" id="imageUpload" accept="image/*">
+                                    <div id="imagePreview" class="mt-3"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Form Validation Section -->
+                    <div id="form-validation" class="card shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h4 class="mb-0"><i class="bi bi-shield-check me-2"></i>Form Validation Demo</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="validationForm" class="needs-validation" novalidate>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="validationName" class="form-label">Full Name *</label>
+                                        <input type="text" class="form-control" id="validationName" required>
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide your name.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="validationEmail" class="form-label">Email *</label>
+                                        <input type="email" class="form-control" id="validationEmail" required>
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a valid email.</div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="validationPhone" class="form-label">Phone Number *</label>
+                                        <input type="tel" class="form-control" id="validationPhone"
+                                            pattern="[0-9]{10,13}" required>
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a valid phone number (10-13
+                                            digits).</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="validationDate" class="form-label">Birth Date *</label>
+                                        <input type="text" class="form-control datepicker" id="validationDate" required>
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please select your birth date.</div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="validationSelect" class="form-label">Select City *</label>
+                                    <select class="form-select select2" id="validationSelect" required>
+                                        <option value=""></option>
+                                        <option value="jakarta">Jakarta</option>
+                                        <option value="bandung">Bandung</option>
+                                        <option value="surabaya">Surabaya</option>
+                                    </select>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Please select a city.</div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="validationMessage" class="form-label">Message *</label>
+                                    <textarea class="form-control" id="validationMessage" rows="3" minlength="10"
+                                        required></textarea>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Please provide a message (minimum 10 characters).
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="validationCheck" required>
+                                        <label class="form-check-label" for="validationCheck">
+                                            I agree to terms and conditions *
+                                        </label>
+                                        <div class="invalid-feedback">You must agree before submitting.</div>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button class="btn btn-secondary" type="reset">Reset</button>
+                                    <button class="btn btn-primary" type="submit">Submit Form</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Form Layout Examples -->
+                    <div id="form-layouts" class="card shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h4 class="mb-0"><i class="bi bi-layout-text-window me-2"></i>Form Layout Examples</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Horizontal Form -->
+                            <h5 class="mb-3">Horizontal Form</h5>
+                            <form class="mb-4">
+                                <div class="row mb-3">
+                                    <label for="horizontalEmail" class="col-sm-3 col-form-label">Email</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" id="horizontalEmail">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="horizontalPassword" class="col-sm-3 col-form-label">Password</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control" id="horizontalPassword">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-9 offset-sm-3">
+                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <hr class="my-4">
+
+                            <!-- Inline Form -->
+                            <h5 class="mb-3">Inline Form</h5>
+                            <form class="row row-cols-lg-auto g-3 align-items-center">
+                                <div class="col-12">
+                                    <label class="visually-hidden" for="inlineFormInputName">Name</label>
+                                    <input type="text" class="form-control" id="inlineFormInputName"
+                                        placeholder="Your Name">
+                                </div>
+                                <div class="col-12">
+                                    <label class="visually-hidden" for="inlineFormInputEmail">Email</label>
+                                    <input type="email" class="form-control" id="inlineFormInputEmail"
+                                        placeholder="Email">
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+                                        <label class="form-check-label" for="inlineFormCheck">
+                                            Remember me
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">© 2026 SMA Unggulan Nusantara. Form Management Demo Page.</p>
+        </div>
+    </footer>
+
+    <!-- jQuery (required for Select2 and Datepicker) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <!-- Bootstrap Datepicker JS -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.id.min.js"></script>
+
+    <!-- Tempus Dominus DateTime Picker JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/js/tempus-dominus.min.js"></script>
+
+    <!-- Custom Forms JS -->
+    <script src="js/forms.js"></script>
+</body>
+
+</html>
