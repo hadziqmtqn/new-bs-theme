@@ -766,9 +766,11 @@ section[style*="background-color"] .lead {
     .navbar-nav .dropdown-menu {
         box-shadow: none;
         background: linear-gradient(135deg, rgba(var(--primary-color-rgb, 27, 125, 74), 0.05) 0%, rgba(var(--primary-color-rgb, 27, 125, 74), 0.08) 100%);
-        margin-top: 10px;
-        margin-bottom: 8px;
-        padding: 10px;
+        margin-top: 6px;
+        margin-bottom: 4px;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 8px;
         border: 1px solid rgba(var(--primary-color-rgb, 27, 125, 74), 0.1);
         animation: none;
         border-radius: 14px;
@@ -776,7 +778,7 @@ section[style*="background-color"] .lead {
 
     .navbar-nav .dropdown-item {
         padding: 13px 18px;
-        margin-bottom: 5px;
+        margin-bottom: 3px;
         font-size: 0.95rem;
         border-radius: 10px;
     }
@@ -805,12 +807,6 @@ section[style*="background-color"] .lead {
         margin-left: 0.4em;
     }
 
-    /* Ensure dropdown arrow is visible when active on mobile */
-    .navbar-nav .dropdown-toggle.active::after {
-        border-top-color: white;
-        opacity: 1;
-    }
-
     /* Prevent menu from closing on mobile when clicking submenu */
     .navbar-nav .dropdown-menu.show {
         display: block;
@@ -829,11 +825,11 @@ section[style*="background-color"] .lead {
     }
 
     .navbar-nav {
-        gap: 8px;
+        gap: 4px;
     }
 
     .nav-item {
-        margin-bottom: 6px;
+        margin-bottom: 3px;
     }
 
     .nav-link {
@@ -849,10 +845,17 @@ section[style*="background-color"] .lead {
     }
 
     .nav-link.active {
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-        color: white !important;
+        background: rgba(var(--primary-color-rgb, 27, 125, 74), 0.12);
+        color: var(--primary-color) !important;
         border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(var(--primary-color-rgb, 27, 125, 74), 0.25);
+        border-bottom: 3px solid var(--primary-color);
+        font-weight: 600;
+    }
+
+    /* Dropdown toggle active - consistent with main menu */
+    .navbar-nav .dropdown-toggle.active::after {
+        border-top-color: var(--primary-color);
+        opacity: 1;
     }
 
     /* Remove underline indicator on mobile */
@@ -863,8 +866,9 @@ section[style*="background-color"] .lead {
     .btn-group-nav {
         flex-direction: column;
         gap: 12px;
-        margin-top: 20px;
-        padding-top: 20px;
+        margin-top: 12px;
+        padding: 0 18px;
+        padding-top: 12px;
         border-top: 1px solid rgba(0, 0, 0, 0.08);
     }
 
