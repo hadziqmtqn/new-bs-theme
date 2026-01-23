@@ -202,3 +202,199 @@ body.auth-page {
     color: #0078d4;
     box-shadow: 0 2px 8px rgba(0, 120, 212, 0.2);
 }
+
+/* ===================================================================
+   SPLIT-SCREEN LOGIN LAYOUT
+   =================================================================== */
+
+body.auth-page-split {
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.auth-split-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Left Side - Form */
+.auth-split-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.auth-card-split {
+    max-width: 480px;
+    width: 100%;
+    padding: 1rem;
+}
+
+/* Right Side - Background */
+.auth-split-right {
+    flex: 1;
+    background: linear-gradient(135deg, #1b7d4a 0%, #2d9c5e 50%, #45b574 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Optional: Add a background image */
+.auth-split-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--bg-image, none);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+/* Overlay Content on Right Side */
+.auth-overlay {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    padding: 3rem;
+    max-width: 500px;
+}
+
+.auth-overlay-content i {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+    animation: float 3s ease-in-out infinite;
+}
+
+.auth-overlay-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-overlay-content p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    line-height: 1.6;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    color: #1b7d4a;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: #155c37;
+    text-decoration: underline;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.form-check-input:checked {
+    background-color: #1b7d4a;
+    border-color: #1b7d4a;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .auth-split-container {
+        flex-direction: column;
+    }
+
+    .auth-split-right {
+        min-height: 250px;
+        order: -1;
+        /* Show background on top on mobile */
+    }
+
+    .auth-split-left {
+        padding: 2rem 1.5rem;
+    }
+
+    .auth-overlay-content i {
+        font-size: 3.5rem;
+    }
+
+    .auth-overlay-content h2 {
+        font-size: 2rem;
+    }
+
+    .auth-overlay-content p {
+        font-size: 1rem;
+    }
+
+    .auth-overlay {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .auth-split-left {
+        padding: 1.5rem 1rem;
+    }
+
+    .auth-card-split {
+        padding: 0;
+    }
+
+    .auth-title {
+        font-size: 1.5rem;
+    }
+
+    .auth-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .auth-split-right {
+        min-height: 200px;
+    }
+
+    .auth-overlay-content i {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .auth-overlay-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .auth-overlay-content p {
+        font-size: 0.9rem;
+    }
+}
