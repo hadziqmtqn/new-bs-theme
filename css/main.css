@@ -552,7 +552,7 @@ section[style*="background-color"] .lead {
 /* Responsive adjustments for logo */
 @media (max-width: 768px) {
     .navbar-logo {
-        height: 35px;
+        height: 45px;
     }
 
     .navbar-brand {
@@ -562,7 +562,7 @@ section[style*="background-color"] .lead {
 
 @media (max-width: 480px) {
     .navbar-logo {
-        height: 30px;
+        height: 40px;
     }
 
     .navbar-brand {
