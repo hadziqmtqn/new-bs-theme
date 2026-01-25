@@ -2507,3 +2507,31 @@ footer {
         bottom: 15px;
     }
 }
+
+/* ===================================================================
+   18. RESPONSIVE PAGINATION AND FAQ
+   =================================================================== */
+@media (max-width: 576px) {
+    /* Pagination Adjustment */
+    .pagination-custom {
+        gap: 4px;
+        flex-wrap: wrap; /* Mencegah overflow jika halaman sangat banyak */
+    }
+
+    .page-link-custom {
+        width: 38px;  /* Sedikit lebih kecil agar muat */
+        height: 38px;
+        font-size: 0.9rem;
+    }
+
+    /* Accordion Adjustment */
+    .accordion-button {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .accordion-body {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+}
