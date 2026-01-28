@@ -2159,6 +2159,88 @@ section[style*="background-color"] .lead {
     }
 }
 
+/* Stats Section V2 (Compact & Contrast) */
+.stats-section-v2 {
+    padding: 80px 0;
+    background: #f8fafd;
+    /* High contrast background */
+    position: relative;
+    z-index: 10;
+}
+
+.stat-box-v2 {
+    background: #ffffff;
+    padding: 30px 25px;
+    /* Condensed padding */
+    border-radius: 20px;
+    /* Tighter corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-box-v2:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(27, 125, 74, 0.12);
+    border-color: rgba(27, 125, 74, 0.2);
+}
+
+.stat-icon-v2 {
+    width: 60px;
+    /* Reduced size */
+    height: 60px;
+    background: #eefdf5;
+    color: #1b7d4a;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    /* Reduced icon size */
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+}
+
+.stat-box-v2:hover .stat-icon-v2 {
+    background: #1b7d4a;
+    color: #ffffff;
+    transform: rotateY(180deg);
+}
+
+.stat-number-v2 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.2rem;
+    /* Reduced font size */
+    font-weight: 800;
+    color: #1b7d4a;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label-v2 {
+    font-size: 0.85rem;
+    /* Reduced label size */
+    font-weight: 700;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+@media (max-width: 767px) {
+    .stat-number-v2 {
+        font-size: 2.2rem;
+    }
+
+    .stat-box-v2 {
+        padding: 30px 20px;
+    }
+}
+
 /* ===================================================================
    10. SCHEDULE SECTION (JADWAL PENDAFTARAN)
    =================================================================== */
