@@ -224,7 +224,7 @@
                 <p class="text-muted mt-3">Langkah mudah memulai pendaftaran siswa baru.</p>
             </div>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="quick-access-card">
                         <div class="icon-box">
                             <i class="bi bi-file-earmark-person"></i>
@@ -233,7 +233,7 @@
                         <p class="text-muted small">Lengkapi data diri dan berkas pendaftaran secara online.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="quick-access-card">
                         <div class="icon-box">
                             <i class="bi bi-graph-up-arrow"></i>
@@ -242,7 +242,7 @@
                         <p class="text-muted small">Lihat ketersediaan daya tampung per jurusan dan zonasi.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="quick-access-card">
                         <div class="icon-box">
                             <i class="bi bi-signpost-split"></i>
@@ -251,7 +251,7 @@
                         <p class="text-muted small">Informasi jalur prestasi, zonasi, dan afirmasi.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="quick-access-card">
                         <div class="icon-box">
                             <i class="bi bi-megaphone"></i>
@@ -414,18 +414,33 @@
     <!-- Stats Section -->
     <section class="stats-section">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <div class="stat-number">1,200</div>
-                    <div>Kuota Tersedia</div>
-                </div>
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <div class="stat-number">50+</div>
-                    <div>Ekstrakurikuler</div>
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="stat-item" data-aos="fade-up">
+                        <div class="stat-icon-circle">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+                        <span class="stat-number">1,200</span>
+                        <div class="stat-label">Kuota Tersedia</div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="stat-number">A+</div>
-                    <div>Akreditasi Unggul</div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon-circle">
+                            <i class="bi bi-trophy"></i>
+                        </div>
+                        <span class="stat-number">50+</span>
+                        <div class="stat-label">Ekstrakurikuler</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="stat-icon-circle">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <span class="stat-number">A+</span>
+                        <div class="stat-label">Akreditasi Unggul</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -442,48 +457,51 @@
 
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <div class="news-card h-100 d-flex flex-column">
-                        <span class="category-badge">Pengumuman</span>
-                        <img src="https://picsum.photos/seed/class/400/250" class="news-img" alt="News 1">
-                        <div class="card-body p-4 d-flex flex-column">
-                            <div class="news-date mb-2">15 Mei 2024</div>
+                    <div class="news-card">
+                        <div class="news-img-wrapper">
+                            <span class="category-badge">Pengumuman</span>
+                            <img src="https://picsum.photos/seed/class/400/250" class="news-img" alt="News 1">
+                        </div>
+                        <div class="card-body">
+                            <div class="news-date"><i class="bi bi-calendar3"></i> 15 Mei 2024</div>
                             <h5 class="card-title fw-bold mb-3">Pembukaan Gelombang 1 PPDB Tahun Ajaran 2024/2025</h5>
-                            <p class="card-text text-muted flex-grow-1">Panitia PPDB resmi membuka pendaftaran gelombang
+                            <p class="card-text text-muted">Panitia PPDB resmi membuka pendaftaran gelombang
                                 pertama mulai tanggal 20 Mei. Segera siapkan berkas.</p>
-                            <button type="button"
-                                class="btn btn-sm btn-outline-primary mt-3 align-self-start rounded-pill"
+                            <button type="button" class="btn btn-sm btn-outline-primary mt-3 rounded-pill"
                                 data-bs-toggle="modal" data-bs-target="#newsModal1">Baca Selengkapnya</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6">
-                    <div class="news-card h-100 d-flex flex-column">
-                        <span class="category-badge">Prestasi</span>
-                        <img src="https://picsum.photos/seed/award/400/250" class="news-img" alt="News 2">
-                        <div class="card-body p-4 d-flex flex-column">
-                            <div class="news-date mb-2">12 Mei 2024</div>
+                    <div class="news-card">
+                        <div class="news-img-wrapper">
+                            <span class="category-badge">Prestasi</span>
+                            <img src="https://picsum.photos/seed/award/400/250" class="news-img" alt="News 2">
+                        </div>
+                        <div class="card-body">
+                            <div class="news-date"><i class="bi bi-calendar3"></i> 12 Mei 2024</div>
                             <h5 class="card-title fw-bold mb-3">Siswa Kami Raih Medali Emas Olimpiade Sains</h5>
-                            <p class="card-text text-muted flex-grow-1">Selamat kepada tim Olimpiade Matematika yang
+                            <p class="card-text text-muted">Selamat kepada tim Olimpiade Matematika yang
                                 berhasil membawa pulang medali emas tingkat nasional.</p>
-                            <a href="detail-post.html"
-                                class="btn btn-sm btn-outline-primary mt-3 align-self-start rounded-pill">Baca
+                            <a href="detail-post.html" class="btn btn-sm btn-outline-primary mt-3 rounded-pill">Baca
                                 Selengkapnya</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6">
-                    <div class="news-card h-100 d-flex flex-column">
-                        <span class="category-badge">Fasilitas</span>
-                        <img src="https://picsum.photos/seed/library/400/250" class="news-img" alt="News 3">
-                        <div class="card-body p-4 d-flex flex-column">
-                            <div class="news-date mb-2">10 Mei 2024</div>
+                    <div class="news-card">
+                        <div class="news-img-wrapper">
+                            <span class="category-badge">Fasilitas</span>
+                            <img src="https://picsum.photos/seed/library/400/250" class="news-img" alt="News 3">
+                        </div>
+                        <div class="card-body">
+                            <div class="news-date"><i class="bi bi-calendar3"></i> 10 Mei 2024</div>
                             <h5 class="card-title fw-bold mb-3">Peresmian Gedung Perpustakaan Baru Berbasis Digital</h5>
-                            <p class="card-text text-muted flex-grow-1">Fasilitas pembelajaran kini semakin lengkap
+                            <p class="card-text text-muted">Fasilitas pembelajaran kini semakin lengkap
                                 dengan hadirnya perpustakaan digital modern.</p>
-                            <a href="detail-post.html"
-                                class="btn btn-sm btn-outline-primary mt-3 align-self-start rounded-pill">Baca
+                            <a href="detail-post.html" class="btn btn-sm btn-outline-primary mt-3 rounded-pill">Baca
                                 Selengkapnya</a>
                         </div>
                     </div>
@@ -581,38 +599,47 @@
     <footer>
         <div class="container">
             <div class="row gy-4">
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="fw-bold mb-3 text-warning">PPDB ONLINE</h5>
-                    <p class="small opacity-75">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <h5 class="fw-bold mb-4 text-warning">PPDB ONLINE</h5>
+                    <p class="small opacity-75 mb-4">
                         Portal resmi Penerimaan Peserta Didik Baru SMA Unggulan Nusantara. Membentuk generasi yang
-                        cerdas, berkarakter, dan berprestasi.
+                        cerdas, berkarakter, dan berprestasi di tingkat nasional dan internasional.
                     </p>
-                    <div class="social-icons mt-4">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    <div class="social-icons">
+                        <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="me-3"><i class="bi bi-youtube"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6">
-                    <h5 class="fw-bold mb-3">Navigasi</h5>
-                    <a href="#" class="footer-link">Beranda</a>
-                    <a href="#" class="footer-link">Profil Sekolah</a>
-                    <a href="#" class="footer-link">Jurusan</a>
-                    <a href="#" class="footer-link">Guru & Staff</a>
+                <div class="col-lg-2 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <h5 class="fw-bold mb-4">Navigasi</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Beranda</a></li>
+                        <li class="mb-2"><a href="#informasi" class="footer-link">Alur Pendaftaran</a></li>
+                        <li class="mb-2"><a href="media.html" class="footer-link">Media & Dokumen</a></li>
+                        <li class="mb-2"><a href="daftar-berita.html" class="footer-link">Berita Sekolah</a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="fw-bold mb-3">Kontak Kami</h5>
+                <div class="col-lg-4 col-md-12" data-aos="fade-up" data-aos-delay="200">
+                    <h5 class="fw-bold mb-4">Kontak Kami</h5>
                     <div class="d-flex align-items-start mb-3">
-                        <i class="bi bi-geo-alt-fill text-warning me-3 mt-1"></i>
+                        <div class="footer-contact-icon me-3">
+                            <i class="bi bi-geo-alt-fill text-warning"></i>
+                        </div>
                         <span class="small opacity-75">Jl. Pendidikan No. 123, Kebayoran Baru, Jakarta Selatan, DKI
                             Jakarta 12160</span>
                     </div>
                     <div class="d-flex align-items-center mb-3">
-                        <i class="bi bi-telephone-fill text-warning me-3"></i>
+                        <div class="footer-contact-icon me-3">
+                            <i class="bi bi-telephone-fill text-warning"></i>
+                        </div>
                         <span class="small opacity-75">(021) 789-1011</span>
                     </div>
                     <div class="d-flex align-items-center">
-                        <i class="bi bi-envelope-fill text-warning me-3"></i>
+                        <div class="footer-contact-icon me-3">
+                            <i class="bi bi-envelope-fill text-warning"></i>
+                        </div>
                         <span class="small opacity-75">info@ppdb-smanusantara.sch.id</span>
                     </div>
                 </div>
