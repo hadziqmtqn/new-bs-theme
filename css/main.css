@@ -1849,49 +1849,103 @@ section[style*="background-color"] .lead {
     }
 }
 
-.agenda-card {
-    background-color: #f4f9ff;
-    padding: 2.2rem 2rem;
-    border-radius: 24px;
+/* ===================================================================
+   10. AGENDA SECTION (V2: Friendly & Modern)
+   =================================================================== */
+.agenda-v2-card {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 30px;
     height: 100%;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: 1px solid rgba(0, 123, 255, 0.03);
+    border: 1px solid #f0f3f7;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
-.agenda-card:hover {
-    background-color: #ffffff;
+.agenda-v2-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 123, 255, 0.08);
-    border-color: rgba(0, 123, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(27, 125, 74, 0.1);
 }
 
-.agenda-icon {
-    width: 54px;
-    height: 54px;
-    background: white;
-    color: #1b7d4a;
-    border-radius: 14px;
+.agenda-v2-header {
     display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.date-badge-v2 {
+    background: #eefdf5;
+    color: #1b7d4a;
+    width: 65px;
+    height: 75px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    flex-shrink: 0;
+    font-weight: 800;
 }
 
-.agenda-divider {
-    height: 1px;
-    background: #e1e7ec;
-    width: 100%;
-    margin: 1.5rem 0;
+.date-badge-v2 .day {
+    font-size: 1.6rem;
+    line-height: 1;
 }
 
-.agenda-date {
-    font-size: 0.9rem;
+.date-badge-v2 .month {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.category-pill-v2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.category-pill-v2.academic {
+    background: #e8f2ff;
+    color: #2d81ff;
+}
+
+.category-pill-v2.event {
+    background: #fff3e6;
+    color: #ff922b;
+}
+
+.category-pill-v2.holiday {
+    background: #ffebeb;
+    color: #fa5252;
+}
+
+.agenda-v2-body {
+    flex-grow: 1;
+}
+
+.agenda-v2-footer {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed #e9ecef;
+    font-size: 0.85rem;
+    color: #6c757d;
     font-weight: 600;
-    color: #888;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 991px) {
+    .agenda-v2-card {
+        padding: 25px;
+    }
 }
 
 @media (min-width: 992px) {
