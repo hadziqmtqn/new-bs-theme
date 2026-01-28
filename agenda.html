@@ -12,34 +12,13 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
 
-    <style>
-        .agenda-page-item {
-            border-left: 4px solid var(--primary-color);
-            background: white;
-            transition: all 0.3s ease;
-        }
-
-        .agenda-page-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .agenda-date-badge {
-            background: #f0f7ff;
-            color: var(--primary-color);
-            padding: 10px 15px;
-            border-radius: 10px;
-            font-weight: 700;
-            min-width: 100px;
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -102,109 +81,208 @@
     </section>
 
     <!-- Main Content -->
-    <section class="py-5 bg-light">
-        <div class="container py-5">
+    <section class="py-5 bg-light-soft">
+        <div class="container py-lg-5">
+            <!-- Filter & Search Bar -->
+            <div class="agenda-filter-container mb-5" data-aos="fade-up">
+                <div class="card border-0 shadow-sm rounded-4 p-4">
+                    <form class="row g-3 align-items-end">
+                        <div class="col-lg-4 col-md-12">
+                            <label class="form-label fw-bold small text-muted text-uppercase">Cari Agenda</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0"><i
+                                        class="bi bi-search text-success"></i></span>
+                                <input type="text" class="form-control border-start-0"
+                                    placeholder="Ketik kata kunci...">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <label class="form-label fw-bold small text-muted text-uppercase">Kategori</label>
+                            <select class="form-select">
+                                <option selected>Semua Kategori</option>
+                                <option>Akademik</option>
+                                <option>Kegiatan</option>
+                                <option>Libur Nasional</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <label class="form-label fw-bold small text-muted text-uppercase">Bulan</label>
+                            <select class="form-select">
+                                <option selected>Semua Bulan</option>
+                                <option>Januari</option>
+                                <option>Februari</option>
+                                <!-- ... more months ... -->
+                                <option>Juni</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-md-4">
+                            <button type="submit" class="btn btn-success w-100 rounded-pill">Filter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-lg-8">
-                    <h3 class="fw-bold mb-4">Agenda Mendatang</h3>
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="fw-bold mb-0">Daftar Agenda</h4>
+                        <span
+                            class="badge bg-white text-dark border-0 shadow-sm px-3 py-2 rounded-pill small">Menampilkan
+                            4 Agenda</span>
+                    </div>
 
-                    <div class="agenda-list">
+                    <div class="agenda-list-v2">
                         <!-- Agenda 1 -->
-                        <div class="card agenda-page-item border-0 shadow-sm mb-4 p-3 rounded-4">
-                            <div class="d-flex flex-column flex-md-row align-items-center gap-4">
-                                <div class="agenda-date-badge">
-                                    <div class="fs-4">10</div>
-                                    <div class="small text-uppercase">Juni 2024</div>
+                        <div class="agenda-v2-card mb-4 p-4 list-style" data-aos="fade-up" data-aos-delay="100">
+                            <div class="agenda-v2-header mb-0 align-items-center flex-row gap-4">
+                                <div class="date-badge-v2">
+                                    <span class="day">10</span>
+                                    <span class="month">JUN</span>
                                 </div>
-                                <div>
-                                    <h5 class="fw-bold mb-2">Pelepasan & Kelulusan Siswa Kelas 12</h5>
-                                    <p class="text-muted small mb-0"><i class="bi bi-geo-alt me-1"></i> Aula Utama SMA
-                                        Unggulan Nusantara</p>
-                                    <p class="text-muted small mb-0"><i class="bi bi-clock me-1"></i> 08:00 - 13:00 WIB
-                                    </p>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                        <span class="category-pill-v2 academic">Akademik</span>
+                                        <span class="text-muted small"><i class="bi bi-clock me-1"></i> 08:00 - 13:00
+                                            WIB</span>
+                                    </div>
+                                    <h5 class="fw-bold mb-1">Pelepasan & Kelulusan Siswa Kelas 12 TA 2023/2024</h5>
+                                    <div class="agenda-v2-footer border-0 p-0 m-0">
+                                        <i class="bi bi-geo-alt me-2 text-success"></i>Aula Utama SMA Unggulan Nusantara
+                                    </div>
+                                </div>
+                                <div class="d-none d-md-block">
+                                    <a href="#" class="btn btn-light rounded-circle shadow-sm"><i
+                                            class="bi bi-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Agenda 2 -->
-                        <div class="card agenda-page-item border-0 shadow-sm mb-4 p-3 rounded-4">
-                            <div class="d-flex flex-column flex-md-row align-items-center gap-4">
-                                <div class="agenda-date-badge">
-                                    <div class="fs-4">11</div>
-                                    <div class="small text-uppercase">Mei 2024</div>
+                        <div class="agenda-v2-card mb-4 p-4 list-style" data-aos="fade-up" data-aos-delay="200">
+                            <div class="agenda-v2-header mb-0 align-items-center flex-row gap-4">
+                                <div class="date-badge-v2">
+                                    <span class="day">11</span>
+                                    <span class="month">MEI</span>
                                 </div>
-                                <div>
-                                    <h5 class="fw-bold mb-2">Rapat Koordinasi Orang Tua Siswa Kelas 12</h5>
-                                    <p class="text-muted small mb-0"><i class="bi bi-geo-alt me-1"></i> Ruang Serbaguna
-                                        & Zoom Meeting</p>
-                                    <p class="text-muted small mb-0"><i class="bi bi-clock me-1"></i> 09:00 - selesai
-                                    </p>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                        <span class="category-pill-v2 event">Kegiatan</span>
+                                        <span class="text-muted small"><i class="bi bi-clock me-1"></i> 09:00 -
+                                            Selesai</span>
+                                    </div>
+                                    <h5 class="fw-bold mb-1">Rapat Koordinasi Orang Tua Siswa Kelas 12</h5>
+                                    <div class="agenda-v2-footer border-0 p-0 m-0">
+                                        <i class="bi bi-geo-alt me-2 text-success"></i>Ruang Serbaguna & Zoom Meeting
+                                    </div>
+                                </div>
+                                <div class="d-none d-md-block">
+                                    <a href="#" class="btn btn-light rounded-circle shadow-sm"><i
+                                            class="bi bi-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Agenda 3 -->
-                        <div class="card agenda-page-item border-0 shadow-sm mb-4 p-3 rounded-4">
-                            <div class="d-flex flex-column flex-md-row align-items-center gap-4">
-                                <div class="agenda-date-badge">
-                                    <div class="fs-4">02</div>
-                                    <div class="small text-uppercase">Mei 2024</div>
+                        <div class="agenda-v2-card mb-4 p-4 list-style" data-aos="fade-up" data-aos-delay="300">
+                            <div class="agenda-v2-header mb-0 align-items-center flex-row gap-4">
+                                <div class="date-badge-v2" style="background-color: #f8f9fa; color: #6c757d;">
+                                    <span class="day">02</span>
+                                    <span class="month">MEI</span>
                                 </div>
-                                <div>
-                                    <h5 class="fw-bold mb-2">Upacara Hari Pendidikan Nasional</h5>
-                                    <p class="text-muted small mb-0"><i class="bi bi-geo-alt me-1"></i> Lapangan Upacara
-                                        Sekolah</p>
-                                    <p class="text-muted small mb-0"><i class="bi bi-person-badge me-1"></i> Seluruh
-                                        Guru & Siswa</p>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                        <span class="category-pill-v2 event">Kegiatan</span>
+                                        <span class="text-muted small"><i class="bi bi-person-check me-1"></i> Seluruh
+                                            Guru & Siswa</span>
+                                    </div>
+                                    <h5 class="fw-bold mb-1">Upacara Bendera Hari Pendidikan Nasional</h5>
+                                    <div class="agenda-v2-footer border-0 p-0 m-0">
+                                        <i class="bi bi-geo-alt me-2 text-success"></i>Lapangan Upacara Sekolah
+                                    </div>
+                                </div>
+                                <div class="d-none d-md-block">
+                                    <a href="#" class="btn btn-light rounded-circle shadow-sm"><i
+                                            class="bi bi-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Agenda 4 -->
-                        <div class="card agenda-page-item border-0 shadow-sm mb-4 p-3 rounded-4">
-                            <div class="d-flex flex-column flex-md-row align-items-center gap-4">
-                                <div class="agenda-date-badge">
-                                    <div class="fs-4">15</div>
-                                    <div class="small text-uppercase">April 2024</div>
+                        <div class="agenda-v2-card mb-5 p-4 list-style" data-aos="fade-up" data-aos-delay="400">
+                            <div class="agenda-v2-header mb-0 align-items-center flex-row gap-4">
+                                <div class="date-badge-v2" style="background-color: #f8f9fa; color: #6c757d;">
+                                    <span class="day">15</span>
+                                    <span class="month">APR</span>
                                 </div>
-                                <div>
-                                    <h5 class="fw-bold mb-2">Pelaksanaan Ujian Satuan Pendidikan (USP)</h5>
-                                    <p class="text-muted small mb-0"><i class="bi bi-info-circle me-1"></i> Berlangsung
-                                        selama 7 hari kerja</p>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                        <span class="category-pill-v2 academic">Akademik</span>
+                                        <span class="text-muted small"><i class="bi bi-info-circle me-1"></i> 7 Hari
+                                            Kerja</span>
+                                    </div>
+                                    <h5 class="fw-bold mb-1">Pelaksanaan Ujian Satuan Pendidikan (USP)</h5>
+                                    <div class="agenda-v2-footer border-0 p-0 m-0">
+                                        <i class="bi bi-laptop me-2 text-success"></i>Kelas Masing-masing
+                                    </div>
+                                </div>
+                                <div class="d-none d-md-block">
+                                    <a href="#" class="btn btn-light rounded-circle shadow-sm"><i
+                                            class="bi bi-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Pagination UI -->
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination pagination-rounded justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i
+                                            class="bi bi-chevron-left"></i></a>
+                                </li>
+                                <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
 
                 <div class="col-lg-4">
-                    <div class="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden">
-                        <div class="card-header bg-primary text-white p-3 border-0">
-                            <h5 class="fw-bold mb-0">Pengumuman Penting</h5>
+                    <div class="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden" data-aos="fade-left">
+                        <div class="card-header bg-success text-white p-4 border-0">
+                            <h5 class="fw-bold mb-0"><i class="bi bi-info-circle me-2"></i>Pengumuman Penting</h5>
                         </div>
                         <div class="card-body p-4">
                             <div class="mb-4">
-                                <h6 class="fw-bold text-primary">Libur Idul Fitri 1445 H</h6>
-                                <p class="small text-muted">Sekolah akan diliburkan mulai tanggal 5 s/d 15 April 2024.
-                                </p>
-                                <hr>
+                                <h6 class="fw-bold text-success mb-2">Libur Idul Fitri 1445 H</h6>
+                                <p class="small text-muted mb-0">Sekolah akan diliburkan mulai tanggal 5 s/d 15 April
+                                    2024. Seluruh layanan administrasi dilakukan secara terbatas.</p>
+                                <hr class="my-4 opacity-10">
                             </div>
                             <div>
-                                <h6 class="fw-bold text-primary">Pendaftaran PPDB Gelombang 2</h6>
-                                <p class="small text-muted">Akan dibuka mulai tanggal 1 Juni 2024 melalui portal ini.
-                                </p>
+                                <h6 class="fw-bold text-success mb-2">Pendaftaran PPDB Gelombang 2</h6>
+                                <p class="small text-muted mb-0">Pendaftaran Gelombang 2 akan segera dibuka pada tanggal
+                                    1 Juni 2024. Siapkan berkas pendaftaran Anda.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card border-0 shadow-sm rounded-4 overlay-card"
-                        style="background: linear-gradient(rgba(27, 125, 74, 0.9), rgba(27, 125, 74, 0.9)), url('https://picsum.photos/seed/students/400/300'); background-size: cover; color: white;">
-                        <div class="card-body p-4">
+                    <div class="card border-0 shadow-sm rounded-4 position-relative overflow-hidden mb-4"
+                        data-aos="fade-left" data-aos-delay="100">
+                        <div class="card-body p-4 py-5 text-center bg-dark text-white">
+                            <div class="mb-4">
+                                <i class="bi bi-headset display-4 text-success opacity-75"></i>
+                            </div>
                             <h4 class="fw-bold mb-3">Butuh Bantuan?</h4>
                             <p class="small mb-4 opacity-75">Jika Anda memiliki pertanyaan terkait jadwal atau kegiatan
-                                sekolah, hubungi sekretariat kami.</p>
-                            <a href="https://wa.me/123456789" class="btn btn-outline-light rounded-pill w-100"><i
-                                    class="bi bi-whatsapp me-2"></i>Hubungi Kami</a>
+                                sekolah, hubungi pusat informasi kami.</p>
+                            <a href="https://wa.me/123456789" class="btn btn-success rounded-pill w-100 py-2">
+                                <i class="bi bi-whatsapp me-2"></i>Hubungi Sekretariat
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -213,33 +291,56 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer>
         <div class="container">
             <div class="row gy-4">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
                     <h5 class="fw-bold mb-4 text-warning">PPDB ONLINE</h5>
                     <p class="small opacity-75 mb-4">
-                        Portal resmi Penerimaan Peserta Didik Baru SMA Unggulan Nusantara.
+                        Portal resmi Penerimaan Peserta Didik Baru SMA Unggulan Nusantara. Membentuk generasi yang
+                        cerdas, berkarakter, dan berprestasi di tingkat nasional dan internasional.
                     </p>
                     <div class="social-icons">
                         <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
                         <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
                         <a href="#" class="me-3"><i class="bi bi-youtube"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-2 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <h5 class="fw-bold mb-4">Navigasi</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.html"
-                                class="footer-link text-white-50 text-decoration-none">Beranda</a></li>
-                        <li class="mb-2"><a href="daftar-berita.html"
-                                class="footer-link text-white-50 text-decoration-none">Berita</a></li>
+                        <li class="mb-2"><a href="index.html" class="footer-link">Beranda</a></li>
+                        <li class="mb-2"><a href="index-3.html#informasi" class="footer-link">Alur Pendaftaran</a></li>
+                        <li class="mb-2"><a href="media.html" class="footer-link">Media & Dokumen</a></li>
+                        <li class="mb-2"><a href="daftar-berita.html" class="footer-link">Berita Sekolah</a></li>
                     </ul>
                 </div>
+                <div class="col-lg-4 col-md-12" data-aos="fade-up" data-aos-delay="200">
+                    <h5 class="fw-bold mb-4">Kontak Kami</h5>
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="footer-contact-icon me-3">
+                            <i class="bi bi-geo-alt-fill text-warning"></i>
+                        </div>
+                        <span class="small opacity-75">Jl. Pendidikan No. 123, Kebayoran Baru, Jakarta Selatan, DKI
+                            Jakarta 12160</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="footer-contact-icon me-3">
+                            <i class="bi bi-telephone-fill text-warning"></i>
+                        </div>
+                        <span class="small opacity-75">(021) 789-1011</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="footer-contact-icon me-3">
+                            <i class="bi bi-envelope-fill text-warning"></i>
+                        </div>
+                        <span class="small opacity-75">info@ppdb-smanusantara.sch.id</span>
+                    </div>
+                </div>
             </div>
-            <hr class="my-5 opacity-25">
-            <div class="text-center small opacity-50">
-                &copy; 2024 SMA Unggulan Nusantara.
+            <div class="text-center mt-4 pt-3 border-top border-secondary">
+                <p class="small mb-0">&copy; 2024 SMA Unggulan Nusantara. All Rights Reserved.</p>
             </div>
         </div>
     </footer>

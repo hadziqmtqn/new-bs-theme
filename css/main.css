@@ -1948,6 +1948,89 @@ section[style*="background-color"] .lead {
     }
 }
 
+/* Agenda List Page Styles */
+.agenda-v2-card.list-style {
+    display: block;
+    border-left: 5px solid transparent;
+}
+
+.agenda-v2-card.list-style:hover {
+    border-left-color: #1b7d4a;
+    transform: translateX(8px);
+}
+
+.agenda-filter-container .card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.agenda-filter-container .form-control,
+.agenda-filter-container .form-select {
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    font-size: 0.9rem;
+}
+
+.agenda-filter-container .form-control:focus,
+.agenda-filter-container .form-select:focus {
+    border-color: #1b7d4a;
+    box-shadow: 0 0 10px rgba(27, 125, 74, 0.1);
+}
+
+.pagination-rounded .page-item {
+    margin: 0 3px;
+}
+
+.pagination-rounded .page-link {
+    border-radius: 12px !important;
+    border: none;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #444;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.pagination-rounded .page-item.active .page-link {
+    background-color: #1b7d4a;
+    color: white;
+    box-shadow: 0 8px 15px rgba(27, 125, 74, 0.2);
+}
+
+.pagination-rounded .page-link:hover {
+    background-color: #f8fafd;
+    color: #1b7d4a;
+}
+
+@media (max-width: 767px) {
+    .agenda-v2-header.flex-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .date-badge-v2 {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        flex-direction: row;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .date-badge-v2 .day {
+        font-size: 2rem;
+    }
+
+    .agenda-v2-card.list-style:hover {
+        transform: translateY(-5px);
+    }
+}
+
 @media (min-width: 992px) {
     .border-end-lg {
         border-right: 1px solid #ebeef1;
