@@ -483,8 +483,145 @@ h6 {
     box-shadow: none !important;
 }
 
+/* ===================================================================
+   4. CUSTOM BACKGROUND UTILITIES - Premium Color Concept
+   =================================================================== */
 
-/* Lead text styling - untuk teks deskripsi yang lebih nyaman dibaca */
+/* Standard Backgrounds with Gradients (Consistent with Button Styling) */
+.bg-primary {
+    background: linear-gradient(135deg, var(--btn-primary) 0%, var(--btn-primary-hover) 100%) !important;
+}
+
+.bg-secondary {
+    background: linear-gradient(135deg, var(--btn-secondary) 0%, var(--btn-secondary-hover) 100%) !important;
+}
+
+.bg-success {
+    background: linear-gradient(135deg, var(--btn-success) 0%, var(--btn-success-hover) 100%) !important;
+}
+
+.bg-danger {
+    background: linear-gradient(135deg, var(--btn-danger) 0%, var(--btn-danger-hover) 100%) !important;
+}
+
+.bg-warning {
+    background: linear-gradient(135deg, var(--btn-warning) 0%, var(--btn-warning-hover) 100%) !important;
+    color: #212529 !important;
+}
+
+.bg-info {
+    background: linear-gradient(135deg, var(--btn-info) 0%, var(--btn-info-hover) 100%) !important;
+    color: #212529 !important;
+}
+
+.bg-light {
+    background: linear-gradient(135deg, var(--btn-light) 0%, var(--btn-light-hover) 100%) !important;
+    color: #212529 !important;
+}
+
+.bg-dark {
+    background: linear-gradient(135deg, var(--btn-dark) 0%, var(--btn-dark-hover) 100%) !important;
+}
+
+/* Subtle Background Variations (Soft Colors for modern UI) */
+.bg-primary-soft {
+    background-color: rgba(var(--primary-color-rgb, 27, 125, 74), 0.1) !important;
+    color: var(--primary-color) !important;
+}
+
+.bg-success-soft {
+    background-color: rgba(25, 135, 84, 0.1) !important;
+    color: #198754 !important;
+}
+
+.bg-danger-soft {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+    color: #dc3545 !important;
+}
+
+.bg-warning-soft {
+    background-color: rgba(255, 193, 7, 0.1) !important;
+    color: #ffb100 !important;
+}
+
+.bg-info-soft {
+    background-color: rgba(13, 202, 240, 0.1) !important;
+    color: #087990 !important;
+}
+
+.bg-secondary-soft {
+    background-color: rgba(108, 117, 125, 0.1) !important;
+    color: #6c757d !important;
+}
+
+/* Premium Text Colors - Consistent with Theme */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-success {
+    color: #198754 !important;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+.text-warning {
+    color: #ffb100 !important;
+}
+
+.text-info {
+    color: #087990 !important;
+}
+
+.text-secondary {
+    color: #6c757d !important;
+}
+
+/* Premium Shadows - Modern & Deep */
+.shadow-primary {
+    box-shadow: 0 10px 30px var(--btn-primary-shadow) !important;
+}
+
+.shadow-primary-sm {
+    box-shadow: 0 5px 15px var(--btn-primary-shadow) !important;
+}
+
+.shadow-primary-lg {
+    box-shadow: 0 15px 45px var(--btn-primary-shadow) !important;
+}
+
+.shadow-primary-hover {
+    transition: box-shadow 0.3s ease !important;
+}
+
+.shadow-primary-hover:hover {
+    box-shadow: 0 15px 45px var(--btn-primary-shadow) !important;
+}
+
+/* Success Shadows */
+.shadow-success {
+    box-shadow: 0 10px 30px var(--btn-success-shadow) !important;
+}
+
+.shadow-success-sm {
+    box-shadow: 0 5px 15px var(--btn-success-shadow) !important;
+}
+
+/* Danger Shadows */
+.shadow-danger {
+    box-shadow: 0 10px 30px var(--btn-danger-shadow) !important;
+}
+
+/* Warning Shadows */
+.shadow-warning {
+    box-shadow: 0 10px 30px var(--btn-warning-shadow) !important;
+}
+
+/* ===================================================================
+   5. TYPOGRAPHY & TEXT STYLES
+   =================================================================== */
 .lead {
     font-size: 1.15rem !important;
     line-height: 1.75 !important;
@@ -1737,7 +1874,7 @@ section[style*="background-color"] .lead {
     right: 0;
     width: 60%;
     height: 60%;
-    border: 2px solid #1b7d4a;
+    border: 2px solid var(--primary-color);
     border-radius: 40px;
     opacity: 0.2;
     z-index: -1;
@@ -1785,7 +1922,7 @@ section[style*="background-color"] .lead {
     font-size: 1.25rem;
     line-height: 1.8;
     color: #2c3e50;
-    border-left: 4px solid #1b7d4a;
+    border-left: 4px solid var(--primary-color);
     padding-left: 25px;
 }
 
@@ -1793,7 +1930,7 @@ section[style*="background-color"] .lead {
     background: #f8fafd;
     padding: 25px;
     border-radius: 25px;
-    border: 1px solid rgba(27, 125, 74, 0.05);
+    border: 1px solid rgba(var(--primary-color-rgb, 27, 125, 74), 0.05);
 }
 
 .stat-v2-box {
@@ -1804,7 +1941,7 @@ section[style*="background-color"] .lead {
 .stat-v2-val {
     font-size: 2.2rem;
     font-weight: 800;
-    color: #1b7d4a;
+    color: var(--primary-color);
     margin-bottom: 2px;
 }
 
@@ -1825,9 +1962,7 @@ section[style*="background-color"] .lead {
     min-width: auto !important;
 }
 
-.shadow-success-sm {
-    box-shadow: 0 10px 25px rgba(27, 125, 74, 0.25);
-}
+
 
 @media (max-width: 991px) {
     .quote-icon-v2 {
@@ -1867,7 +2002,7 @@ section[style*="background-color"] .lead {
 .agenda-v2-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border-color: rgba(27, 125, 74, 0.1);
+    border-color: rgba(var(--primary-color-rgb, 27, 125, 74), 0.1);
 }
 
 .agenda-v2-header {
@@ -1878,8 +2013,8 @@ section[style*="background-color"] .lead {
 }
 
 .date-badge-v2 {
-    background: #eefdf5;
-    color: #1b7d4a;
+    background-color: rgba(var(--primary-color-rgb, 27, 125, 74), 0.1);
+    color: var(--primary-color);
     width: 65px;
     height: 75px;
     border-radius: 18px;
@@ -1955,7 +2090,7 @@ section[style*="background-color"] .lead {
 }
 
 .agenda-v2-card.list-style:hover {
-    border-left-color: #1b7d4a;
+    border-left-color: var(--primary-color);
     transform: translateX(8px);
 }
 
@@ -1974,7 +2109,7 @@ section[style*="background-color"] .lead {
 
 .agenda-filter-container .form-control:focus,
 .agenda-filter-container .form-select:focus {
-    border-color: #1b7d4a;
+    border-color: var(--primary-color);
     box-shadow: 0 0 10px rgba(27, 125, 74, 0.1);
 }
 
@@ -1997,7 +2132,7 @@ section[style*="background-color"] .lead {
 }
 
 .pagination-rounded .page-item.active .page-link {
-    background-color: #1b7d4a;
+    background-color: var(--primary-color);
     color: white;
     box-shadow: 0 8px 15px rgba(27, 125, 74, 0.2);
 }
@@ -2008,22 +2143,36 @@ section[style*="background-color"] .lead {
 }
 
 @media (max-width: 767px) {
-    .agenda-v2-header.flex-row {
+    .agenda-v2-header {
         flex-direction: column !important;
         align-items: flex-start !important;
+        gap: 15px;
+        position: relative;
     }
 
     .date-badge-v2 {
-        width: 100%;
+        width: auto !important;
+        min-width: 120px;
         height: auto;
-        padding: 15px;
+        padding: 10px 20px;
         flex-direction: row;
-        gap: 15px;
-        margin-bottom: 20px;
+        gap: 10px;
+        margin-bottom: 0px;
+        border-radius: 12px;
     }
 
     .date-badge-v2 .day {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .date-badge-v2 .month {
+        font-size: 0.8rem;
+    }
+
+    .category-pill-v2 {
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     .agenda-v2-card.list-style:hover {
@@ -2064,7 +2213,7 @@ section[style*="background-color"] .lead {
 }
 
 .modal-premium .modal-header {
-    background: linear-gradient(135deg, #1b7d4a 0%, #2ca05e 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
     color: white;
     padding: 30px;
     border-bottom: none;
@@ -2207,7 +2356,7 @@ section[style*="background-color"] .lead {
 }
 
 .stat-box-v2:hover .stat-icon-v2 {
-    background: #1b7d4a;
+    background: var(--primary-color);
     color: #ffffff;
     transform: rotateY(180deg);
 }
