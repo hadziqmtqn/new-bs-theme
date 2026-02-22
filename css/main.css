@@ -48,7 +48,7 @@ h6 {
     /* Primary - uses theme color variables */
     --btn-primary: var(--primary-color);
     --btn-primary-hover: var(--primary-light);
-    --btn-primary-shadow: rgba(var(--primary-color-rgb), 0.4);
+    --btn-primary-shadow: color-mix(in srgb, var(--primary-color), transparent 60%);
 
     /* Secondary (Gray) */
     --btn-secondary: #6c757d;
@@ -113,7 +113,7 @@ h6 {
 }
 
 .btn-primary:focus {
-    box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.25), 0 4px 15px var(--btn-primary-shadow) !important;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-color), transparent 75%), 0 4px 15px var(--btn-primary-shadow) !important;
 }
 
 .btn-primary:active {
@@ -328,7 +328,7 @@ h6 {
 }
 
 .btn-outline-primary:focus {
-    box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.25) !important;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-color), transparent 75%) !important;
 }
 
 /* ===== OUTLINE SECONDARY ===== */
@@ -534,7 +534,7 @@ h6 {
 
 /* Subtle Background Variations (Soft Colors for modern UI) */
 .bg-primary-soft {
-    background-color: rgba(var(--primary-color-rgb, 27, 125, 74), 0.1) !important;
+    background-color: color-mix(in srgb, var(--primary-color), transparent 90%) !important;
     color: var(--primary-color) !important;
 }
 
@@ -2245,7 +2245,7 @@ section[style*="background-color"] .lead {
 .agenda-filter-container .form-control:focus,
 .agenda-filter-container .form-select:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 10px rgba(var(--primary-color-rgb), 0.1);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--primary-color), transparent 90%);
 }
 
 .pagination-rounded .page-item {
@@ -2269,7 +2269,7 @@ section[style*="background-color"] .lead {
 .pagination-rounded .page-item.active .page-link {
     background-color: var(--primary-color);
     color: white;
-    box-shadow: 0 8px 15px rgba(var(--primary-color-rgb), 0.2);
+    box-shadow: 0 8px 15px color-mix(in srgb, var(--primary-color), transparent 80%);
 }
 
 .pagination-rounded .page-link:hover {
@@ -2328,7 +2328,7 @@ section[style*="background-color"] .lead {
     color: #ffffff;
     font-size: 1.2rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 8px 20px rgba(var(--primary-color-rgb), 0.2);
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--primary-color), transparent 80%);
     cursor: pointer;
 }
 
@@ -2336,7 +2336,7 @@ section[style*="background-color"] .lead {
     background-color: var(--primary-light);
     color: #ffffff;
     transform: scale(1.15) rotate(90deg);
-    box-shadow: 0 12px 25px rgba(var(--primary-color-rgb), 0.3);
+    box-shadow: 0 12px 25px color-mix(in srgb, var(--primary-color), transparent 70%);
 }
 
 .btn-detail-v2.btn-sm {
@@ -2871,7 +2871,7 @@ section[style*="background-color"] .lead {
 }
 
 .custom-table tbody tr:hover {
-    background-color: rgba(var(--primary-color-rgb), 0.05);
+    background-color: color-mix(in srgb, var(--primary-color), transparent 95%);
 }
 
 /* File Icons */
@@ -3163,7 +3163,7 @@ footer {
 
 .filter-input:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.1);
+    box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--primary-color), transparent 90%);
 }
 
 .btn-search {
