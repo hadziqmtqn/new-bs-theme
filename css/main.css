@@ -48,7 +48,7 @@ h6 {
     /* Primary - uses theme color variables */
     --btn-primary: var(--primary-color);
     --btn-primary-hover: var(--primary-light);
-    --btn-primary-shadow: rgba(27, 125, 74, 0.4);
+    --btn-primary-shadow: rgba(var(--primary-color-rgb), 0.4);
 
     /* Secondary (Gray) */
     --btn-secondary: #6c757d;
@@ -113,7 +113,7 @@ h6 {
 }
 
 .btn-primary:focus {
-    box-shadow: 0 0 0 4px rgba(27, 125, 74, 0.25), 0 4px 15px var(--btn-primary-shadow) !important;
+    box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.25), 0 4px 15px var(--btn-primary-shadow) !important;
 }
 
 .btn-primary:active {
@@ -328,7 +328,7 @@ h6 {
 }
 
 .btn-outline-primary:focus {
-    box-shadow: 0 0 0 4px rgba(27, 125, 74, 0.25) !important;
+    box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.25) !important;
 }
 
 /* ===== OUTLINE SECONDARY ===== */
@@ -2045,7 +2045,7 @@ section[style*="background-color"] .lead {
     top: -40px;
     left: -20px;
     font-size: 8rem;
-    color: #1b7d4a;
+    color: var(--primary-color);
     opacity: 0.05;
     z-index: -1;
     line-height: 1;
@@ -2245,7 +2245,7 @@ section[style*="background-color"] .lead {
 .agenda-filter-container .form-control:focus,
 .agenda-filter-container .form-select:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 10px rgba(27, 125, 74, 0.1);
+    box-shadow: 0 0 10px rgba(var(--primary-color-rgb), 0.1);
 }
 
 .pagination-rounded .page-item {
@@ -2269,12 +2269,12 @@ section[style*="background-color"] .lead {
 .pagination-rounded .page-item.active .page-link {
     background-color: var(--primary-color);
     color: white;
-    box-shadow: 0 8px 15px rgba(27, 125, 74, 0.2);
+    box-shadow: 0 8px 15px rgba(var(--primary-color-rgb), 0.2);
 }
 
 .pagination-rounded .page-link:hover {
     background-color: #f8fafd;
-    color: #1b7d4a;
+    color: var(--primary-color);
 }
 
 @media (max-width: 767px) {
@@ -2328,7 +2328,7 @@ section[style*="background-color"] .lead {
     color: #ffffff;
     font-size: 1.2rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 8px 20px rgba(27, 125, 74, 0.2);
+    box-shadow: 0 8px 20px rgba(var(--primary-color-rgb), 0.2);
     cursor: pointer;
 }
 
@@ -2336,7 +2336,7 @@ section[style*="background-color"] .lead {
     background-color: var(--primary-light);
     color: #ffffff;
     transform: scale(1.15) rotate(90deg);
-    box-shadow: 0 12px 25px rgba(27, 125, 74, 0.3);
+    box-shadow: 0 12px 25px rgba(var(--primary-color-rgb), 0.3);
 }
 
 .btn-detail-v2.btn-sm {
@@ -2871,7 +2871,7 @@ section[style*="background-color"] .lead {
 }
 
 .custom-table tbody tr:hover {
-    background-color: rgba(27, 125, 74, 0.05);
+    background-color: rgba(var(--primary-color-rgb), 0.05);
 }
 
 /* File Icons */
@@ -3163,7 +3163,7 @@ footer {
 
 .filter-input:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(27, 125, 74, 0.1);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.1);
 }
 
 .btn-search {
