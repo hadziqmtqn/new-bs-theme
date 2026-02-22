@@ -635,6 +635,15 @@ h6 {
     letter-spacing: 1px !important;
 }
 
+.ls-1 {
+    letter-spacing: 1px !important;
+}
+
+.ls-2 {
+    letter-spacing: 2px !important;
+}
+
+
 /* ===================================================================
    5. TYPOGRAPHY & TEXT STYLES
    =================================================================== */
@@ -2323,6 +2332,12 @@ section[style*="background-color"] .lead {
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
     overflow: hidden;
 }
+
+.modal-detail-img {
+    max-height: 300px;
+    object-fit: cover;
+}
+
 
 .modal-premium .modal-header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
