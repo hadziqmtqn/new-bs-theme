@@ -725,6 +725,64 @@ section[style*="background-color"] .lead {
     }
 }
 
+/* Fix for Tablet/Small Laptop: Prevents overlap when menu is too long */
+@media (min-width: 992px) and (max-width: 1399px) {
+    .navbar-brand {
+        font-size: 1.3rem;
+        gap: 8px;
+    }
+
+    .navbar-logo {
+        height: 38px;
+    }
+
+    .nav-link {
+        margin: 0 5px !important;
+        font-size: 0.88rem !important;
+    }
+
+    .nav-link i {
+        font-size: 0.95rem !important;
+        margin-right: 4px !important;
+    }
+
+    .btn-group-nav .btn {
+        padding: 0.5rem 0.8rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    .navbar .container {
+        max-width: 100% !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    /* Global Button Alignment for Tablet - Synchronize heights */
+    .btn:not(.btn-sm):not(.btn-detail-v2),
+    .btn-carousel-primary,
+    .btn-carousel-outline {
+        padding-top: 0.65rem !important;
+        padding-bottom: 0.65rem !important;
+        line-height: 1.2 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: auto !important;
+        min-height: 44px !important;
+        /* Standard Height for Touch/Tablet */
+    }
+
+    .btn-lg:not(.btn-detail-v2),
+    .btn-carousel-primary,
+    .btn-carousel-outline {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+        font-size: 1rem !important;
+        min-height: 48px !important;
+        /* Slightly taller for LG variants */
+    }
+}
+
 
 .nav-link {
     color: var(--text-dark);
@@ -1170,6 +1228,12 @@ section[style*="background-color"] .lead {
 
     .hero-section .d-flex {
         justify-content: center !important;
+        flex-wrap: wrap;
+        gap: 15px !important;
+    }
+
+    .hero-section .btn {
+        min-width: 200px;
     }
 
     .hero-title {
@@ -1180,6 +1244,31 @@ section[style*="background-color"] .lead {
         max-width: 80%;
         margin: 0 auto;
         display: block;
+    }
+}
+
+/* Fix for Tablet/Medium Desktop: Side-by-side hero buttons */
+@media (min-width: 992px) and (max-width: 1399px) {
+    .hero-section .btn-lg {
+        padding: 0.7rem 1.2rem !important;
+        font-size: 0.95rem !important;
+    }
+
+    .hero-section .col-lg-6:first-child {
+        flex: 0 0 55%;
+        max-width: 55%;
+    }
+
+    .hero-section .col-lg-6:last-child {
+        flex: 0 0 45%;
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 575px) {
+    .hero-section .d-flex .btn {
+        width: 100%;
+        margin-bottom: 5px;
     }
 }
 
