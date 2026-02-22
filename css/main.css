@@ -2486,17 +2486,18 @@ section[style*="background-color"] .lead {
 
 .stat-box-v2:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(27, 125, 74, 0.12);
-    border-color: rgba(27, 125, 74, 0.2);
+    box-shadow: 0 20px 40px rgba(var(--primary-color-rgb), 0.12);
+    border-color: rgba(var(--primary-color-rgb), 0.2);
 }
+
 
 .stat-icon-v2 {
     width: 60px;
-    /* Reduced size */
     height: 60px;
-    background: #eefdf5;
-    color: #1b7d4a;
+    background: rgba(var(--primary-color-rgb), 0.08);
+    color: var(--primary-color);
     border-radius: 16px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2515,21 +2516,31 @@ section[style*="background-color"] .lead {
 .stat-number-v2 {
     font-family: 'Merriweather', serif;
     font-size: 2.2rem;
-    /* Reduced font size */
     font-weight: 800;
-    color: #1b7d4a;
+    color: var(--primary-color);
+
     line-height: 1;
     margin-bottom: 8px;
 }
 
 .stat-label-v2 {
     font-size: 0.85rem;
-    /* Reduced label size */
     font-weight: 700;
     color: #6c757d;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    transition: all 0.3s ease;
 }
+
+.stat-box-v2:hover .stat-number-v2 {
+    color: var(--primary-color);
+    /* Already primary, but maybe they want it to pop? */
+}
+
+.stat-box-v2:hover .stat-label-v2 {
+    color: var(--primary-color);
+}
+
 
 @media (max-width: 767px) {
     .stat-number-v2 {
