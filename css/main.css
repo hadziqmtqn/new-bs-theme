@@ -2309,6 +2309,13 @@ section[style*="background-color"] .lead {
     box-shadow: 0 12px 25px rgba(27, 125, 74, 0.3);
 }
 
+.btn-detail-v2.btn-sm {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+}
+
+
 /* Premium Modal Design */
 .modal-premium .modal-content {
     border: none;
