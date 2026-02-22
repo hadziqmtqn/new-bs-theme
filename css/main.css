@@ -522,6 +522,16 @@ h6 {
     background: linear-gradient(135deg, var(--btn-dark) 0%, var(--btn-dark-hover) 100%) !important;
 }
 
+/* Flat Backgrounds */
+.bg-main-light {
+    background-color: var(--bg-light) !important;
+}
+
+.bg-main-primary {
+    background-color: var(--primary-color) !important;
+}
+
+
 /* Subtle Background Variations (Soft Colors for modern UI) */
 .bg-primary-soft {
     background-color: rgba(var(--primary-color-rgb, 27, 125, 74), 0.1) !important;
@@ -642,6 +652,11 @@ h6 {
 .ls-2 {
     letter-spacing: 2px !important;
 }
+
+.zi-1 {
+    z-index: 1 !important;
+}
+
 
 
 /* ===================================================================
