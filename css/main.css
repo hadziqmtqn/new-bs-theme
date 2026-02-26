@@ -2359,6 +2359,17 @@ section[style*="background-color"] .lead {
     position: relative;
 }
 
+.modal-header-icon {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
 .modal-premium .btn-close {
     filter: brightness(0) invert(1);
     opacity: 0.8;
