@@ -262,8 +262,7 @@ body.auth-page-split {
     font-size: 5rem;
     margin-bottom: 1.5rem;
     opacity: 0.95;
-    animation: float 4s ease-in-out infinite;
-    will-change: transform;
+    /* animation: float 4s ease-in-out infinite; -- Removed heavy infinite animation */
 }
 
 .auth-overlay-content h2 {
@@ -278,18 +277,6 @@ body.auth-page-split {
     opacity: 0.95;
     line-height: 1.6;
     text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
 }
 
 /* Forgot Password Link */
