@@ -2756,6 +2756,12 @@ section[style*="background-color"] .lead {
     color: white;
 }
 
+.badge-detail-post {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+
 /* ===================================================================
    13. MEDIA PAGE - TABLE STYLES
    =================================================================== */
