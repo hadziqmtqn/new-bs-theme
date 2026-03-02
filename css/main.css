@@ -3733,3 +3733,46 @@ footer {
         font-size: 0.9rem;
     }
 }
+
+/* ===================================================================
+   19. SCROLLABLE NAV TABS (Halaman Identitas Sekolah)
+   =================================================================== */
+.nav-tabs-scrollable {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox */
+}
+
+.nav-tabs-scrollable::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.nav-tabs-scrollable .nav-item {
+    flex: 0 0 auto;
+}
+
+/* Identitas Sekolah Tabs Active & Hover Styles */
+.nav-tabs-scrollable .nav-link {
+    border: 1px solid transparent;
+    border-radius: 8px !important;
+    color: var(--text-dark);
+    padding: 0.6rem 1.2rem;
+    transition: all 0.3s ease;
+    margin: 0 4px; /* Slight spacing between tabs */
+}
+
+.nav-tabs-scrollable .nav-link:hover {
+    border-color: transparent;
+    background-color: color-mix(in srgb, var(--primary-color), transparent 95%);
+    color: var(--primary-color);
+}
+
+.nav-tabs-scrollable .nav-link.active {
+    background-color: color-mix(in srgb, var(--primary-color), transparent 90%) !important;
+    color: var(--primary-color) !important;
+    border-color: transparent !important;
+}

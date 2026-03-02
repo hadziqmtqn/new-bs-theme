@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPDB Online - SMA Unggulan Nusantara</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <!-- Floating Color Switcher -->
+    <div class="theme-switcher-wrapper">
+        <div class="colors-panel">
+            <p class="small fw-bold text-center mb-3">Pilih Warna Tema</p>
+
+            <!-- Biru -->
+            <div class="color-option" data-primary="#0d47a1" data-light="#1976d2" style="background-color: #0d47a1;"
+                title="Tema Biru"></div>
+
+            <!-- Hijau (Default) -->
+            <div class="color-option active" data-primary="#1b7d4a" data-light="#2ca05e"
+                style="background-color: #1b7d4a;" title="Tema Hijau"></div>
+
+            <!-- Oren Fresh #FF9100 -->
+            <div class="color-option" data-primary="#0BA6DF" data-light="#2E94B9" style="background-color: #0BA6DF;"
+                title="Tema SMA"></div>
+        </div>
+        <button class="theme-btn" title="Ganti Warna">
+            <i class="bi bi-palette-fill"></i>
+        </button>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/school-min.webp" alt="Logo Sekolah" class="navbar-logo">
+                PPDB ONLINE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownHome" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-house me-2"></i>Beranda
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownHome">
+                            <li><a class="dropdown-item" href="index.html"><i class="bi bi-house-door me-2"></i>Beranda
+                                    1</a></li>
+                            <li><a class="dropdown-item" href="index-2.html"><i
+                                        class="bi bi-house-door-fill me-2"></i>Beranda 2</a></li>
+                            <li><a class="dropdown-item" href="index-3.html"><i
+                                        class="bi bi-house-heart me-2"></i>Beranda 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownInfo" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-info-circle me-2"></i>Informasi PPDB
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownInfo">
+                            <li>
+                                <a class="dropdown-item" href="#informasi">
+                                    <i class="bi bi-list-check me-2"></i>Syarat Pendaftaran
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#informasi">
+                                    <i class="bi bi-signpost-split me-2"></i>Jalur Masuk
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#informasi">
+                                    <i class="bi bi-calendar-event me-2"></i>Timeline & Jadwal
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#bantuan">
+                                    <i class="bi bi-question-circle me-2"></i>FAQ
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMedia" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-folder2-open me-2"></i>Media
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMedia">
+                            <li>
+                                <a class="dropdown-item" href="media.html">
+                                    <i class="bi bi-images me-2"></i>Galeri Foto
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="media.html">
+                                    <i class="bi bi-play-circle me-2"></i>Video
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="media.html">
+                                    <i class="bi bi-download me-2"></i>Download Berkas
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="daftar-berita.html"><i
+                                class="bi bi-newspaper me-2"></i>Berita</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bantuan"><i
+                                class="bi bi-question-circle me-2"></i>Bantuan</a></li>
+                </ul>
+                <div class="btn-group-nav d-flex align-items-center">
+                    <a href="registrasi.html" class="btn btn-primary">Daftar Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Halaman Identitas Sekolah Section -->
+    <section id="identitas-sekolah" class="py-5 mt-5 pt-5 bg-main-light">
+        <div class="container py-lg-5">
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase mb-2 ls-1">Identitas Sekolah</h6>
+                <h2 class="fw-bold mb-3">Mengenal Lebih Dekat</h2>
+                <p class="text-muted mb-0">Informasi lengkap mengenai profil dan identitas SMA Unggulan Nusantara.</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Kiri: Tabs Identitas Utama -->
+                <div class="col-lg-8" data-aos="fade-right">
+                    <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+                        <div class="card-header bg-white p-0 border-bottom">
+                            <div class="nav-align-top">
+                                <ul class="nav nav-tabs nav-fill nav-tabs-scrollable border-0 px-3 py-3" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button type="button" class="nav-link active fw-bold waves-effect" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-profil" aria-controls="navs-justified-profil" aria-selected="true">
+                                            <i class="bi bi-building me-1"></i> Profil
+                                            <span class="badge rounded-pill bg-danger ms-1" style="font-size: 0.6rem;">Baru</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button type="button" class="nav-link fw-bold waves-effect" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-visi" aria-controls="navs-justified-visi" aria-selected="false" tabindex="-1">
+                                            <i class="bi bi-eye me-1"></i> Visi & Misi
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button type="button" class="nav-link fw-bold waves-effect" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-fasilitas" aria-controls="navs-justified-fasilitas" aria-selected="false" tabindex="-1">
+                                            <i class="bi bi-laptop me-1"></i> Fasilitas
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button type="button" class="nav-link fw-bold waves-effect" role="tab" data-bs-toggle="tab" data-bs-target="#navs-justified-ekskul" aria-controls="navs-justified-ekskul" aria-selected="false" tabindex="-1">
+                                            <i class="bi bi-dribbble me-1"></i> Ekstrakurikuler
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="tab-content p-0 m-0 border-0">
+                                <div class="tab-pane fade show active" id="navs-justified-profil" role="tabpanel">
+                                    <h5 class="fw-bold mb-3 text-primary">Sejarah & Profil Singkat</h5>
+                                    <p class="text-secondary lh-relaxed">
+                                        SMA Unggulan Nusantara didirikan dengan semangat mencerdaskan kehidupan bangsa, memadukan IPTEK dengan penguatan IMTAQ dan karakter building. Sejak berdiri, kami telah menjadi pelopor metode edukasi holistik yang diakui bertaraf internasional.
+                                    </p>
+                                    <p class="text-secondary lh-relaxed mb-0">
+                                        Dengan lebih dari ribuan alumni berprestasi, sekolah ini terus mengadopsi kemajuan digital sembari menjaga akar budaya bangsa. Kini kami memiliki lebih dari 75+ pendidik bersertifikasi siap membimbing para siswa menjadi juara di bidang masing-masing.
+                                    </p>
+                                </div>
+                                <div class="tab-pane fade" id="navs-justified-visi" role="tabpanel">
+                                    <h5 class="fw-bold mb-3 text-primary">Visi</h5>
+                                    <p class="text-secondary lh-relaxed mb-4">
+                                        "Menjadi barometer pendidikan nasional yang melahirkan lulusan berkarakter unggul, berjiwa kepemimpinan, berwawasan lingkungan, serta mampu bersaing secara mandiri di kancah global."
+                                    </p>
+                                    <h5 class="fw-bold mb-3 text-primary">Misi</h5>
+                                    <ul class="text-secondary lh-relaxed mb-0">
+                                        <li>Menyelenggarakan pembelajaran aktif, komunikatif, dan menyenangkan berbasis riset inovatif.</li>
+                                        <li>Mendorong optimalisasi potensi akademik dan non-akademik siswa.</li>
+                                        <li>Membangun ekosistem sekolah sehat, ramah anak, dan toleran tinggi.</li>
+                                        <li>Menanamkan mental siap tanggap atas tantangan revolusi industri di masa depan.</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="navs-justified-fasilitas" role="tabpanel">
+                                    <h5 class="fw-bold mb-3 text-primary">Fasilitas Pendidikan Kelas Atas</h5>
+                                    <p class="text-secondary lh-relaxed mb-4">
+                                        Lingkungan belajar yang lengkap adalah kunci utama akselerasi pendidikan. Nikmati berbagai prasarana terbaik di area sekolah kami yang dirancang senyaman mungkin:
+                                    </p>
+                                    <div class="row g-3 text-secondary small">
+                                        <div class="col-sm-6 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Ruang Kelas Pintar (Smart Class)</span></div>
+                                        <div class="col-sm-6 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Laboratorium Robotik & IT</span></div>
+                                        <div class="col-sm-6 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Perpustakaan 3 Lantai (Digital)</span></div>
+                                        <div class="col-sm-6 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Gor Basket & Bulu Tangkis Indoor</span></div>
+                                        <div class="col-sm-6 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Masjid Kapasitas 2000 Jamaah</span></div>
+                                        <div class="col-sm-6 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Klinik Kesehatan Utama Siswa</span></div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="navs-justified-ekskul" role="tabpanel">
+                                    <h5 class="fw-bold mb-3 text-primary">Dinamika Ekstrakurikuler</h5>
+                                    <p class="text-secondary lh-relaxed">
+                                        Potensi seorang anak tak hanya terlihat di kelas, tapi saat mereka mengekspresikan hobi menjadi prestasi. Berbagai unit kegiatan siap memberikan panggung bagi minat dan bakat:
+                                    </p>
+                                    <p class="text-secondary lh-relaxed mb-0">
+                                        Bergabunglah di berbagai ekskul favorit: <strong>Pramuka, Paskibraka, Jurnalistik Muda & Fotografi, Kelompok Ilmiah Remaja (KIR), Teater Angin, Paduan Suara, Klub Debat Bahasa Inggris, Coding Club, hingga berbagai cabang olahraga unggulan.</strong> Asah kreativitasmu tanpa batas!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kanan: Artikel Random & Promosi -->
+                <div class="col-lg-4" data-aos="fade-left">
+                    <div class="d-flex flex-column h-100 gap-4">
+                        <!-- Card Artikel Random (Tanpa Thumbnail) -->
+                        <div class="card border-0 shadow-sm rounded-4 flex-grow-1">
+                            <div class="card-body p-4">
+                                <span class="badge bg-info-soft text-info rounded-pill px-3 py-2 mb-3 fw-bold">Tips & Trik</span>
+                                <h5 class="fw-bold mb-3 lh-base">Merancang Strategi Belajar yang Efisien untuk Tes Masuk PTN Sejak Kelas 10</h5>
+                                <p class="text-secondary small lh-relaxed mb-4">
+                                    Tidak perlu menunggu kelas 12 untuk mulai belajar soal ujian masuk PTN. Membangun pondasi yang kuat sejak dini dengan manajemen waktu, pemetaan jurusan, dan konsistensi harian 30 menit jauh mengatasi metode belajar kilat. Siapkan masa depanmu lebih awal dan rasakan ketenangannya di tingkat akhir!
+                                </p>
+                                <a href="detail-post.html" class="text-primary fw-bold text-decoration-none border-bottom border-primary pb-1 d-inline-block">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Card Promosi -->
+                        <div class="card bg-primary text-white border-0 shadow-primary rounded-4 overflow-hidden position-relative flex-grow-1">
+                            <!-- Background Decor -->
+                            <div class="position-absolute end-0 bottom-0 opacity-25" style="transform: translate(20%, 20%); pointer-events: none;">
+                                <i class="bi bi-mortarboard-fill" style="font-size: 8rem;"></i>
+                            </div>
+                            <div class="card-body p-4 position-relative z-1 d-flex flex-column justify-content-center">
+                                <h4 class="fw-bold mb-3 mt-1 text-white">Dapatkan Beasiswa Penuh!</h4>
+                                <p class="opacity-75 small lh-relaxed mb-4">
+                                    Berprestasi di akademik atau memiliki kemampuan ekstrakurikuler luar biasa? Daftar sekarang melalui jalur prestasi dan dapatkan pendidikan bebas biaya hingga lulus!
+                                </p>
+                                <a href="registrasi.html" class="btn btn-warning rounded-pill px-4 py-2 text-dark fw-bold w-100">Info Syarat & Daftar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Call to Action -->
+    <section class="py-5 bg-main-primary text-white text-center">
+        <div class="container">
+            <h2 class="fw-bold mb-3">Siap Menjadi Bagian dari Kami?</h2>
+            <p class="lead mb-4 opacity-75">Daftarkan diri Anda sekarang dan capai prestasi akademik terbaik.</p>
+            <a href="registrasi.html" class="btn btn-warning btn-lg rounded-4 text-dark fw-bold px-5 shadow">Daftar
+                Sekarang</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <h5 class="fw-bold mb-4 text-warning">PPDB ONLINE</h5>
+                    <p class="small opacity-75 mb-4">
+                        Portal resmi Penerimaan Peserta Didik Baru SMA Unggulan Nusantara. Membentuk generasi yang
+                        cerdas, berkarakter, dan berprestasi di tingkat nasional dan internasional.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="me-3"><i class="bi bi-youtube"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <h5 class="fw-bold mb-4">Navigasi</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Beranda</a></li>
+                        <li class="mb-2"><a href="#informasi" class="footer-link">Alur Pendaftaran</a></li>
+                        <li class="mb-2"><a href="media.html" class="footer-link">Media & Dokumen</a></li>
+                        <li class="mb-2"><a href="daftar-berita.html" class="footer-link">Berita Sekolah</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12" data-aos="fade-up" data-aos-delay="200">
+                    <h5 class="fw-bold mb-4">Kontak Kami</h5>
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="footer-contact-icon me-3">
+                            <i class="bi bi-geo-alt-fill text-warning"></i>
+                        </div>
+                        <span class="small opacity-75">Jl. Pendidikan No. 123, Kebayoran Baru, Jakarta Selatan, DKI
+                            Jakarta 12160</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="footer-contact-icon me-3">
+                            <i class="bi bi-telephone-fill text-warning"></i>
+                        </div>
+                        <span class="small opacity-75">(021) 789-1011</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="footer-contact-icon me-3">
+                            <i class="bi bi-envelope-fill text-warning"></i>
+                        </div>
+                        <span class="small opacity-75">info@ppdb-smanusantara.sch.id</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top border-secondary">
+                <p class="small mb-0">&copy; 2024 SMA Unggulan Nusantara. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="newsModal1" tabindex="-1" aria-labelledby="newsModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <span class="badge bg-primary">Pengumuman</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4">
+                    <img src="https://picsum.photos/seed/class/800/400"
+                        class="img-fluid rounded-3 mb-3 w-100 modal-detail-img" alt="Detail Image">
+                    <h3 class="fw-bold mb-2 text-primary">Pembukaan Gelombang 1 PPDB Tahun
+                        Ajaran 2024/2025</h3>
+                    <div class="d-flex align-items-center text-muted small mb-3">
+                        <span class="me-3"><i class="bi bi-calendar"></i> 15 Mei 2024</span>
+                        <span class="me-3"><i class="bi bi-person"></i> Admin</span>
+                        <span><i class="bi bi-tag"></i> PPDB, Sekolah</span>
+                    </div>
+                    <hr>
+                    <p class="text-secondary mb-3">Kami dengan bangga mengumumkan bahwa pendaftaran peserta didik baru
+                        untuk tahun ajaran 2024/2025 telah resmi dibuka. Pendaftaran ini dibuka untuk calon siswa yang
+                        ingin melanjutkan pendidikan di jenjang SMA.</p>
+                    <p class="text-secondary mb-3">Calon siswa diwajibkan untuk mengisi formulir pendaftaran online
+                        melalui portal ini sebelum batas waktu yang ditentukan. Pastikan semua dokumen yang diperlukan
+                        sudah disiapkan, seperti Ijazah, Kartu Keluarga, dan Akta Kelahiran.</p>
+                    <p class="text-secondary">Jangan lewatkan kesempatan ini untuk bergabung menjadi bagian dari
+                        keluarga besar SMA Unggulan Nusantara.</p>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4"
+                        data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agenda Detail Modal -->
+    <div class="modal fade modal-premium" id="agendaDetailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="modal-header-icon bg-white rounded-circle">
+                            <i class="bi bi-calendar-event text-primary fs-5"></i>
+                        </div>
+                        <div>
+                            <h5 class="modal-title fw-bold mb-0" id="agendaModalLabel">Detail Agenda Sekolah</h5>
+                            <span class="small opacity-75">Informasi lengkap jadwal & kegiatan</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-lg-7">
+                            <div class="agenda-detail-badge-group">
+                                <div class="agenda-detail-date">
+                                    <div class="day-xl">10</div>
+                                    <div class="month-sm">JUN</div>
+                                </div>
+                                <div>
+                                    <div class="mb-2">
+                                        <span class="category-pill-v2 academic">Akademik</span>
+                                    </div>
+                                    <h2 class="fw-bold mb-0 ls-tight lh-sm fs-4">Kelulusan
+                                        Siswa Kelas 12 TA 2023/2024</h2>
+                                </div>
+                            </div>
+
+                            <p class="text-secondary mb-0 lh-relaxed">
+                                Detail informasi mengenai agenda ini akan ditampilkan di sini. Seluruh siswa dan orang
+                                tua diharapkan memperhatikan konten acara serta waktu pelaksanaan yang telah ditentukan.
+                                Untuk informasi lebih lanjut, silakan hubungi bagian sekretariat sekolah.
+                            </p>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="info-grid-v2">
+                                <div class="info-item-v2">
+                                    <div class="info-icon-wrapper">
+                                        <i class="bi bi-geo-alt"></i>
+                                    </div>
+                                    <div>
+                                        <div class="small text-muted fw-bold text-uppercase ls-1">Lokasi</div>
+                                        <div class="fw-bold">Sekolah / Lokasi Terkait</div>
+                                    </div>
+                                </div>
+                                <div class="info-item-v2">
+                                    <div class="info-icon-wrapper">
+                                        <i class="bi bi-clock"></i>
+                                    </div>
+                                    <div>
+                                        <div class="small text-muted fw-bold text-uppercase ls-1">Waktu</div>
+                                        <div class="fw-bold">Sesuai Jadwal</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light rounded-pill px-4 fw-bold"
+                        data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary rounded-pill px-4 fw-bold">
+                        <i class="bi bi-calendar-plus me-2"></i>Ingatkan Saya
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
