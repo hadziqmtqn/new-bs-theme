@@ -3776,3 +3776,67 @@ footer {
     color: var(--primary-color) !important;
     border-color: transparent !important;
 }
+
+/* ===================================================================
+   TOOLTIP CUSTOMIZATION THEME
+   =================================================================== */
+
+/* Primary Tooltip */
+.custom-tooltip-primary {
+    --bs-tooltip-bg: var(--primary-color);
+    --bs-tooltip-color: #fff;
+}
+.custom-tooltip-primary .tooltip-inner {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--btn-primary-shadow, rgba(0,0,0,0.15));
+}
+
+/* Success Tooltip */
+.custom-tooltip-success {
+    --bs-tooltip-bg: var(--btn-success, #198754);
+    --bs-tooltip-color: #fff;
+}
+.custom-tooltip-success .tooltip-inner {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--btn-success-shadow, rgba(25,135,84,0.4));
+}
+
+/* Danger Tooltip */
+.custom-tooltip-danger {
+    --bs-tooltip-bg: var(--btn-danger, #dc3545);
+    --bs-tooltip-color: #fff;
+}
+.custom-tooltip-danger .tooltip-inner {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--btn-danger-shadow, rgba(220,53,69,0.4));
+}
+
+/* Warning Tooltip */
+.custom-tooltip-warning {
+    --bs-tooltip-bg: var(--btn-warning, #ffc107);
+    --bs-tooltip-color: #212529;
+}
+.custom-tooltip-warning .tooltip-inner {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--btn-warning-shadow, rgba(255,193,7,0.4));
+}
+
+/* Info Tooltip */
+.custom-tooltip-info {
+    --bs-tooltip-bg: var(--btn-info, #0dcaf0);
+    --bs-tooltip-color: #212529;
+}
+.custom-tooltip-info .tooltip-inner {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--btn-info-shadow, rgba(13,202,240,0.4));
+}
