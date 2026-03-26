@@ -17,6 +17,14 @@
     --text-dark: #333333;
     --text-light: #666666;
     --bg-light: #f8f9fa;
+
+    /* RGB values for label backgrounds */
+    --secondary-color-rgb: 108, 117, 125;
+    --success-color-rgb: 25, 135, 84;
+    --danger-color-rgb: 220, 53, 69;
+    --warning-color-rgb: 255, 193, 7;
+    --info-color-rgb: 13, 202, 240;
+    --dark-color-rgb: 33, 37, 41;
 }
 
 /* ===================================================================
@@ -560,34 +568,138 @@ h6 {
 
 
 /* Subtle Background Variations (Soft Colors for modern UI) */
-.bg-primary-soft {
-    background-color: color-mix(in srgb, var(--primary-color), transparent 90%) !important;
+.bg-primary-soft, .bg-label-primary {
+    background-color: rgba(var(--primary-color-rgb), 0.12) !important;
     color: var(--primary-color) !important;
 }
 
-.bg-success-soft {
-    background-color: rgba(25, 135, 84, 0.1) !important;
+.bg-success-soft, .bg-label-success {
+    background-color: rgba(var(--success-color-rgb), 0.12) !important;
     color: #198754 !important;
 }
 
-.bg-danger-soft {
-    background-color: rgba(220, 53, 69, 0.1) !important;
+.bg-danger-soft, .bg-label-danger {
+    background-color: rgba(var(--danger-color-rgb), 0.12) !important;
     color: #dc3545 !important;
 }
 
-.bg-warning-soft {
-    background-color: rgba(255, 193, 7, 0.1) !important;
-    color: #ffb100 !important;
+.bg-warning-soft, .bg-label-warning {
+    background-color: rgba(var(--warning-color-rgb), 0.15) !important;
+    color: #ff9f43 !important;
 }
 
-.bg-info-soft {
-    background-color: rgba(13, 202, 240, 0.1) !important;
-    color: #087990 !important;
+.bg-info-soft, .bg-label-info {
+    background-color: rgba(var(--info-color-rgb), 0.12) !important;
+    color: #00cfe8 !important;
 }
 
-.bg-secondary-soft {
-    background-color: rgba(108, 117, 125, 0.1) !important;
+.bg-secondary-soft, .bg-label-secondary {
+    background-color: rgba(var(--secondary-color-rgb), 0.12) !important;
     color: #6c757d !important;
+}
+
+.bg-label-dark {
+    background-color: rgba(var(--dark-color-rgb), 0.1) !important;
+    color: #4b4b4b !important;
+}
+
+.bg-label-light {
+    background-color: rgba(248, 249, 250, 0.5) !important;
+    color: #82868b !important;
+}
+
+/* Badge Styling Improvements (Ensure they look good with label classes) */
+.badge {
+    padding: 0.45em 0.8em !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+}
+
+.badge.rounded-pill {
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+    border-radius: 50rem !important;
+}
+
+/* Label Buttons (Modern Button Style) */
+.btn-label-primary {
+    color: var(--primary-color) !important;
+    background: rgba(var(--primary-color-rgb), 0.1) !important;
+    border-color: transparent !important;
+}
+.btn-label-primary:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.btn-label-secondary {
+    color: #6c757d !important;
+    background: rgba(var(--secondary-color-rgb), 0.1) !important;
+    border-color: transparent !important;
+}
+.btn-label-secondary:hover {
+    background-color: #6c757d !important;
+    color: white !important;
+}
+
+.btn-label-success {
+    color: #198754 !important;
+    background: rgba(var(--success-color-rgb), 0.1) !important;
+    border-color: transparent !important;
+}
+.btn-label-success:hover {
+    background-color: #198754 !important;
+    color: white !important;
+}
+
+.btn-label-danger {
+    color: #dc3545 !important;
+    background: rgba(var(--danger-color-rgb), 0.1) !important;
+    border-color: transparent !important;
+}
+.btn-label-danger:hover {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+.btn-label-warning {
+    color: #ff9f43 !important;
+    background: rgba(var(--warning-color-rgb), 0.12) !important;
+    border-color: transparent !important;
+}
+.btn-label-warning:hover {
+    background-color: #ff9f43 !important;
+    color: white !important;
+}
+
+.btn-label-info {
+    color: #00cfe8 !important;
+    background: rgba(var(--info-color-rgb), 0.1) !important;
+    border-color: transparent !important;
+}
+.btn-label-info:hover {
+    background-color: #00cfe8 !important;
+    color: white !important;
+}
+
+.btn-label-dark {
+    color: #4b4b4b !important;
+    background: rgba(var(--dark-color-rgb), 0.08) !important;
+    border-color: transparent !important;
+}
+.btn-label-dark:hover {
+    background-color: #4b4b4b !important;
+    color: white !important;
+}
+
+.btn-label-light {
+    color: #82868b !important;
+    background: rgba(248, 249, 250, 0.4) !important;
+    border-color: transparent !important;
+}
+.btn-label-light:hover {
+    background-color: #f8f9fa !important;
+    color: #4b4b4b !important;
 }
 
 /* Premium Text Colors - Consistent with Theme */
