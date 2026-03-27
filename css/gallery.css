@@ -109,15 +109,53 @@
 
 .video-badge {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 20px;
+    right: 20px;
     background: rgba(var(--danger-color-rgb), 0.9);
     color: white;
-    padding: 4px 12px;
+    padding: 5px 14px;
     border-radius: 50px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     z-index: 2;
+}
+
+.gallery-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.gallery-badge a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.gallery-badge a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.gallery-badge i {
+    font-size: 0.8rem;
+}
+
+.gallery-item:hover .gallery-badge {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* Animation for filtering */
