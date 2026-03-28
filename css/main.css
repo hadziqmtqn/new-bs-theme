@@ -3857,6 +3857,8 @@ footer {
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
     scrollbar-width: none; /* Firefox */
+    padding: 12px 6px; /* Increased horizontal padding to ensure shadows are never clipped */
+    margin: -12px -6px; /* Offset padding to keep structural alignment */
 }
 
 .nav-tabs-scrollable::-webkit-scrollbar {
@@ -3867,14 +3869,26 @@ footer {
     flex: 0 0 auto;
 }
 
+/* Allow filling width on larger screens even if scrollable class is present */
+@media (min-width: 992px) {
+    .nav-fill.nav-tabs-scrollable .nav-item {
+        flex: 1 1 auto;
+    }
+}
+
+
 /* Identitas Sekolah Tabs Active & Hover Styles */
 .nav-tabs-scrollable .nav-link {
     border: 1px solid transparent;
-    border-radius: 8px !important;
+    border-radius: 10px !important;
     color: var(--text-dark);
-    padding: 0.6rem 1.2rem;
-    transition: all 0.3s ease;
-    margin: 0 4px; /* Slight spacing between tabs */
+    padding: 0.7rem 1.3rem;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 5px; /* Clean spacing to prevent overlap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Balanced spacing between icon, text, and badge */
 }
 
 .nav-tabs-scrollable .nav-link:hover {
@@ -3888,6 +3902,98 @@ footer {
     color: var(--primary-color) !important;
     border-color: transparent !important;
 }
+
+/* ===================================================================
+   20. PREMIUM PILLS TABS (Design Reference: Filled Pills)
+   =================================================================== */
+.nav-pills-premium {
+    gap: 8px;
+}
+
+.nav-pills-premium .nav-link {
+    border-radius: 12px !important;
+    color: var(--text-light);
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: transparent;
+}
+
+.nav-pills-premium .nav-link i {
+    font-size: 1.1rem;
+}
+
+.nav-pills-premium .nav-link:hover {
+    color: var(--primary-color);
+    background-color: color-mix(in srgb, var(--primary-color), transparent 92%);
+}
+
+.nav-pills-premium .nav-link.active {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 15px color-mix(in srgb, var(--primary-color), transparent 60%);
+    transform: translateY(-2px);
+}
+
+.nav-pills-premium .nav-link .badge {
+    background-color: #f44336 !important; /* Red badge like in design */
+    color: #fff !important;
+    font-size: 0.65rem;
+    padding: 0.3em 0.6em !important;
+    border-radius: 50rem !important;
+    font-weight: 800;
+    box-shadow: 0 2px 4px rgba(244, 67, 54, 0.3);
+}
+
+.nav-pills-premium .nav-link.active .badge {
+    background-color: #fff !important;
+    color: var(--primary-color) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================================================
+   21. BASIC PILLS TABS (Design Reference: Basic)
+   =================================================================== */
+.nav-pills-basic {
+    gap: 10px;
+}
+
+.nav-pills-basic .nav-link {
+    border-radius: 8px !important;
+    color: var(--text-light);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    padding: 0.7rem 1.4rem;
+    transition: all 0.3s ease;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-pills-basic .nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-pills-basic .nav-link.active {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--primary-color), transparent 70%);
+}
+
+
+
 
 /* ===================================================================
    TOOLTIP CUSTOMIZATION THEME
