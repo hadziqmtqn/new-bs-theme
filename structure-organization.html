@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Organisasi - SMA Unggulan Nusantara</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Page Specific Styles -->
+    <style>
+        /* ============================================
+           1. Leader Section (Principal) - Premium Look
+           ============================================ */
+        .leader-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-frame {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .leader-frame::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 3px solid var(--bs-primary);
+            border-radius: 1.5rem;
+            z-index: 0;
+            opacity: 0.5;
+            transition: all 0.4s ease;
+        }
+
+        .leader-frame:hover::before {
+            top: -15px;
+            left: -15px;
+            opacity: 1;
+        }
+
+        .leader-img-wrapper {
+            position: relative;
+            z-index: 1;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 2rem 4rem rgba(0,0,0,0.15);
+        }
+
+        .leader-img {
+            width: 100%;
+            transform: scale(1.01); /* Slight zoom fix */
+            transition: transform 0.5s ease;
+        }
+
+        .leader-frame:hover .leader-img {
+            transform: scale(1.05);
+        }
+
+        .leader-content {
+            position: relative;
+        }
+
+        .leader-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(var(--bs-primary-rgb), 0.1);
+            color: var(--bs-primary);
+            border-radius: 50rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .leader-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+
+        .leader-role {
+            font-size: 1.1rem;
+            color: var(--bs-primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .leader-desc {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #6c757d;
+            margin-bottom: 2rem;
+        }
+
+        .leader-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .stat-item-leader h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 0;
+        }
+
+        .stat-item-leader span {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* ============================================
+           2. Team Cards (Vice Principals)
+           ============================================ */
+        .team-card {
+            background: #fff;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 1rem 2rem rgba(0,0,0,0.12);
+            border-color: var(--bs-primary);
+        }
+
+        .team-img-wrapper {
+            height: 260px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-card:hover .team-img {
+            transform: scale(1.1);
+        }
+
+        .team-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 2rem 1rem 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-card:hover .team-overlay {
+            opacity: 1;
+        }
+
+        .team-body {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .role-badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: 50rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .badge-vice {
+            background: rgba(13, 71, 161, 0.1);
+            color: #0d47a1;
+        }
+        
+        .badge-staff {
+            background: rgba(11, 166, 223, 0.1);
+            color: #0BA6DF;
+        }
+
+        .member-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #343a40;
+            margin-bottom: 0.25rem;
+        }
+
+        .member-role-title {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        /* ============================================
+           3. Modal Profile Styling
+           ============================================ */
+        .modal-profile .modal-content {
+            border: none;
+            border-radius: 1.5rem;
+            overflow: hidden;
+        }
+
+        .modal-profile .modal-header {
+            border-bottom: none;
+            padding: 1.5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .modal-profile .modal-body {
+            padding: 0;
+        }
+
+        .modal-profile-content {
+            padding: 2rem;
+        }
+
+        .modal-profile-img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            object-position: top;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Color Switcher -->
+    <div class="theme-switcher-wrapper">
+        <div class="colors-panel">
+            <p class="small fw-bold text-center mb-3">Pilih Warna Tema</p>
+            <div class="color-option" data-primary="#0d47a1" data-light="#1976d2" style="background-color: #0d47a1;" title="Tema Biru"></div>
+            <div class="color-option active" data-primary="#1b7d4a" data-light="#2ca05e" style="background-color: #1b7d4a;" title="Tema Hijau"></div>
+            <div class="color-option" data-primary="#0BA6DF" data-light="#2E94B9" style="background-color: #0BA6DF;" title="Tema SMA"></div>
+        </div>
+        <button class="theme-btn" title="Ganti Warna"><i class="bi bi-palette-fill"></i></button>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index-3.html">
+                <img src="https://hadziqmtqn.github.io/new-bs-theme/assets/school-min.webp" alt="Logo Sekolah" class="navbar-logo">
+                PPDB ONLINE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-house me-2"></i>Beranda
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html"><i class="bi bi-house-door me-2"></i>Beranda 1</a></li>
+                            <li><a class="dropdown-item" href="index-2.html"><i class="bi bi-house-door-fill me-2"></i>Beranda 2</a></li>
+                            <li><a class="dropdown-item" href="index-3.html"><i class="bi bi-house-heart me-2"></i>Beranda 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-folder2-open me-2"></i>Page
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="structure-organization.html"><i class="bi bi-diagram-3 me-2"></i>Struktur Organisasi</a></li>
+                            <li><a class="dropdown-item" href="pengumuman.html"><i class="bi bi-megaphone me-2"></i>Pengumuman</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="daftar-berita.html"><i class="bi bi-newspaper me-2"></i>Berita</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bantuan"><i class="bi bi-question-circle me-2"></i>Bantuan</a></li>
+                </ul>
+                <div class="btn-group-nav">
+                    <a href="registrasi.html" class="btn btn-primary">Daftar Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" style="padding-top: 160px; padding-bottom: 60px;">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <span class="hero-badge mb-3 d-inline-block">
+                        <span class="registration-status">
+                            <span class="status-dot status-dot-active"></span>
+                            <span class="status-text">Tahun Ajaran 2025/2026</span>
+                        </span>
+                    </span>
+                    <h1 class="hero-title">Struktur Organisasi</h1>
+                    <p class="lead text-muted mb-4">
+                        Jajaran pimpinan dan tenaga pendidik profesional SMA Unggulan Nusantara yang berkomitmen untuk mencerdaskan kehidupan bangsa.
+                    </p>
+                </div>
+                <!-- select institutions -->
+            </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-4">
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="">Pilih Institusi</option>
+                            <option value="1">SMA Unggulan Nusantara</option>
+                            <option value="2">SMP Unggulan Nusantara</option>
+                        <option value="3">SMK Unggulan Nusantara</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principal Section (Premium Style) -->
+    <section class="leader-section py-5 bg-white">
+        <div class="container py-lg-5">
+            <div class="row align-items-center g-5">
+                <!-- Image Column -->
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="leader-frame">
+                        <div class="leader-img-wrapper">
+                            <img src="https://picsum.photos/seed/principal-leader/600/750" alt="Kepala Sekolah" class="leader-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Column -->
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="leader-content">
+                        <span class="leader-badge"><i class="bi bi-award me-2"></i>Pimpinan Utama</span>
+                        <h2 class="leader-name">Dr. Ahmad Hidayat Ali, M.Pd</h2>
+                        <p class="leader-role">Kepala Sekolah</p>
+                        
+                        <p class="leader-desc">
+                            Berpengalaman lebih dari 20 tahun di bidang pendidikan, beliau memimpin dengan visi "Sekolah Unggul, Berkarakter, dan Berdaya Saing Global". Fokus utama adalah pembentukan karakter siswa dan inovasi pembelajaran digital.
+                        </p>
+
+                        <div class="leader-stats">
+                            <div class="stat-item-leader">
+                                <h4>20+</h4>
+                                <span>Tahun Pengalaman</span>
+                            </div>
+                            <div class="stat-item-leader">
+                                <h4>5x</h4>
+                                <span>Penghargaan Nasional</span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-lg rounded-pill px-5 shadow-primary-sm" data-bs-toggle="modal" data-bs-target="#modalPrincipal">
+                            <i class="bi bi-person-lines-fill me-2"></i>Lihat Profil Lengkap
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vice Principals Section -->
+    <section class="py-5 bg-main-light">
+        <div class="container py-lg-5">
+            <div class="text-center mb-5">
+                <h6 class="text-uppercase text-muted fw-bold ls-2 mb-2">Leadership Team</h6>
+                <h2 class="section-title mb-0">Wakil Kepala Sekolah</h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Vice 1 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card" data-bs-toggle="modal" data-bs-target="#modalVice1">
+                        <div class="team-img-wrapper">
+                            <img src="https://picsum.photos/seed/vice1/400/350" alt="Wakasek Kurikulum" class="team-img">
+                            <div class="team-overlay text-white text-center">
+                                <small><i class="bi bi-eye me-1"></i> Klik untuk detail</small>
+                            </div>
+                        </div>
+                        <div class="team-body">
+                            <span class="role-badge badge-vice">Wakasek Kurikulum</span>
+                            <h5 class="member-name">Budi Santoso, S.Pd, M.Pd</h5>
+                            <p class="member-role-title">Bidang Akademik</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vice 2 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card" data-bs-toggle="modal" data-bs-target="#modalVice2">
+                        <div class="team-img-wrapper">
+                            <img src="https://picsum.photos/seed/vice2/400/350" alt="Wakasek Kesiswaan" class="team-img">
+                            <div class="team-overlay text-white text-center">
+                                <small><i class="bi bi-eye me-1"></i> Klik untuk detail</small>
+                            </div>
+                        </div>
+                        <div class="team-body">
+                            <span class="role-badge badge-vice">Wakasek Kesiswaan</span>
+                            <h5 class="member-name">Siti Aminah, S.Pd</h5>
+                            <p class="member-role-title">Bidang Kesiswaan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vice 3 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-card" data-bs-toggle="modal" data-bs-target="#modalVice3">
+                        <div class="team-img-wrapper">
+                            <img src="https://picsum.photos/seed/vice3/400/350" alt="Wakasek Sarpras" class="team-img">
+                            <div class="team-overlay text-white text-center">
+                                <small><i class="bi bi-eye me-1"></i> Klik untuk detail</small>
+                            </div>
+                        </div>
+                        <div class="team-body">
+                            <span class="role-badge badge-vice">Wakasek Sarpras</span>
+                            <h5 class="member-name">Ir. Agus Wahyudi</h5>
+                            <p class="member-role-title">Sarana Prasarana</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vice 4 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-card" data-bs-toggle="modal" data-bs-target="#modalVice4">
+                        <div class="team-img-wrapper">
+                            <img src="https://picsum.photos/seed/vice4/400/350" alt="Wakasek Humas" class="team-img">
+                            <div class="team-overlay text-white text-center">
+                                <small><i class="bi bi-eye me-1"></i> Klik untuk detail</small>
+                            </div>
+                        </div>
+                        <div class="team-body">
+                            <span class="role-badge badge-vice">Wakasek Humas</span>
+                            <h5 class="member-name">Dewi Kartika, S.Sos</h5>
+                            <p class="member-role-title">Hubungan Masyarakat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section id="unit" class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h6 class="text-uppercase text-muted fw-bold ls-2 mb-2">Departments</h6>
+                <h2 class="section-title mb-0">Unit Kerja</h2>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Reusing template's quick-access-card -->
+                <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up">
+                    <div class="quick-access-card">
+                        <div class="icon-box"><i class="bi bi-book"></i></div>
+                        <h5>Kurikulum</h5>
+                        <p class="text-muted small">Pengelolaan program pembelajaran.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up">
+                    <div class="quick-access-card">
+                        <div class="icon-box"><i class="bi bi-person-workspace"></i></div>
+                        <h5>Kesiswaan</h5>
+                        <p class="text-muted small">Pembinaan karakter siswa.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up">
+                    <div class="quick-access-card">
+                        <div class="icon-box"><i class="bi bi-calculator"></i></div>
+                        <h5>Keuangan</h5>
+                        <p class="text-muted small">Pengelolaan dana sekolah.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up">
+                    <div class="quick-access-card">
+                        <div class="icon-box"><i class="bi bi-building"></i></div>
+                        <h5>Sarana Prasarana</h5>
+                        <p class="text-muted small">Pemeliharaan fasilitas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-main-primary text-white text-center">
+        <div class="container">
+            <h2 class="fw-bold mb-3">Bergabunglah Bersama Kami</h2>
+            <p class="lead mb-4 opacity-75">Jadilah bagian dari keluarga besar SMA Unggulan Nusantara.</p>
+            <a href="registrasi.html" class="btn btn-warning btn-lg rounded-4 text-dark fw-bold px-5 shadow">Daftar Sekarang</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-4 text-warning">PPDB ONLINE</h5>
+                    <p class="small opacity-75 mb-4">Portal resmi Penerimaan Peserta Didik Baru SMA Unggulan Nusantara.</p>
+                    <div class="social-icons">
+                        <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="me-3"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold mb-4">Navigasi</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index-3.html" class="footer-link">Beranda</a></li>
+                        <li class="mb-2"><a href="struktur-organisasi.html" class="footer-link">Struktur Organisasi</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="fw-bold mb-4">Kontak Kami</h5>
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="footer-contact-icon me-3"><i class="bi bi-geo-alt-fill text-warning"></i></div>
+                        <span class="small opacity-75">Jl. Pendidikan No. 123, Jakarta Selatan</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top border-secondary">
+                <p class="small mb-0">&copy; 2024 SMA Unggulan Nusantara. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         MODALS SECTION
+         ============================================ -->
+
+    <!-- Modal Principal -->
+    <div class="modal fade modal-profile" id="modalPrincipal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title fw-bold">Profil Pimpinan</h5>
+                        <span class="text-muted small">Detail informasi pejabat</span>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img src="https://picsum.photos/seed/principal-leader/600/750" class="modal-profile-img" alt="Principal">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="modal-profile-content">
+                                <span class="role-badge badge-vice mb-2">Kepala Sekolah</span>
+                                <h3 class="fw-bold mb-1">Dr. Ahmad Hidayat Ali, M.Pd</h3>
+                                <p class="text-primary mb-4">NIP. 197005121995031003</p>
+
+                                <ul class="profile-info-list">
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-mortarboard"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Pendidikan</span>
+                                            <span class="profile-info-value">S3 Manajemen Pendidikan</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-calendar-check"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Masa Jabatan</span>
+                                            <span class="profile-info-value">2020 - Sekarang</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-envelope"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Email</span>
+                                            <span class="profile-info-value">kepsek@smanusantara.sch.id</span>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="profile-motto">
+                                    "Pendidikan adalah seni mengukir karakter manusia menuju kesempurnaan hidup."
+                                </div>
+
+                                <div class="mt-4 d-flex gap-2">
+                                    <a href="#" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#" class="btn btn-sm btn-outline-primary rounded-pill"><i class="bi bi-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Vice 1 -->
+    <div class="modal fade modal-profile" id="modalVice1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title fw-bold">Profil Wakil Kepala Sekolah</h5>
+                        <span class="text-muted small">Bidang Kurikulum</span>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img src="https://picsum.photos/seed/vice1/600/750" class="modal-profile-img" alt="Vice 1">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="modal-profile-content">
+                                <span class="role-badge badge-vice mb-2">Wakasek Kurikulum</span>
+                                <h3 class="fw-bold mb-1">Budi Santoso, S.Pd, M.Pd</h3>
+                                <p class="text-primary mb-4">NIP. 198205102010011001</p>
+
+                                <ul class="profile-info-list">
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-mortarboard"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Pendidikan</span>
+                                            <span class="profile-info-value">S2 Pendidikan Matematika</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-briefcase"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Tugas</span>
+                                            <span class="profile-info-value">Pengelolaan KBM & Kurikulum</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-envelope"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Email</span>
+                                            <span class="profile-info-value">kurikulum@smanusantara.sch.id</span>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="profile-motto">
+                                    "Kurikulum yang adaptif adalah kunci menghadapi era disrupsi."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Vice 2 -->
+    <div class="modal fade modal-profile" id="modalVice2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title fw-bold">Profil Wakil Kepala Sekolah</h5>
+                        <span class="text-muted small">Bidang Kesiswaan</span>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img src="https://picsum.photos/seed/vice2/600/750" class="modal-profile-img" alt="Vice 2">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="modal-profile-content">
+                                <span class="role-badge badge-vice mb-2">Wakasek Kesiswaan</span>
+                                <h3 class="fw-bold mb-1">Siti Aminah, S.Pd</h3>
+                                <p class="text-primary mb-4">NIP. 198508152012012002</p>
+
+                                <ul class="profile-info-list">
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-mortarboard"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Pendidikan</span>
+                                            <span class="profile-info-value">S1 Pendidikan Bahasa</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-briefcase"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Tugas</span>
+                                            <span class="profile-info-value">Pembinaan OSIS & Ekstrakurikuler</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-envelope"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Email</span>
+                                            <span class="profile-info-value">kesiswaan@smanusantara.sch.id</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Vice 3 -->
+    <div class="modal fade modal-profile" id="modalVice3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title fw-bold">Profil Wakil Kepala Sekolah</h5>
+                        <span class="text-muted small">Bidang Sarana Prasarana</span>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img src="https://picsum.photos/seed/vice3/600/750" class="modal-profile-img" alt="Vice 3">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="modal-profile-content">
+                                <span class="role-badge badge-vice mb-2">Wakasek Sarpras</span>
+                                <h3 class="fw-bold mb-1">Ir. Agus Wahyudi</h3>
+                                <p class="text-primary mb-4">NIP. 197804052006041003</p>
+
+                                <ul class="profile-info-list">
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-mortarboard"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Pendidikan</span>
+                                            <span class="profile-info-value">S1 Teknik Sipil</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-briefcase"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Tugas</span>
+                                            <span class="profile-info-value">Pengelolaan Gedung & Fasilitas</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Vice 4 -->
+    <div class="modal fade modal-profile" id="modalVice4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title fw-bold">Profil Wakil Kepala Sekolah</h5>
+                        <span class="text-muted small">Bidang Hubungan Masyarakat</span>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img src="https://picsum.photos/seed/vice4/600/750" class="modal-profile-img" alt="Vice 4">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="modal-profile-content">
+                                <span class="role-badge badge-vice mb-2">Wakasek Humas</span>
+                                <h3 class="fw-bold mb-1">Dewi Kartika, S.Sos</h3>
+                                <p class="text-primary mb-4">NIP. 199001102015022001</p>
+
+                                <ul class="profile-info-list">
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-mortarboard"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Pendidikan</span>
+                                            <span class="profile-info-value">S1 Ilmu Komunikasi</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="profile-icon-box"><i class="bi bi-briefcase"></i></div>
+                                        <div class="profile-info-content">
+                                            <span class="profile-info-label">Tugas</span>
+                                            <span class="profile-info-value">Publikasi & Kerjasama</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
