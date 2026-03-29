@@ -2407,7 +2407,7 @@ section[style*="background-color"] .lead {
         font-size: 0.8rem;
     }
 
-    .category-pill-v2 {
+    .agenda-v2-card .category-pill-v2 {
         position: absolute;
         top: 0;
         right: 0;
@@ -2498,6 +2498,19 @@ section[style*="background-color"] .lead {
     margin-bottom: 30px;
     padding-bottom: 25px;
     border-bottom: 1px solid #f1f3f5;
+}
+
+@media (max-width: 767px) {
+    .agenda-detail-badge-group {
+        flex-direction: column;
+        gap: 15px;
+        padding-bottom: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .modal-premium .modal-body {
+        padding: 25px 20px;
+    }
 }
 
 .agenda-detail-date {
@@ -4057,4 +4070,214 @@ footer {
     padding: 0.5rem 1rem;
     border-radius: 8px;
     box-shadow: 0 4px 15px var(--btn-info-shadow, rgba(13,202,240,0.4));
+}
+
+/* ===================================================================
+   6. ANNOUNCEMENT PAGE STYLES
+   =================================================================== */
+.announcement-header {
+    background-color: #f8fbff;
+    padding: 100px 0 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.announcement-header::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(13, 110, 253, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.announcement-header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    background: rgba(13, 110, 253, 0.03);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.announcement-search-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.announcement-search-input {
+    height: 55px;
+    border-radius: 12px;
+    padding-left: 20px;
+    padding-right: 50px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.announcement-search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 20px rgba(var(--primary-color-rgb), 0.1);
+}
+
+.announcement-search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 1.2rem;
+}
+
+.announcement-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 15px;
+}
+
+.announcement-breadcrumb {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.announcement-filter {
+    display: flex;
+    gap: 25px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 35px;
+}
+
+.filter-item {
+    padding: 10px 0;
+    font-weight: 600;
+    color: #888;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.filter-item.active {
+    color: var(--primary-color);
+}
+
+.filter-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.announcement-item {
+    display: flex;
+    margin-bottom: 35px;
+    transition: all 0.3s ease;
+}
+
+.announcement-date {
+    min-width: 100px;
+    text-align: left;
+    padding-top: 5px;
+    padding-right: 20px;
+}
+
+.announcement-date .day-type {
+    font-size: 1.25rem;
+    font-weight: 800;
+    display: block;
+    color: var(--primary-color);
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.announcement-date .time {
+    font-size: 0.95rem;
+    color: #64748b;
+    font-weight: 600;
+    letter-spacing: 0.25px;
+    text-transform: none;
+}
+
+.announcement-content {
+    border-left: 1px solid #eee;
+    padding-left: 30px;
+    flex: 1;
+}
+
+.announcement-content h5 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.announcement-content h5:hover {
+    color: var(--primary-color);
+}
+
+.announcement-content p {
+    color: #666;
+    margin-bottom: 0px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Category Pills Overrides for Announcements */
+.category-pill-v2.announcement { background: #fff8e1; color: #fbc02d; }
+.category-pill-v2.activities { background: #f3e5f5; color: #7b1fa2; }
+
+@media (max-width: 768px) {
+    .announcement-item {
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #f1f5f9;
+    }
+    .announcement-date {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-right: 0;
+        color: #64748b;
+    }
+    .announcement-date .day-type, 
+    .announcement-date .time {
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    .announcement-date .day-type {
+        color: #334155;
+    }
+    .announcement-date i {
+        color: var(--primary-color);
+        font-size: 1rem;
+    }
+    .announcement-content {
+        border-left: none;
+        padding-left: 0;
+    }
+    .announcement-content h5 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
 }
